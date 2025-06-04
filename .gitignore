@@ -26,7 +26,7 @@
 /project/input/revealed_data/_old/
 /project/config/coupling/old/
 /project/input/investment/_old/
-
+/project/input/sfec/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
