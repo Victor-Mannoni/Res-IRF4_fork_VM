@@ -1,0 +1,100 @@
+{
+  "scenarios": {
+    "activated": false,
+    "current_policies": null,
+    "no_policy": true,
+    "no_policy_insulation": null,
+    "no_policy_heater": null,
+    "prices_constant": null,
+    "constant": null,
+    "policies": null,
+    "add_policies": null,
+    "remove_policies": null,
+    "policies_scenarios": null,
+    "no_natural_replacement": null
+  },
+  "sensitivity": {
+    "activated": false
+  },
+  "uncertainty": {
+    "activated": false,
+    "energy_prices_factor": [
+      2,
+      5
+    ],
+    "carbon_emission": [
+      "project/input/energy/carbon_emission_tend.csv"
+    ],
+    "scale_renovation": [
+      {
+        "option": "share_fg",
+        "target": 0.4
+      }
+    ]
+
+  },
+  "Reference STQ": {
+    "file": "project/config/reference.json",
+    "end": 2022,
+    "policies": {
+      "file": "project/input/policies/policies_calibration.json",
+      "subsidy_status_quo": {
+      "start": 2019,
+      "end": 2051,
+      "policy": "subsidy_status_quo",
+      "gest": [
+        "heater"
+      ]
+    }
+
+    }
+  },
+
+"Reference no STQ": {
+    "file": "project/config/reference.json",
+    "end": 2022,
+    "policies": {
+      "file": "project/input/policies/policies_calibration.json",
+      "subsidy_status_quo": {
+      "start": 2050,
+      "end": 2051,
+      "policy": "subsidy_status_quo",
+      "gest": [
+        "heater"
+      ]
+    }
+
+    }
+  }, 
+  
+  "Policies_2024 STQ": {
+    "file": "project/config/reference.json",
+    "end": 2022,
+    "policies": {"file": "project/input/policies/policies_2024.json",
+      "subsidy_status_quo": {
+      "start": 2019,
+      "end": 2052,
+      "policy": "subsidy_status_quo",
+      "gest": [
+        "heater"
+      ]
+    }
+}
+  },
+
+  "Policies_2024 no STQ": {
+    "file": "project/config/reference.json",
+    "end": 2022,
+    "policies": {"file": "project/input/policies/policies_2024.json",
+      "subsidy_status_quo": {
+      "start": 2051,
+      "end": 2052,
+      "policy": "subsidy_status_quo",
+      "gest": [
+        "heater"
+      ]
+    }
+}
+  }  
+
+}

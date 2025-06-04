@@ -1,5 +1,5 @@
 {
-    "end": 2031,
+    "end": 2051,
     "step": 1,
     "output": "full",
     "start": 2017,
@@ -56,7 +56,7 @@
       "efficiency": "project/input/technical/efficiency.csv",
       "temp_sink": "project/input/technical/temp_sink.csv",
       "lifetime_heater": "project/input/technical/lifetime_heater.csv",
-      "cost_insulation": "project/input/technical/cost_insulation_high.csv",
+      "cost_insulation": "project/input/technical/cost_insulation.csv",
       "performance_insulation_renovation": "project/input/technical/performance_insulation_renovation.csv",
       "performance_insulation_construction": "project/input/technical/performance_insulation_construction.csv",
       "technical_progress": {

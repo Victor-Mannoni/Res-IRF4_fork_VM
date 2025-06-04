@@ -1,0 +1,956 @@
+{
+  "High Cost - CarbonTax": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2051,
+    "policies": {
+      "carbon_tax": {
+        "start": 2017,
+        "end": 2051,
+        "tax": "project/input/policies/current/carbon_tax_growth.csv",
+        "emission": "project/input/policies/current/carbon_tax_emission.csv",
+        "recycling": null,
+        "policy": "carbon_tax"
+      }
+    }
+  },
+  "Low Cost - CarbonTax": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2051,
+    "policies": {
+      "carbon_tax": {
+        "start": 2017,
+        "end": 2051,
+        "tax": "project/input/policies/current/carbon_tax_growth.csv",
+        "emission": "project/input/policies/current/carbon_tax_emission.csv",
+        "recycling": null,
+        "policy": "carbon_tax"
+      }
+    }
+  },
+  "Normal Cost - CarbonTax": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "carbon_tax": {
+        "start": 2017,
+        "end": 2051,
+        "tax": "project/input/policies/current/carbon_tax_growth.csv",
+        "emission": "project/input/policies/current/carbon_tax_emission.csv",
+        "recycling": null,
+        "policy": "carbon_tax"
+      }
+    }
+  },
+  "High Cost - Cite": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2021,
+    "policies": {
+      "cite": {
+        "start": 2018,
+        "end": 2021,
+        "heater": "project/input/policies/current/cite_heater_sf.csv",
+        "insulation": "project/input/policies/current/cite_insulation_sf.csv",
+        "cap": 4800,
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "Low Cost - Cite": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2021,
+    "policies": {
+      "cite": {
+        "start": 2018,
+        "end": 2021,
+        "heater": "project/input/policies/current/cite_heater_sf.csv",
+        "insulation": "project/input/policies/current/cite_insulation_sf.csv",
+        "cap": 4800,
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "Normal Cost - Cite": {
+    "file": "project/config/reference.json",
+    "end": 2021,
+    "policies": {
+      "cite": {
+        "start": 2018,
+        "end": 2021,
+        "heater": "project/input/policies/current/cite_heater_sf.csv",
+        "insulation": "project/input/policies/current/cite_insulation_sf.csv",
+        "cap": 4800,
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "High Cost - Cee": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2051,
+    "policies": {
+      "cee": {
+        "start": 2017,
+        "end": 2051,
+        "cumac_heater": "project/input/policies/current/cumac_heater_per_year.csv",
+        "cumac_insulation": "project/input/policies/current/cumac_insulation_per_year.csv",
+        "bonus_insulation": {
+          "value": "project/input/policies/current/cee_bonus_insulation.csv",
+          "start": 2019,
+          "end": 2022
+        },
+        "bonus_heater": {
+          "value": "project/input/policies/current/cee_bonus_heater.csv",
+          "start": 2019,
+          "end": 2051
+        },
+        "coefficient_obligation": "project/input/policies/current/cee_coefficient_obligation.csv",
+        "value": "project/input/policies/current/cee_value.csv",
+        "growth": null,
+        "policy": "subsidy_targeted"
+      }
+    }
+  },
+  "Low Cost - Cee": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2051,
+    "policies": {
+      "cee": {
+        "start": 2017,
+        "end": 2051,
+        "cumac_heater": "project/input/policies/current/cumac_heater_per_year.csv",
+        "cumac_insulation": "project/input/policies/current/cumac_insulation_per_year.csv",
+        "bonus_insulation": {
+          "value": "project/input/policies/current/cee_bonus_insulation.csv",
+          "start": 2019,
+          "end": 2022
+        },
+        "bonus_heater": {
+          "value": "project/input/policies/current/cee_bonus_heater.csv",
+          "start": 2019,
+          "end": 2051
+        },
+        "coefficient_obligation": "project/input/policies/current/cee_coefficient_obligation.csv",
+        "value": "project/input/policies/current/cee_value.csv",
+        "growth": null,
+        "policy": "subsidy_targeted"
+      }
+    }
+  },
+  "Normal Cost - Cee": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "cee": {
+        "start": 2017,
+        "end": 2051,
+        "cumac_heater": "project/input/policies/current/cumac_heater_per_year.csv",
+        "cumac_insulation": "project/input/policies/current/cumac_insulation_per_year.csv",
+        "bonus_insulation": {
+          "value": "project/input/policies/current/cee_bonus_insulation.csv",
+          "start": 2019,
+          "end": 2022
+        },
+        "bonus_heater": {
+          "value": "project/input/policies/current/cee_bonus_heater.csv",
+          "start": 2019,
+          "end": 2051
+        },
+        "coefficient_obligation": "project/input/policies/current/cee_coefficient_obligation.csv",
+        "value": "project/input/policies/current/cee_value.csv",
+        "growth": null,
+        "policy": "subsidy_targeted"
+      }
+    }
+  },
+  "High Cost - MprSerenite": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2024,
+    "policies": {
+      "mpr_serenite": {
+        "start": 2018,
+        "end": 2024,
+        "insulation": "project/input/policies/current/mpr_serenite.csv",
+        "cap": "project/input/policies/current/mpr_serenite_cap.csv",
+        "growth_insulation": null,
+        "non_cumulative": [
+          "cee",
+          "cite",
+          "mpr",
+          "mpr_efficacite"
+        ],
+        "target": "deep_renovation",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "Low Cost - MprSerenite": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2024,
+    "policies": {
+      "mpr_serenite": {
+        "start": 2018,
+        "end": 2024,
+        "insulation": "project/input/policies/current/mpr_serenite.csv",
+        "cap": "project/input/policies/current/mpr_serenite_cap.csv",
+        "growth_insulation": null,
+        "non_cumulative": [
+          "cee",
+          "cite",
+          "mpr",
+          "mpr_efficacite"
+        ],
+        "target": "deep_renovation",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "Normal Cost - MprSerenite": {
+    "file": "project/config/reference.json",
+    "end": 2024,
+    "policies": {
+      "mpr_serenite": {
+        "start": 2018,
+        "end": 2024,
+        "insulation": "project/input/policies/current/mpr_serenite.csv",
+        "cap": "project/input/policies/current/mpr_serenite_cap.csv",
+        "growth_insulation": null,
+        "non_cumulative": [
+          "cee",
+          "cite",
+          "mpr",
+          "mpr_efficacite"
+        ],
+        "target": "deep_renovation",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "High Cost - MprPerformance": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2051,
+    "policies": {
+      "mpr_performance": {
+        "start": 2024,
+        "end": 2051,
+        "insulation": "project/input/policies/current/mpr_performance.csv",
+        "growth_insulation": null,
+        "non_cumulative": [
+          "mpr",
+          "mpr_efficacite"
+        ],
+        "target": "deep_renovation",
+        "cap": "project/input/policies/current/mpr_performance_cap.csv",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "Low Cost - MprPerformance": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2051,
+    "policies": {
+      "mpr_performance": {
+        "start": 2024,
+        "end": 2051,
+        "insulation": "project/input/policies/current/mpr_performance.csv",
+        "growth_insulation": null,
+        "non_cumulative": [
+          "mpr",
+          "mpr_efficacite"
+        ],
+        "target": "deep_renovation",
+        "cap": "project/input/policies/current/mpr_performance_cap.csv",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "Normal Cost - MprPerformance": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "mpr_performance": {
+        "start": 2024,
+        "end": 2051,
+        "insulation": "project/input/policies/current/mpr_performance.csv",
+        "growth_insulation": null,
+        "non_cumulative": [
+          "mpr",
+          "mpr_efficacite"
+        ],
+        "target": "deep_renovation",
+        "cap": "project/input/policies/current/mpr_performance_cap.csv",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "High Cost - Mpr": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2024,
+    "policies": {
+      "mpr": {
+        "start": 2021,
+        "end": 2024,
+        "heater": "project/input/policies/current/mpr_heater.csv",
+        "growth_heater": null,
+        "insulation": "project/input/policies/current/mpr_insulation.csv",
+        "growth_insulation": null,
+        "bonus": "project/input/policies/current/mpr_bonus.csv",
+        "policy": "subsidy_targeted"
+      }
+    }
+  },
+  "Low Cost - Mpr": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2024,
+    "policies": {
+      "mpr": {
+        "start": 2021,
+        "end": 2024,
+        "heater": "project/input/policies/current/mpr_heater.csv",
+        "growth_heater": null,
+        "insulation": "project/input/policies/current/mpr_insulation.csv",
+        "growth_insulation": null,
+        "bonus": "project/input/policies/current/mpr_bonus.csv",
+        "policy": "subsidy_targeted"
+      }
+    }
+  },
+  "Normal Cost - Mpr": {
+    "file": "project/config/reference.json",
+    "end": 2024,
+    "policies": {
+      "mpr": {
+        "start": 2021,
+        "end": 2024,
+        "heater": "project/input/policies/current/mpr_heater.csv",
+        "growth_heater": null,
+        "insulation": "project/input/policies/current/mpr_insulation.csv",
+        "growth_insulation": null,
+        "bonus": "project/input/policies/current/mpr_bonus.csv",
+        "policy": "subsidy_targeted"
+      }
+    }
+  },
+  "High Cost - MprEfficacite": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2051,
+    "policies": {
+      "mpr_efficacite": {
+        "start": 2024,
+        "end": 2051,
+        "heater": "project/input/policies/current/mpr_heater.csv",
+        "growth_heater": null,
+        "insulation": "project/input/policies/current/mpr_insulation.csv",
+        "growth_insulation": null,
+        "bonus": "project/input/policies/current/mpr_bonus.csv",
+        "target": "mpr_no_fg_heater_replacement",
+        "policy": "subsidy_targeted"
+      }
+    }
+  },
+  "Low Cost - MprEfficacite": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2051,
+    "policies": {
+      "mpr_efficacite": {
+        "start": 2024,
+        "end": 2051,
+        "heater": "project/input/policies/current/mpr_heater.csv",
+        "growth_heater": null,
+        "insulation": "project/input/policies/current/mpr_insulation.csv",
+        "growth_insulation": null,
+        "bonus": "project/input/policies/current/mpr_bonus.csv",
+        "target": "mpr_no_fg_heater_replacement",
+        "policy": "subsidy_targeted"
+      }
+    }
+  },
+  "Normal Cost - MprEfficacite": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "mpr_efficacite": {
+        "start": 2024,
+        "end": 2051,
+        "heater": "project/input/policies/current/mpr_heater.csv",
+        "growth_heater": null,
+        "insulation": "project/input/policies/current/mpr_insulation.csv",
+        "growth_insulation": null,
+        "bonus": "project/input/policies/current/mpr_bonus.csv",
+        "target": "mpr_no_fg_heater_replacement",
+        "policy": "subsidy_targeted"
+      }
+    }
+  },
+  "High Cost - MprMultifamily": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2024,
+    "policies": {
+      "mpr_multifamily": {
+        "start": 2021,
+        "end": 2024,
+        "insulation": "project/input/policies/current/mpr_multifamily.csv",
+        "cap": "project/input/policies/current/mpr_multifamily_cap.csv",
+        "non_cumulative": [
+          "cite",
+          "mpr",
+          "mpr_serenite"
+        ],
+        "target": "energy_condition_35",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "Low Cost - MprMultifamily": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2024,
+    "policies": {
+      "mpr_multifamily": {
+        "start": 2021,
+        "end": 2024,
+        "insulation": "project/input/policies/current/mpr_multifamily.csv",
+        "cap": "project/input/policies/current/mpr_multifamily_cap.csv",
+        "non_cumulative": [
+          "cite",
+          "mpr",
+          "mpr_serenite"
+        ],
+        "target": "energy_condition_35",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "Normal Cost - MprMultifamily": {
+    "file": "project/config/reference.json",
+    "end": 2024,
+    "policies": {
+      "mpr_multifamily": {
+        "start": 2021,
+        "end": 2024,
+        "insulation": "project/input/policies/current/mpr_multifamily.csv",
+        "cap": "project/input/policies/current/mpr_multifamily_cap.csv",
+        "non_cumulative": [
+          "cite",
+          "mpr",
+          "mpr_serenite"
+        ],
+        "target": "energy_condition_35",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "High Cost - MprMultifamilyUpdated": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2051,
+    "policies": {
+      "mpr_multifamily_updated": {
+        "start": 2024,
+        "end": 2051,
+        "insulation": "project/input/policies/current/mpr_multifamily_updated.csv",
+        "cap": "project/input/policies/current/mpr_multifamily_updated_cap.csv",
+        "non_cumulative": [
+          "cite",
+          "mpr",
+          "mpr_efficacite",
+          "mpr_serenite",
+          "mpr_performance",
+          "mpr_multifamily_deep"
+        ],
+        "target": "energy_condition_35",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "Low Cost - MprMultifamilyUpdated": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2051,
+    "policies": {
+      "mpr_multifamily_updated": {
+        "start": 2024,
+        "end": 2051,
+        "insulation": "project/input/policies/current/mpr_multifamily_updated.csv",
+        "cap": "project/input/policies/current/mpr_multifamily_updated_cap.csv",
+        "non_cumulative": [
+          "cite",
+          "mpr",
+          "mpr_efficacite",
+          "mpr_serenite",
+          "mpr_performance",
+          "mpr_multifamily_deep"
+        ],
+        "target": "energy_condition_35",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "Normal Cost - MprMultifamilyUpdated": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "mpr_multifamily_updated": {
+        "start": 2024,
+        "end": 2051,
+        "insulation": "project/input/policies/current/mpr_multifamily_updated.csv",
+        "cap": "project/input/policies/current/mpr_multifamily_updated_cap.csv",
+        "non_cumulative": [
+          "cite",
+          "mpr",
+          "mpr_efficacite",
+          "mpr_serenite",
+          "mpr_performance",
+          "mpr_multifamily_deep"
+        ],
+        "target": "energy_condition_35",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "High Cost - MprMultifamilyDeep": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2051,
+    "policies": {
+      "mpr_multifamily_deep": {
+        "start": 2024,
+        "end": 2051,
+        "insulation": "project/input/policies/current/mpr_multifamily_deep_updated.csv",
+        "cap": "project/input/policies/current/mpr_multifamily_deep_updated_cap.csv",
+        "non_cumulative": [
+          "cite",
+          "mpr",
+          "mpr_efficacite",
+          "mpr_serenite",
+          "mpr_performance",
+          "mpr_multifamily"
+        ],
+        "target": "energy_condition_50",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "Low Cost - MprMultifamilyDeep": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2051,
+    "policies": {
+      "mpr_multifamily_deep": {
+        "start": 2024,
+        "end": 2051,
+        "insulation": "project/input/policies/current/mpr_multifamily_deep_updated.csv",
+        "cap": "project/input/policies/current/mpr_multifamily_deep_updated_cap.csv",
+        "non_cumulative": [
+          "cite",
+          "mpr",
+          "mpr_efficacite",
+          "mpr_serenite",
+          "mpr_performance",
+          "mpr_multifamily"
+        ],
+        "target": "energy_condition_50",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "Normal Cost - MprMultifamilyDeep": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "mpr_multifamily_deep": {
+        "start": 2024,
+        "end": 2051,
+        "insulation": "project/input/policies/current/mpr_multifamily_deep_updated.csv",
+        "cap": "project/input/policies/current/mpr_multifamily_deep_updated_cap.csv",
+        "non_cumulative": [
+          "cite",
+          "mpr",
+          "mpr_efficacite",
+          "mpr_serenite",
+          "mpr_performance",
+          "mpr_multifamily"
+        ],
+        "target": "energy_condition_50",
+        "policy": "subsidy_ad_valorem"
+      }
+    }
+  },
+  "High Cost - Cap": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2024,
+    "policies": {
+      "cap": {
+        "start": 2018,
+        "end": 2024,
+        "insulation": "project/input/policies/current/subsidies_cap.csv",
+        "heater": "project/input/policies/current/subsidies_cap.csv",
+        "target_insulation": [
+          "mpr_serenite",
+          "mpr_performance",
+          "mpr_multifamily",
+          "mpr_multifamily_deep",
+          "mpr",
+          "mpr_efficacite",
+          "cite",
+          "cee"
+        ],
+        "target_heater": [
+          "cee",
+          "mpr",
+          "mpr_efficacite",
+          "cite"
+        ],
+        "policy": "subsidy_cap"
+      }
+    }
+  },
+  "Low Cost - Cap": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2024,
+    "policies": {
+      "cap": {
+        "start": 2018,
+        "end": 2024,
+        "insulation": "project/input/policies/current/subsidies_cap.csv",
+        "heater": "project/input/policies/current/subsidies_cap.csv",
+        "target_insulation": [
+          "mpr_serenite",
+          "mpr_performance",
+          "mpr_multifamily",
+          "mpr_multifamily_deep",
+          "mpr",
+          "mpr_efficacite",
+          "cite",
+          "cee"
+        ],
+        "target_heater": [
+          "cee",
+          "mpr",
+          "mpr_efficacite",
+          "cite"
+        ],
+        "policy": "subsidy_cap"
+      }
+    }
+  },
+  "Normal Cost - Cap": {
+    "file": "project/config/reference.json",
+    "end": 2024,
+    "policies": {
+      "cap": {
+        "start": 2018,
+        "end": 2024,
+        "insulation": "project/input/policies/current/subsidies_cap.csv",
+        "heater": "project/input/policies/current/subsidies_cap.csv",
+        "target_insulation": [
+          "mpr_serenite",
+          "mpr_performance",
+          "mpr_multifamily",
+          "mpr_multifamily_deep",
+          "mpr",
+          "mpr_efficacite",
+          "cite",
+          "cee"
+        ],
+        "target_heater": [
+          "cee",
+          "mpr",
+          "mpr_efficacite",
+          "cite"
+        ],
+        "policy": "subsidy_cap"
+      }
+    }
+  },
+  "High Cost - CapUpdated": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2051,
+    "policies": {
+      "cap_updated": {
+        "start": 2024,
+        "end": 2051,
+        "insulation": "project/input/policies/current/subsidies_cap_updated.csv",
+        "heater": "project/input/policies/current/subsidies_cap_updated.csv",
+        "target_insulation": [
+          "mpr_serenite",
+          "mpr_performance",
+          "mpr_multifamily",
+          "mpr_multifamily_deep",
+          "mpr",
+          "mpr_efficacite",
+          "cite",
+          "cee"
+        ],
+        "target_heater": [
+          "cee",
+          "mpr",
+          "mpr_efficacite",
+          "cite"
+        ],
+        "policy": "subsidy_cap"
+      }
+    }
+  },
+  "Low Cost - CapUpdated": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2051,
+    "policies": {
+      "cap_updated": {
+        "start": 2024,
+        "end": 2051,
+        "insulation": "project/input/policies/current/subsidies_cap_updated.csv",
+        "heater": "project/input/policies/current/subsidies_cap_updated.csv",
+        "target_insulation": [
+          "mpr_serenite",
+          "mpr_performance",
+          "mpr_multifamily",
+          "mpr_multifamily_deep",
+          "mpr",
+          "mpr_efficacite",
+          "cite",
+          "cee"
+        ],
+        "target_heater": [
+          "cee",
+          "mpr",
+          "mpr_efficacite",
+          "cite"
+        ],
+        "policy": "subsidy_cap"
+      }
+    }
+  },
+  "Normal Cost - CapUpdated": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "cap_updated": {
+        "start": 2024,
+        "end": 2051,
+        "insulation": "project/input/policies/current/subsidies_cap_updated.csv",
+        "heater": "project/input/policies/current/subsidies_cap_updated.csv",
+        "target_insulation": [
+          "mpr_serenite",
+          "mpr_performance",
+          "mpr_multifamily",
+          "mpr_multifamily_deep",
+          "mpr",
+          "mpr_efficacite",
+          "cite",
+          "cee"
+        ],
+        "target_heater": [
+          "cee",
+          "mpr",
+          "mpr_efficacite",
+          "cite"
+        ],
+        "policy": "subsidy_cap"
+      }
+    }
+  },
+  "High Cost - ReducedVat": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2024,
+    "policies": {
+      "reduced_vat": {
+        "start": 2018,
+        "end": 2024,
+        "value": 0.055,
+        "policy": "reduced_vat"
+      }
+    }
+  },
+  "Low Cost - ReducedVat": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2024,
+    "policies": {
+      "reduced_vat": {
+        "start": 2018,
+        "end": 2024,
+        "value": 0.055,
+        "policy": "reduced_vat"
+      }
+    }
+  },
+  "Normal Cost - ReducedVat": {
+    "file": "project/config/reference.json",
+    "end": 2024,
+    "policies": {
+      "reduced_vat": {
+        "start": 2018,
+        "end": 2024,
+        "value": 0.055,
+        "policy": "reduced_vat"
+      }
+    }
+  },
+  "High Cost - RestrictionOil": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2051,
+    "policies": {
+      "restriction_oil": {
+        "start": 2018,
+        "end": 2051,
+        "value": "Oil fuel",
+        "policy": "restriction_energy"
+      }
+    }
+  },
+  "Low Cost - RestrictionOil": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2051,
+    "policies": {
+      "restriction_oil": {
+        "start": 2018,
+        "end": 2051,
+        "value": "Oil fuel",
+        "policy": "restriction_energy"
+      }
+    }
+  },
+  "Normal Cost - RestrictionOil": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "restriction_oil": {
+        "start": 2018,
+        "end": 2051,
+        "value": "Oil fuel",
+        "policy": "restriction_energy"
+      }
+    }
+  },
+  "High Cost - Obligation": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2051,
+    "policies": {
+      "obligation": {
+        "start": 2022,
+        "end": 2051,
+        "value": "project/input/policies/current/agenda_obligation_pb.csv",
+        "frequency": {
+          "value": [
+            0,
+            0.1,
+            0
+          ],
+          "index": [
+            "Owner-occupied",
+            "Privately rented",
+            "Social-housing"
+          ],
+          "name": "Occupancy status"
+        },
+        "intensive": "market_share",
+        "minimum_performance": "D",
+        "policy": "obligation"
+      }
+    }
+  },
+  "Low Cost - Obligation": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2051,
+    "policies": {
+      "obligation": {
+        "start": 2022,
+        "end": 2051,
+        "value": "project/input/policies/current/agenda_obligation_pb.csv",
+        "frequency": {
+          "value": [
+            0,
+            0.1,
+            0
+          ],
+          "index": [
+            "Owner-occupied",
+            "Privately rented",
+            "Social-housing"
+          ],
+          "name": "Occupancy status"
+        },
+        "intensive": "market_share",
+        "minimum_performance": "D",
+        "policy": "obligation"
+      }
+    }
+  },
+  "Normal Cost - Obligation": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "obligation": {
+        "start": 2022,
+        "end": 2051,
+        "value": "project/input/policies/current/agenda_obligation_pb.csv",
+        "frequency": {
+          "value": [
+            0,
+            0.1,
+            0
+          ],
+          "index": [
+            "Owner-occupied",
+            "Privately rented",
+            "Social-housing"
+          ],
+          "name": "Occupancy status"
+        },
+        "intensive": "market_share",
+        "minimum_performance": "D",
+        "policy": "obligation"
+      }
+    }
+  },
+  "High Cost - ZeroInterestLoan": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2051,
+    "policies": {
+      "zero_interest_loan": {
+        "start": 2024,
+        "end": 2051,
+        "cost_max": 15000,
+        "gest": [
+          "insulation"
+        ],
+        "value": 0.0,
+        "duration": 15,
+        "public_cost": 0.015,
+        "policy": "zero_interest_loan",
+        "target": null
+      }
+    }
+  },
+  "Low Cost - ZeroInterestLoan": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2051,
+    "policies": {
+      "zero_interest_loan": {
+        "start": 2024,
+        "end": 2051,
+        "cost_max": 15000,
+        "gest": [
+          "insulation"
+        ],
+        "value": 0.0,
+        "duration": 15,
+        "public_cost": 0.015,
+        "policy": "zero_interest_loan",
+        "target": null
+      }
+    }
+  },
+  "Normal Cost - ZeroInterestLoan": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "zero_interest_loan": {
+        "start": 2024,
+        "end": 2051,
+        "cost_max": 15000,
+        "gest": [
+          "insulation"
+        ],
+        "value": 0.0,
+        "duration": 15,
+        "public_cost": 0.015,
+        "policy": "zero_interest_loan",
+        "target": null
+      }
+    }
+  }
+}

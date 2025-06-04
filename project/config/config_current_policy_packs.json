@@ -1,0 +1,32 @@
+{
+  "Current Policy 2024": { 
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "file": "project/input/policies/policies_2024.json"
+    }  
+  },
+
+  "Policies Pack 1": { 
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "file": "project/input/policies/policies_pack_1.json"
+    }  
+  },
+
+  "Policies Pack 2": { 
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "file": "project/input/policies/policies_pack_2.json"
+    }  
+  },
+  "Policies Pack 3": { 
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "file": "project/input/policies/policies_pack_3.json"
+    }  
+  }
+}

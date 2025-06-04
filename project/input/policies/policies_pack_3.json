@@ -1,0 +1,42 @@
+{
+  "policies": {
+    "restriction_oil": {
+      "start": 2018,
+      "end": 2051,
+      "value": "Oil fuel",
+      "policy": "restriction_energy"
+    },
+    "obligation": {
+      "start": 2022,
+      "end": 2051,
+      "value": "project/input/policies/current/agenda_obligation_pb.csv",
+      "frequency": {
+        "value": [
+          0,
+          0.1,
+          0
+        ],
+        "index": [
+          "Owner-occupied",
+          "Privately rented",
+          "Social-housing"
+        ],
+        "name": "Occupancy status"
+      },
+      "intensive": "market_share",
+      "minimum_performance": "D",
+      "policy": "obligation"
+    },
+    "zero_interest_loan": {
+        "start": 2024,
+        "end": 2051,
+        "cost_max": 15000,
+        "gest": ["insulation"],
+        "value": 0.0,
+        "duration": 15,
+        "public_cost": 0.015,
+        "policy": "zero_interest_loan",
+        "target": null
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "High Cost - Carbon Tax": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2051,
+    "policies": {
+      "carbon_tax": {
+        "start": 2017,
+        "end": 2051,
+        "tax": "project/input/policies/current/carbon_tax_growth.csv",
+        "emission": "project/input/policies/current/carbon_tax_emission.csv",
+        "recycling": null,
+        "policy": "carbon_tax"
+      }
+    }
+  }, 
+
+  "Low Cost - Carbon Tax": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2051,
+    "policies": {
+      "carbon_tax": {
+        "start": 2017,
+        "end": 2051,
+        "tax": "project/input/policies/current/carbon_tax_growth.csv",
+        "emission": "project/input/policies/current/carbon_tax_emission.csv",
+        "recycling": null,
+        "policy": "carbon_tax"
+      }
+    }
+  },
+
+  "Current Carbon Tax": { 
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "carbon_tax": {
+        "start": 2017,
+        "end": 2051,
+        "tax": "project/input/policies/current/carbon_tax_growth.csv",
+        "emission": "project/input/policies/current/carbon_tax_emission.csv",
+        "recycling": null,
+        "policy": "carbon_tax"
+      }
+    }
+  }
+ 
+
+}

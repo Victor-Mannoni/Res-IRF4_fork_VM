@@ -1,0 +1,87 @@
+{
+  "Reference": {
+    "file": "project/config/reference.json",
+    "end": 2020,
+    "policies": {
+      "file": "project/input/policies/policies_calibration.json",
+      "subsidy_status_quo": {
+      "start": 2019,
+      "end": 2051,
+      "policy": "subsidy_status_quo",
+      "gest": [
+        "heater"
+      ]
+     }
+    }
+  },
+
+  "High Cost - No Policy": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2026,
+    "policies": {},
+    "simple": {
+        "no_policy": true,
+        "current_policies": false
+    }
+  }, 
+
+  "High Cost - Pack 1": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2026,
+    "policies": {
+      "file": "project/input/policies/policies_pack_1.json"
+    }
+  },
+
+  "High Cost - Pack 2": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2026,
+    "policies": {
+      "file": "project/input/policies/policies_pack_2.json"
+    }
+  },
+
+  "High Cost - Pack 3": {
+    "file": "project/config/config_cost_insulation_high.json",
+    "end": 2026,
+    "policies": {
+      "file": "project/input/policies/policies_pack_3.json"
+    }
+  },
+
+  "Low Cost - No Policy": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2026,
+    "policies": {},
+    "simple": {
+        "no_policy": true,
+        "current_policies": false
+    }
+  }, 
+
+  "Low Cost - Pack 1": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2026,
+    "policies": {
+      "file": "project/input/policies/policies_pack_1.json"
+    }
+  },
+
+  "Low Cost - Pack 2": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2026,
+    "policies": {
+      "file": "project/input/policies/policies_pack_2.json"
+    }
+  },
+
+  "Low Cost - Pack 3": {
+    "file": "project/config/config_cost_insulation_low.json",
+    "end": 2026,
+    "policies": {
+      "file": "project/input/policies/policies_pack_3.json"
+    }
+  }
+ 
+
+}
