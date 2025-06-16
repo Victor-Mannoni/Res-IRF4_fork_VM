@@ -672,11 +672,11 @@ def primary_heating_consumption(u_wall, u_floor, u_roof, u_windows, efficiency, 
     return final2primary(heat_consumption, energy, conversion=conversion)
 
 
-def heat_intensity(budget, method='v4'):
+def heat_intensity(budget_share, method='v4'):
     if method == 'v3':
-        return -0.191 * budget.apply(log) + 0.1105
+        return -0.191 * budget_share.apply(log) + 0.1105
     elif method == 'v4':
-        return 0.3564 * budget**(-0.244)
+        return 0.3564 * budget_share**(-0.244)
 
 
 def stat_model_heating_consumption(df, a=0.921323, b=0.634717):
