@@ -63,6 +63,7 @@ from project.utils import memory_object, get_size, size_dict
 from project.input.resources import resources_data
 
 
+# Load and return the specified scenario from the internal config.json file
 def get_config(scenario=None) -> dict:
     if scenario is None:
         scenario = 'Reference'
@@ -247,6 +248,7 @@ def config2inputs(config=None, scenario=None):
     return config, inputs, stock, year, policies_heater, policies_insulation, taxes
 
 
+# Extract inputs used only for post-treatment analysis from the full input set
 def select_post_inputs(parsed_inputs):
     """Inputs used during post-treatment but not used during the iteration.
 
