@@ -117,6 +117,7 @@ def get_series(path, header=0):
     return value
 
 
+# Load a JSON file using importlib resources, with OS-specific path handling
 def get_json(path):
     path = Path(path)
     if isinstance(path, WindowsPath):
@@ -384,6 +385,7 @@ def deciles2quintiles(stock, policies_heater, policies_insulation, inputs):
     return stock, policies_heater, policies_insulation, inputs
 
 
+# Load and merge policy definitions from file or inline config, keeping only non-empty ones
 def parse_policies(config):
     # configuration[key]
     if config.get('policies') is not None:
