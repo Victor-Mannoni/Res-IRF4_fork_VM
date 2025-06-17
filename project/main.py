@@ -37,6 +37,7 @@ def run(path=None, folder=None):
 
     output_compare = 'full'
 
+    # Define and parse command-line options for config file, policies folder, assessment, end year, and CPU count
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', default=os.path.join('project', 'config', 'test', 'config.json'), help='path config file')
 
@@ -249,6 +250,7 @@ def run(path=None, folder=None):
 
         del configuration['scenarios']
 
+    # Generate sensitivity scenarios by varying technical, financial, energy parameters (etc.) from the config
     if 'sensitivity' in configuration.keys():
         if configuration['sensitivity']['activated']:
             prefix = 'sensitivity'
@@ -380,6 +382,7 @@ def run(path=None, folder=None):
 
         del configuration['sensitivity']
 
+    # Generate scenarios by combining uncertainty parameter values
     if 'uncertainty' in configuration.keys():
         if configuration['uncertainty']['activated']:
             output_compare = 'simple'
@@ -434,6 +437,7 @@ def run(path=None, folder=None):
     if len(configuration.keys()) > 10 and policies_name is None:
         output_compare = 'none'
 
+    # Run all scenarios in parallel, process results, compute indicators and generate comparison plots
     logger.debug('Scenarios: {}'.format(', '.join(configuration.keys())))
     try:
         logger.debug('Launching processes')
@@ -470,6 +474,7 @@ def run(path=None, folder=None):
         raise e
 
 
+# Run the main function if the script is executed directly, not when imported
 if __name__ == '__main__':
 
     logging.basicConfig()
