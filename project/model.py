@@ -673,14 +673,14 @@ def res_irf(config, path, level_logger='DEBUG'):
 
             if technical_progress is not None:
                 if technical_progress.get('insulation') is not None:
-                    inputs_dynamics['cost_insulation'] *= (1 + technical_progress['insulation'].loc[year])**step
+                    inputs_dynamics['cost_insulation'].loc[year] *= (1 + technical_progress['insulation'].loc[year])**step
                 if technical_progress.get('heater') is not None:
                     heat_pump = [i for i in resources_data['index']['Heat pumps'] if i in inputs_dynamics['cost_heater'].index]
                     inputs_dynamics['cost_heater'].loc[heat_pump] *= (1 + technical_progress['heater'].loc[year])**step
 
             buildings, s, o = stock_turnover(buildings, prices, taxes,
                                              inputs_dynamics['cost_heater'],
-                                             inputs_dynamics['cost_insulation'],
+                                             inputs_dynamics['cost_insulation'].loc[year],
                                              inputs_dynamics['frequency_insulation'],
                                              p_heater, p_insulation, f_built, year,
                                              inputs_dynamics['post_inputs'],
@@ -709,7 +709,7 @@ def res_irf(config, path, level_logger='DEBUG'):
                 if buildings.path_ini is not None:
                     select_output(o, buildings.path)
                     compare_results(o, buildings.path)
-                    buildings.make_static_analysis(inputs_dynamics['cost_insulation'], inputs_dynamics['cost_heater'],
+                    buildings.make_static_analysis(inputs_dynamics['cost_insulation'].loc[year], inputs_dynamics['cost_heater'],
                                                    prices, inputs_dynamics['post_inputs']['health_cost_dpe'],
                                                    inputs_dynamics['post_inputs']['carbon_emission'].loc[year, :],
                                                    carbon_value=50)
