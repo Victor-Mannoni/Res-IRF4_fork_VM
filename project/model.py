@@ -601,15 +601,55 @@ def res_irf(config, path, level_logger='DEBUG'):
                                 dict_color=resources_data['colors'],
                                 sharey=True, save=os.path.join(buildings.path_ini, 'stock.png'))
 
-        if config.get('calibration'):
-            with open(config['calibration'], "rb") as file:
-                calibration = load(file)
-                buildings.calibration_exogenous(**calibration)
+        # Load calibration file for consumption if path provided in config
+        if config.get('load_calibration_consumption') is not None:
+            with open(config['load_calibration_consumption'], 'rb') as file:
+                c_consumption = load(file)
+            buildings.constant_insulation_extensive = c_consumption['constant_insulation_extensive']
+            buildings.constant_insulation_intensive = c_consumption['constant_insulation_intensive']
+            buildings.scale_insulation = c_consumption['scale_insulation']
+            buildings.coefficient_global = c_consumption['coefficient_global']
+            buildings.coefficient_backup = c_consumption['coefficient_backup']
+            buildings.constant_insulation = c_consumption['constant_insulation']
+            buildings.logger.info(f"Consumption calibration loaded from {config['load_calibration_consumption']}")
+
+        # Run the calibration method if no calibration file is given, 
         else:
             buildings.calibration_consumption(energy_prices.loc[buildings.first_year, :],
-                                              inputs_dynamics['consumption_ini'],
-                                              inputs_dynamics['health_cost_income'],
-                                              inputs_dynamics['health_cost_dpe'])
+                                            inputs_dynamics['consumption_ini'],
+                                            inputs_dynamics['health_cost_income'],
+                                            inputs_dynamics['health_cost_dpe'])
+
+        # Export consumption calibration if requested
+        if config.get('export_calibration_consumption') is not None:
+            with open(config['export_calibration_consumption'], 'wb') as file:
+                dump({
+                    'coefficient_global': buildings.coefficient_global,
+                    'coefficient_backup': buildings.coefficient_backup,
+                    'constant_insulation_extensive': buildings.constant_insulation_extensive,
+                    'constant_insulation_intensive': buildings.constant_insulation_intensive,
+                    'constant_insulation': buildings.constant_insulation,
+                    'scale_insulation': buildings.scale_insulation,
+                }, file)
+            buildings.logger.info(f"Consumption calibration exported to {config.get('export_calibration_consumption')}")
+
+            # Stop the program if calibration export for renovation is not requested
+            if config.get('export_calibration_renovation') is None:
+                import sys
+                buildings.logger.info("No export_calibration_renovation specified, exiting program.")
+                sys.exit(0)
+
+        # Save consumption calibration as backup
+        else:
+            with open(os.path.join(buildings.path_calibration, 'calibration_consumption.pkl'), 'wb') as file:
+                dump({
+                    'coefficient_global': buildings.coefficient_global,
+                    'coefficient_backup': buildings.coefficient_backup,
+                    'constant_insulation_extensive': buildings.constant_insulation_extensive,
+                    'constant_insulation_intensive': buildings.constant_insulation_intensive,
+                    'scale_insulation': buildings.scale_insulation,
+                }, file)
+            buildings.logger.info(f"Consumption calibration saved as backup to {os.path.join(buildings.path_calibration, 'calibration_consumption.pkl')}")
 
         s, o = buildings.parse_output_run(energy_prices.loc[buildings.first_year, :], inputs_dynamics['post_inputs'],
                                           taxes=taxes)
