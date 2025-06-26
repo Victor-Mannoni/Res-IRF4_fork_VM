@@ -1,5 +1,10 @@
 {
     "end": 2051,
+    "load_calibration_renovation": null,
+    "load_calibration_consumption": null,
+    "export_calibration_renovation": null,
+    "export_calibration_consumption": null,
+    "stop_after_calibration_export": false,
     "step": 1,
     "output": "full",
     "start": 2017,
