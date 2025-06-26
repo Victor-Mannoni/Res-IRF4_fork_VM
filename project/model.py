@@ -601,8 +601,8 @@ def res_irf(config, path, level_logger='DEBUG'):
                                 dict_color=resources_data['colors'],
                                 sharey=True, save=os.path.join(buildings.path_ini, 'stock.png'))
 
-        # Load calibration file for consumption if path provided in config
-        if config.get('load_calibration_consumption') is not None:
+        # Load consumption calibration if path provided in config
+        if config['load_calibration_consumption'] is not None:
             with open(config['load_calibration_consumption'], 'rb') as file:
                 c_consumption = load(file)
             buildings.constant_insulation_extensive = c_consumption['constant_insulation_extensive']
@@ -613,7 +613,7 @@ def res_irf(config, path, level_logger='DEBUG'):
             buildings.constant_insulation = c_consumption['constant_insulation']
             buildings.logger.info(f"Consumption calibration loaded from {config['load_calibration_consumption']}")
 
-        # Run the calibration method if no calibration file is given, 
+        # Run consumption calibration if no consumption calibration file is given
         else:
             buildings.calibration_consumption(energy_prices.loc[buildings.first_year, :],
                                             inputs_dynamics['consumption_ini'],
@@ -621,7 +621,7 @@ def res_irf(config, path, level_logger='DEBUG'):
                                             inputs_dynamics['health_cost_dpe'])
 
         # Export consumption calibration if requested
-        if config.get('export_calibration_consumption') is not None:
+        if config['export_calibration_consumption'] is not None:
             with open(config['export_calibration_consumption'], 'wb') as file:
                 dump({
                     'coefficient_global': buildings.coefficient_global,
@@ -633,23 +633,12 @@ def res_irf(config, path, level_logger='DEBUG'):
                 }, file)
             buildings.logger.info(f"Consumption calibration exported to {config.get('export_calibration_consumption')}")
 
-            # Stop the program if calibration export for renovation is not requested
-            if config.get('export_calibration_renovation') is None:
-                import sys
-                buildings.logger.info("No export_calibration_renovation specified, exiting program.")
-                sys.exit(0)
-
-        # Save consumption calibration as backup
-        else:
-            with open(os.path.join(buildings.path_calibration, 'calibration_consumption.pkl'), 'wb') as file:
-                dump({
-                    'coefficient_global': buildings.coefficient_global,
-                    'coefficient_backup': buildings.coefficient_backup,
-                    'constant_insulation_extensive': buildings.constant_insulation_extensive,
-                    'constant_insulation_intensive': buildings.constant_insulation_intensive,
-                    'scale_insulation': buildings.scale_insulation,
-                }, file)
-            buildings.logger.info(f"Consumption calibration saved as backup to {os.path.join(buildings.path_calibration, 'calibration_consumption.pkl')}")
+            # Stop the program after consumption calibration export if requested
+            if config.get('stop_after_calibration_export') is True:
+                if config.get('export_calibration_renovation') is None:
+                    import sys
+                    buildings.logger.info("Stopping program after consumption calibration export.")
+                    sys.exit(0)
 
         s, o = buildings.parse_output_run(energy_prices.loc[buildings.first_year, :], inputs_dynamics['post_inputs'],
                                           taxes=taxes)
@@ -664,6 +653,7 @@ def res_irf(config, path, level_logger='DEBUG'):
         if config['end'] - 1 not in years:
             years.append(config['end'] - 1)
 
+        ##todo
         if inputs_dynamics['supply']['insulation'] is not None:
             inputs_dynamics['cost_insulation'] /= inputs_dynamics['supply']['insulation']['markup_insulation']
 
@@ -718,6 +708,21 @@ def res_irf(config, path, level_logger='DEBUG'):
                     heat_pump = [i for i in resources_data['index']['Heat pumps'] if i in inputs_dynamics['cost_heater'].index]
                     inputs_dynamics['cost_heater'].loc[heat_pump] *= (1 + technical_progress['heater'].loc[year])**step
 
+            # Import renovation calibration if path provided in config
+            if year == buildings.first_year + 1 and config.get('load_calibration_renovation') is not None:
+                with open(config['load_calibration_renovation'], 'rb') as file:
+                    c_renovation = load(file)
+                buildings.coefficient_global = c_renovation['coefficient_global']
+                buildings.coefficient_backup = c_renovation['coefficient_backup']
+                buildings.constant_insulation_extensive = c_renovation['constant_insulation_extensive']
+                buildings.constant_insulation_intensive = c_renovation['constant_insulation_intensive']
+                buildings.constant_heater = c_renovation['constant_heater']
+                buildings.scale_insulation = c_renovation['scale_insulation']
+                buildings.scale_heater = c_renovation['scale_heater']
+                buildings.apply_scale(buildings.scale_insulation, gest='insulation')
+
+                buildings.logger.info(f"Renovation calibration loaded from {config['load_calibration_renovation']}")
+
             buildings, s, o = stock_turnover(buildings, prices, taxes,
                                              inputs_dynamics['cost_heater'],
                                              inputs_dynamics['cost_insulation'].loc[year],
@@ -764,6 +769,26 @@ def res_irf(config, path, level_logger='DEBUG'):
                             'scale_insulation': buildings.scale_insulation,
                             'scale_heater': buildings.scale_heater
                         }, file)
+
+            # Export renovation calibration if requested (calculated during the stock_turnover process)
+            if year == buildings.first_year + 1 and config.get('export_calibration_renovation') is not None:
+                with open(config['export_calibration_renovation'], 'wb') as file:
+                        dump({
+                            'coefficient_global': buildings.coefficient_global,
+                            'coefficient_backup': buildings.coefficient_backup,
+                            'constant_insulation_extensive': buildings.constant_insulation_extensive,
+                            'constant_insulation_intensive': buildings.constant_insulation_intensive,
+                            'constant_heater': buildings.constant_heater,
+                            'scale_insulation': buildings.scale_insulation,
+                            'scale_heater': buildings.scale_heater
+                        }, file)
+                buildings.logger.info(f"Renovation calibration exported to {config['export_calibration_renovation']}")
+
+                # Stop the program after renovation calibration export if requested
+                if config.get('stop_after_calibration_export') is True:
+                    import sys
+                    buildings.logger.info('Stopping the program after renovation calibration export.')
+                    sys.exit(0)
 
             if year == buildings.first_year + 2 and config['output'] == 'full' and buildings.no_friction is False:
                 temp = pd.concat((buildings._distortion_store['insulation'], buildings._distortion_store['heater']),
