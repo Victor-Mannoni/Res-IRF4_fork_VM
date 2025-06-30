@@ -447,26 +447,27 @@ def run(path=None, folder=None):
         result = {i[0]: i[1] for i in results}
         # stocks = {i[0]: i[2] for i in results}
 
-        logger.debug('Parsing results')
-        config_policies = get_json('project/input/policies/cba_inputs.json')
-        if configuration.get('Reference').get('output') == 'full' and output_compare == 'full':
-            if 'Reference' in result.keys() and len(result.keys()) > 1 and config_policies is not None:
-                _, indicator = indicator_policies(result, folder, config_policies, policy_name=policies_name)
-                # add NPV to result
-                for scenario in result.keys():
-                    temp = 0
-                    if scenario in indicator.columns:
-                        if 'NPV' in indicator.index:
-                            temp = indicator.loc['NPV', scenario]
-                    result[scenario].loc['NPV (Billion Euro)', result[scenario].columns[-1]] = temp
+        if configuration.get('Reference') is not None:
+            logger.debug('Parsing results')
+            config_policies = get_json('project/input/policies/cba_inputs.json')
+            if configuration.get('Reference').get('output') == 'full' and output_compare == 'full':
+                if 'Reference' in result.keys() and len(result.keys()) > 1 and config_policies is not None:
+                    _, indicator = indicator_policies(result, folder, config_policies, policy_name=policies_name)
+                    # add NPV to result
+                    for scenario in result.keys():
+                        temp = 0
+                        if scenario in indicator.columns:
+                            if 'NPV' in indicator.index:
+                                temp = indicator.loc['NPV', scenario]
+                        result[scenario].loc['NPV (Billion Euro)', result[scenario].columns[-1]] = temp
 
-            if policies_name is None:
-                plot_compare_scenarios(result, folder, quintiles=configuration.get('Reference').get('simple').get('quintiles'))
-                make_summary(folder, option='comparison')
-        elif output_compare == 'simple':
-            plot_compare_scenarios_simple(result, folder, quintiles=configuration.get('Reference').get('simple').get('quintiles'))
-        else:
-            pass
+                if policies_name is None:
+                    plot_compare_scenarios(result, folder, quintiles=configuration.get('Reference').get('simple').get('quintiles'))
+                    make_summary(folder, option='comparison')
+            elif output_compare == 'simple':
+                plot_compare_scenarios_simple(result, folder, quintiles=configuration.get('Reference').get('simple').get('quintiles'))
+            else:
+                pass
 
         logger.debug('Run time: {:,.0f} minutes.'.format((time() - start) / 60))
     except Exception as e:
