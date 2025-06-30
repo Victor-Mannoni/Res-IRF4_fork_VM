@@ -400,7 +400,9 @@ def parse_policies(config):
                 config['policies'].update(policies)
 
         config['policies'] = {k: i for k, i in config['policies'].items() if i}
-
+    
+    else:
+        config['policies'] = {}
 
 def calculate_annuities(capex, lifetime=50, discount_rate=0.032):
     if isinstance(discount_rate, (float, int, np.float64, np.int64)):
