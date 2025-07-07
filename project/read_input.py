@@ -870,7 +870,8 @@ def read_inputs(config, other_inputs=generic_input):
     rotation_rate = get_pandas(config['macro']['rotation_rate'], lambda x: pd.read_csv(x, index_col=[0])).squeeze().rename(None)
     inputs.update({'rotation_rate': rotation_rate})
 
-    surface = get_pandas(config['technical']['surface'], lambda x: pd.read_csv(x, index_col=[0, 1, 2]).squeeze().rename(None))
+    # surface = get_pandas(config['technical']['surface'], lambda x: pd.read_csv(x, index_col=[0, 1, 2]).squeeze().rename(None))
+    surface = get_pandas(config['technical']['surface'], lambda x: pd.read_csv(x, index_col=[0, 1, 2, 3]).squeeze().rename(None))
     inputs.update({'surface': surface})
 
     ratio_surface = get_pandas(config['technical']['ratio_surface'], lambda x: pd.read_csv(x, index_col=[0]))
@@ -968,6 +969,18 @@ def parse_inputs(inputs, taxes, config, stock):
         Parsed input
     """
 
+    # Fill missing years in a Pandas DataFrame or Series by copying values from the previous year.
+    def fill_missing_years(data, start_year=config['start'], end_year=config['end']):
+        if 'Year' not in data.index.names:
+            raise ValueError("The input data must have 'Year' in its index.")
+
+        df = data.unstack(level='Year')
+        full_years = list(range(start_year, end_year + 1))
+        df = df.reindex(columns=full_years)
+        df = df.ffill(axis=1)
+
+        return df
+
     idx = range(config['start'], config['end'])
 
     parsed_inputs = copy.deepcopy(inputs)
@@ -1037,8 +1050,10 @@ def parse_inputs(inputs, taxes, config, stock):
         s = inputs['flow_construction'].index.min()
         parsed_inputs['flow_construction'] = inputs['flow_construction'].reindex(range(s, config['end'])).fillna(method='ffill')
         parsed_inputs['flow_construction'] = parsed_inputs['flow_construction'].loc[idx]
-    parsed_inputs['surface'] = pd.concat([parsed_inputs['surface']] * len(idx), axis=1, keys=idx)
-
+        
+    # parsed_inputs['surface'] = pd.concat([parsed_inputs['surface']] * len(idx), axis=1, keys=idx)
+    parsed_inputs['surface'] = fill_missing_years(parsed_inputs['surface'], config['start'], config['end'])
+    
     if 'share_single_family_construction' in inputs.keys():
         s = inputs['share_single_family_construction'].index.min()
         parsed_inputs['share_single_family_construction'] = inputs['share_single_family_construction'].reindex(range(s, config['end'])).fillna(method='ffill')
