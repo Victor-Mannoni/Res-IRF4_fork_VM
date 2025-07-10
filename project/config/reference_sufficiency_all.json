@@ -103,7 +103,7 @@
       "construction": true,
       "flow_construction": "project/input/macro/flow_construction_tend_sufficiency.csv",
       "share_single_family_construction": "project/input/macro/share_singlefamily_construction_tend_sufficiency.csv",
-      "demolition_rate": "project/input/macro/demolition_rate_tend.csv",
+      "demolition_rate": "project/input/macro/demolition_rate_sdes_central.csv",
       "income": "project/input/macro/income.csv",
       "income_rate": 0.008,
       "rotation_rate": "project/input/macro/rotation_rate.csv",
