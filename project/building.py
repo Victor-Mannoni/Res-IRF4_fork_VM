@@ -6330,6 +6330,20 @@ class AgentBuildings(ThermalBuildings):
                     energy_saved = ((energy_saved * self._replaced_by.fillna(0)).T * eligible).T
                     energy_saved_renovation[key] = energy_saved.sum().sum() / replacement_eligible.sum()
 
+                 # subsidies - details: policies amount and number of beneficiaries, by decile
+                if key in ['mpr_performance', 'mpr_multifamily', 'mpr_multifamily_updated', 'mpr_multifamily_deep']:
+                    amount_tmp = subsidies_details_renovation[key]
+                    subsidies_details_by_decile = amount_tmp.groupby(['Income owner']).sum()
+                    amount_by_decile = subsidies_details_by_decile.T.sum()
+                    amount_by_decile = amount_by_decile / 10 ** 6 / step
+                    output.update({'{} '.format(key.capitalize().replace('_', ' ')) + ' {} (Million euro)'.format(i): amount_by_decile.loc[i] for i in amount_by_decile.index})
+
+                    eligible = self._renovation_store['eligible'][key]
+                    count_tmp = self._replaced_by.fillna(0).sum(axis=1) * eligible
+                    count_by_decile = count_tmp.groupby(['Income owner']).sum()
+                    count_by_decile = count_by_decile / 1e3 / step
+                    output.update({'{} '.format(key.capitalize().replace('_', ' ')) + ' {} (Thousand households)'.format(i): count_by_decile.loc[i] for i in count_by_decile.index})     
+
             del self._renovation_store['subsidies_details_households']
             gc.collect()
 
