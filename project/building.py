@@ -4562,7 +4562,7 @@ class AgentBuildings(ThermalBuildings):
 
         if not stock.empty:
             # select index that can undertake insulation replacement
-            _, _, certificate_before_heater = self.consumption_heating_store(index, level_heater='Heating system')
+            _, consumption_3uses_before_heater, certificate_before_heater = self.consumption_heating_store(index, level_heater='Heating system')
 
             # before include the change of heating system
             consumption_std_before, consumption_3uses_before, certificate_before = self.consumption_heating_store(index, level_heater='Heating system final')
@@ -4575,7 +4575,7 @@ class AgentBuildings(ThermalBuildings):
                 level_heater='Heating system final',
                 default_quality=default_quality)
 
-            energy_saved_3uses = ((consumption_3uses_before - consumption_3uses.T) / consumption_3uses_before).T
+            energy_saved_3uses = ((consumption_3uses_before_heater - consumption_3uses.T) / consumption_3uses_before_heater).T
             energy_saved_3uses.dropna(inplace=True)
 
             consumption_std_saved = (consumption_std_before - consumption_std_after.T).T
@@ -6498,20 +6498,29 @@ class AgentBuildings(ThermalBuildings):
 
             output['Cost-benefits analysis (Billion euro)'] = output['CBA benefits (Billion euro)'] + output['CBA cost (Billion euro)']
 
+            tmp1, tmp2, tmp3 = 0, 0, 0
+
             if self.flow_by_certificate_couples_insulation is not None:
-                output['High-performance renovation (Thousand households)'] = self.sum_performance_insulation / 10 ** 3
+                tmp1 = self.sum_performance_insulation / 10 ** 3
+                output['High-performance renovation (Thousand households)'] = tmp1
                 flow_by_certificate_couples = self.flow_by_certificate_couples_insulation / 10 ** 3
                 output.update({'Renovation from {} to '.format(i) + '{} (Thousand households)'.format(j): flow_by_certificate_couples.loc[(i,j)] for (i,j) in flow_by_certificate_couples.index})
 
             if self.flow_by_certificate_couples_obligation is not None:
-                output['Obligatory High-performance renovation (Thousand households)'] = self.sum_performance_insulation_obligation / 10 ** 3
+                tmp2 = self.sum_performance_insulation_obligation / 10 ** 3
+                output['Obligatory High-performance renovation (Thousand households)'] = tmp2
                 flow_by_certificate_couples_obligation = self.flow_by_certificate_couples_obligation / 10 ** 3
                 output.update({'Obligatory renovation from {} to '.format(i) + '{} (Thousand households)'.format(j): flow_by_certificate_couples_obligation.loc[(i,j)] for (i,j) in flow_by_certificate_couples_obligation.index})
 
             if self.flow_by_certificate_couples_heater is not None:
-                output['High-performance flow for heater replacement only (Thousand households)'] = self.sum_performance_changes_heater / 10 ** 3
+                tmp3 = self.sum_performance_changes_heater / 10 ** 3
+                output['High-performance flow for heater replacement only (Thousand households)'] = tmp3
                 flow_by_certificate_couples = self.flow_by_certificate_couples_heater / 10 ** 3
                 output.update({'Heater replacement only - {} to '.format(i) + '{} (Thousand households)'.format(j): flow_by_certificate_couples.loc[(i,j)] for (i,j) in flow_by_certificate_couples.index})
+
+            temp = tmp1 + tmp2 + tmp3
+            if temp > 0:
+                output['Total High-performance renovation (Thousand households)'] = temp             
 
         output = Series(output).rename(self.year)
         stock = stock.rename(self.year)
