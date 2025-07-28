@@ -28,6 +28,10 @@
 /project/input/investment/_old/
 /project/input/sfec/
 /project/input/stock/
+/utilities_market_share/
+/project/config/config_ams_run3.json
+/project/config/reference_ams_run3.json
+/project/input/policies/policies_ams_run3.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
