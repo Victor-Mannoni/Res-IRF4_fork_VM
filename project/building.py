@@ -1164,8 +1164,8 @@ class AgentBuildings(ThermalBuildings):
         self.flow_by_certificate_couples_ampleur_insulation = None
         self.flow_by_certificate_couples_ampleur_obligation = None
         self.flow_by_operation_insulation = None
-        self.l5 = None
-        self.l5_obligation = None
+        self.renovation_details_long = None
+        self.renovation_details_long_obligation = None
         self.merged_df_heater = None
         self.flow_by_certificate_couples_heater = None
         self.sum_performance_changes_heater = None
@@ -4459,21 +4459,21 @@ class AgentBuildings(ThermalBuildings):
         #     "True True True False": "other",
         #     "True True True True": "other"}
 
-        mapping_operations = {"False False False True" : "Wi",
-            "False False True False" : "R",
-            "False False True True": "RWi",
-            "False True False False": "F",
-            "False True False True": "FWi",
-            "False True True False": "FR",
-            "False True True True": "FRWi",
-            "True False False False": "Wa",
-            "True False False True": "WaWi",
-            "True False True False": "WR",
-            "True False True True": "WaRWi",
-            "True True False False": "WaF",
-            "True True False True": "WaFWi",
-            "True True True False": "WaFR",
-            "True True True True": "WaFRWi"}
+        mapping_operations = {"Wi" : "Windows",
+                "R" : "othersingleinsulation",
+                "RWi" : "2insulations",
+                "F" : "othersingleinsulation",
+                "FWi": "2insulations",
+                "FR": "2insulations",
+                "FRWi": "3insulations",
+                "Wa": "othersingleinsulation",
+                "WaWi": "2insulations",
+                "WR": "2insulations",
+                "WaRWi":"3insulations",
+                "WaF": "2insulations",
+                "WaFWi": "3insulations",
+                "WaFR": "3insulations",
+                "WaFRWi": "4insulations"}
         
         # mapping_operations_2 = {0 : "Wi",
         #     1 : "R",
@@ -4562,36 +4562,93 @@ class AgentBuildings(ThermalBuildings):
         certificate_diffs=[]
         certificate_diffs_results = pd.DataFrame()
 
-        for i in range(len(market_flow.columns)):
-            category_after_col = f'Certif_after_Choice_{i}'
-            flow_choice_col = f'Flow_Choice_{i}'
-            flow_choice_diff = f'Flow_Choice_diff{i}'
+        ########## Adding df renovations ###################################################################
 
-            merged_df_2 = merged_df.reset_index(level=['Heater replacement'])
-            merged_df_3 = merged_df_2.reset_index(level=['Housing type'])
-            merged_df_4 = merged_df_3.reset_index(level=['Occupancy status'])
-            merged_df_5 = merged_df_4.reset_index(level=['Income owner'])
-            # merged_df_4 = merged_df_3.reset_index(level=['Heating system'])
-            # merged_df_5 = merged_df_4.reset_index(level=['Heating system final'])
-            # merged_df_6 = merged_df_5.reset_index(level=['Occupancy status']) 
+        # dictionary, `mapping_deciles`, which groups income deciles (D1–D10) into broader quintile categories (Q1–Q5).
+        mapping_deciles = {"D1" : "Q1",
+                "D2" : "Q1",
+                "D3" : "Q2",
+                "D4" : "Q2",
+                "D5": "Q3",
+                "D6": "Q3",
+                "D7": "Q4",
+                "D8": "Q4",
+                "D9": "Q5",
+                "D10": "Q5"}
 
-            merged_df_5[flow_choice_diff] = merged_df_5['Occupancy status'] + "_" + merged_df_5['Housing type'] + "_" + merged_df_5['Heater replacement'].astype(str) + "_" + merged_df_5['Certificate_before_heater'] + "_" + merged_df_5['Certificate_before'] + "_" + merged_df_5[category_after_col] + "_" + merged_df_5['Income owner']
-            certificate_diffs.append(merged_df_5.groupby(flow_choice_diff)[flow_choice_col].sum())
+        # Iteration over the columns numbers of a DataFrame called `market_flow`(each insulation combination)
+        for index, value in enumerate(market_flow.columns):
+            category_after_col = f'Certif_after_Choice_{index}'
+            flow_choice_col = f'Flow_Choice_{index}'
+            flow_choice_diff = f'Flow_Choice_diff{index}'
+
+            merged_df_reset = merged_df.reset_index(level=['Heater replacement', 'Housing type', 'Occupancy status', 'Income owner'])
+
+            # mapping deciles with quintiles, removing deciles columns
+            merged_df_reset = merged_df_reset.rename(columns={'Income owner': 'Income_owner_D'})
+            # merged_df_reset['Income owner'] = merged_df_reset['Income_owner_D'].map(mapping_deciles)
+            # merged_df_reset = merged_df_reset.drop('Income_owner_D', axis=1)
+
+            mask_decile = merged_df_reset['Income_owner_D'].str.startswith("D")
+            merged_df_reset['Income owner'] = merged_df_reset['Income_owner_D']  # copie par défaut
+            merged_df_reset.loc[mask_decile, 'Income owner'] = merged_df_reset.loc[mask_decile, 'Income_owner_D'].map(mapping_deciles)
+
+            # creating a description of all renovations with characteristics
+            merged_df_reset[flow_choice_diff] = merged_df_reset['Occupancy status'] + "_" + merged_df_reset['Housing type'] + "_" + merged_df_reset['Heater replacement'].astype(str) + "_" + merged_df_reset['Certificate_before_heater'] + "_" + merged_df_reset['Certificate_before'] + "_" + merged_df_reset[category_after_col] + "_" + merged_df_reset['Income owner']
+
+            certificate_diffs.append(merged_df_reset.groupby(flow_choice_diff)[flow_choice_col].sum())
 
             for category_before, category_after, flow_choice in zip(merged_df['Certificate_before_heater'], merged_df[category_after_col], merged_df[flow_choice_col]):
                 category_change = (category_before, category_after)
                 flow_by_certificate_couples[category_change] = flow_by_certificate_couples.get(category_change, 0) + flow_choice
 
+            # renovations by option (0 to 14) and characteristics (socio-economic, certificate before heating, after heating, after insulation)
+
             certificate_diffs_results = pd.concat(certificate_diffs, axis=1)
 
         certificate_diffs_results = certificate_diffs_results.reset_index()
-        l = pd.wide_to_long(certificate_diffs_results, stubnames='Flow_Choice_', i= 'index', j='operation')
-        l2 = l.reset_index(level=['operation'])
-        l2['operation_map'] = l2['operation'].map(mapping_operations_2)
-        l3 = l2.reset_index()
-        l3['operation_details'] = l3['index'] + "_" + l3['operation_map']
-        l4 = l3.drop(['operation', 'index','operation_map'], axis=1)
-        l5 = l4.set_index(['operation_details'])
+
+        def transform_certificate_diffs(certificate_diffs_results, mapping_operations_2):
+            """
+            Transform certificate differences results into long format with operation details.
+
+            Args:
+                certificate_diffs_results (pd.DataFrame): Input DataFrame with certificate differences
+                mapping_operations_2 (dict): Mapping dictionary for operations
+                
+            Returns:
+                pd.DataFrame: Transformed DataFrame with operation details
+            """
+            try:
+                transformed_df = (
+                    pd.wide_to_long(
+                        certificate_diffs_results,
+                        stubnames='Flow_Choice_',
+                        i='index',
+                        j='operation'
+                    )
+                    .reset_index(level=['operation']))
+                transformed_df['operation_map'] = transformed_df['operation'].map(mapping_operations_2)
+                transformed_df = transformed_df.reset_index()
+                transformed_df['operation_details'] = transformed_df['index'] + "_" + transformed_df['operation_map']
+                transformed_df = transformed_df.drop(['operation', 'index','operation_map'], axis=1)
+                transformed_df = transformed_df.set_index(['operation_details'])
+
+                return transformed_df
+
+            except KeyError as e:
+                raise KeyError(f"Missing mapping for operation: {e}")
+            except Exception as e:
+                raise RuntimeError(f"Error transforming certificate diffs: {e}")
+
+        # Reshape certificate_diffs_results to long format and add operation details
+        try:
+            renovation_details_long = transform_certificate_diffs(certificate_diffs_results, mapping_operations_2)
+        except Exception as e:
+            raise Exception(f"Failed to transform certificate differences: {e}")
+
+        ########## End adding df renovations ###################################################################
+
 
         # Check that the sum of the flows for each possible pair of certificates equals the sum of renovation_flow.
         sum_check = 0
@@ -4659,11 +4716,11 @@ class AgentBuildings(ThermalBuildings):
             self.flow_by_certificate_couples_ampleur_insulation = flow_by_certificate_couples_ampleur
             self.sum_performance_insulation_ampleur = sum_performance_insulation_ampleur
             self.flow_by_operation_insulation = flow_by_operation
-            self.l5 = l5 
+            self.renovation_details_long = renovation_details_long 
         else:
             self.flow_by_certificate_couples_ampleur_obligation = flow_by_certificate_couples_ampleur
             self.sum_performance_insulation_ampleur_obligation = sum_performance_insulation_ampleur
-            self.l5_obligation = l5 
+            self.renovation_details_long_obligation = renovation_details_long
 
         return None
 
@@ -5589,6 +5646,9 @@ class AgentBuildings(ThermalBuildings):
         temp.index = temp.index.map(lambda x: 'Stock {} (Million)'.format(x))
         output.update(temp.T / 10 ** 6)
 
+        ###############################################################################################################
+        ####################### Adding consumption standard real ######################################################
+        ###############################################################################################################
 
         consumption_std = self.consumption_heating(freq="year", climate=None)
         consumption_std_2 = reindex_mi(consumption_std, self.stock.index) * self.surface * self.stock
@@ -5645,11 +5705,6 @@ class AgentBuildings(ThermalBuildings):
 
         df_final = df_final[["epc", "Heating system", "Stock buildings", "consumption_standard", "consumption_real", "coefficient_heater"]]
 
-        output['Stock efficient (Million)'] = output.get('Stock A (Million)', 0) + output.get('Stock B (Million)', 0)
-        output['Stock low-efficient (Million)'] = output.get('Stock G (Million)', 0) + output.get('Stock F (Million)', 0)
-        output['Stock to renovate (Million)'] = output['Stock low-efficient (Million)'] + output.get('Stock E (Million)', 0) + \
-                                                output.get('Stock D (Million)', 0)
-
         mapping_system_energy = {"Electricity-Heat pump water" : "Electricity",
                 "Heating-District heating" : "District heating",
                 "Natural gas-Performance boiler" : "Gas" ,
@@ -5681,6 +5736,15 @@ class AgentBuildings(ThermalBuildings):
         df_final_grouped.rename(columns={"consumption_standard": "Consumption standard (TWh)","consumption_real": "Consumption  real (TWh)" }, inplace = True)
 
         df_final_grouped = df_final_grouped.reset_index()
+
+
+        ###############################################################################################################
+        ####################### End adding consumption standard_real ###################################################
+        ###############################################################################################################
+        output['Stock efficient (Million)'] = output.get('Stock A (Million)', 0) + output.get('Stock B (Million)', 0)
+        output['Stock low-efficient (Million)'] = output.get('Stock G (Million)', 0) + output.get('Stock F (Million)', 0)
+        output['Stock to renovate (Million)'] = output['Stock low-efficient (Million)'] + output.get('Stock E (Million)', 0) + \
+                                                output.get('Stock D (Million)', 0)
 
         temp = self.stock.groupby('Heating system').sum()
 
@@ -6835,15 +6899,20 @@ class AgentBuildings(ThermalBuildings):
                 output['Total Renovation ampleur (Thousand households)'] = temp
 
             flow_by_operation = self.flow_by_operation_insulation / 10**3
-            l5 = self.l5.fillna(0)
+
+            ###############################################################################################################
+            ####################### Adding df_renovations #################################################################
+            ###############################################################################################################
+
+            renovation_details_long = self.renovation_details_long.fillna(0)
             if self.flow_by_certificate_couples_obligation is not None:
-                l5_obligation = self.l5_obligation.fillna(0)
+                renovation_details_long_obligation = self.renovation_details_long_obligation.fillna(0)
                 df_renovations_obligation_3 = pd.DataFrame(columns=["Occupancy status","Housing type","Heater replacement","Category before heater","Category before insulation", "Category after insulation", "Income", "Operation type","Year","Value"])
-                for i in l5_obligation.squeeze().index :
+                for i in renovation_details_long_obligation.squeeze().index :
 
                     i_columns = i.split('_')
                     i_columns.append(self.year)
-                    value = l5_obligation.squeeze().loc[(i)]
+                    value = renovation_details_long_obligation.squeeze().loc[(i)]
                     i_columns.append(value)
 
                     df_renovations_obligation_2 = pd.DataFrame([i_columns], columns=["Occupancy status","Housing type","Heater replacement","Category before heater","Category before insulation", "Category after insulation","Income", "Operation type","Year","Value"])
@@ -6854,7 +6923,7 @@ class AgentBuildings(ThermalBuildings):
 
 #            output.update({'Renovation {} (Thousand households)'.format(i): flow_by_operation.loc[(i)] for (i) in flow_by_operation.index})
 
-#            output.update({'Renovation {} (Thousand households)'.format(i): l5.squeeze().loc[(i)] for (i) in l5.squeeze().index})
+#            output.update({'Renovation {} (Thousand households)'.format(i): renovation_details_long.squeeze().loc[(i)] for (i) in renovation_details_long.squeeze().index})
 
             if self.merged_df_heater is not None:
                 merged_df_heater = self.merged_df_heater
@@ -6874,41 +6943,42 @@ class AgentBuildings(ThermalBuildings):
 
             df_renovations_3 = pd.DataFrame(columns=["Occupancy status","Housing type","Heater replacement","Category before heater","Category before insulation", "Category after insulation", "Income", "Operation type","Year","Value"])
             
-            mapping_final = {"Wi" : "Wi",
-                "R" : "other",
-                "RWi" : "other" ,
-                "F" : "other",
-                "FWi": "other",
-                "FR": "other",
-                "FRWi": "other",
-                "Wa": "other",
-                "WaWi": "other",
-                "WR": "other",
-                "WaRWi": "other",
-                "WaF": "other",
-                "WaFWi": "other",
-                "WaFR": "other",
-                "WaFRWi": "other"}
+            mapping_final = {"Wi" : "Windows",
+                "R" : "othersingleinsulation",
+                "RWi" : "2insulations",
+                "F" : "othersingleinsulation",
+                "FWi": "2insulations",
+                "FR": "2insulations",
+                "FRWi": "3insulations",
+                "Wa": "othersingleinsulation",
+                "WaWi": "2insulations",
+                "WR": "2insulations",
+                "WaRWi":"3insulations",
+                "WaF": "2insulations",
+                "WaFWi": "3insulations",
+                "WaFR": "3insulations",
+                "WaFRWi": "4insulations"}
 
-            l5_bis = l5.reset_index()
-            l5_bis["operation_details_2"] = l5_bis["operation_details"]
-            l5_bis[['1','2','3','4','5','6','7','8']] = l5_bis['operation_details_2'].str.split('_',expand=True)
+            renovation_details_long_bis = renovation_details_long.reset_index()
+            renovation_details_long_bis["operation_details_2"] = renovation_details_long_bis["operation_details"]
+
+            renovation_details_long_bis[['1','2','3','4','5','6','7','8']] = renovation_details_long_bis['operation_details_2'].str.split('_', n=7, expand=True)
+            renovation_details_long_bis['category'] = renovation_details_long_bis['8'].apply(lambda x: mapping_final.get(x, 'Unknown'))
  
-            l5_bis['category'] = l5_bis['8'].map(mapping_final)
-
-            l6_bis = l5_bis.drop(['operation_details','operation_details_2', '8'], axis=1)
-            l7_bis = l6_bis.groupby(['1','2','3','4','5','6','7','category']).agg(
+            renovation_details_cleaned = renovation_details_long_bis.drop(['operation_details','operation_details_2', '8'], axis=1)
+            grouped_renovation_details = renovation_details_cleaned.groupby(['1','2','3','4','5','6','7','category']).agg(
                 Flow_Choice_=('Flow_Choice_', 'sum'))
-            l7_bis = l7_bis.reset_index()
-            l7_bis["operation_details"] = l7_bis['1'] + "_" + l7_bis['2'] + "_" + l7_bis['3'] + "_" + l7_bis['4'] + "_" + l7_bis['5'] + "_" + l7_bis['6'] + "_" + l7_bis['7'] + "_" + l7_bis['category']
-            l8_bis = l7_bis.set_index('operation_details')
-            l8_bis = l8_bis.drop(['1','2','3','4','5','6','7','category'], axis=1)
+            grouped_renovation_details = grouped_renovation_details.reset_index()
+            grouped_renovation_details["operation_details"] = grouped_renovation_details.apply(lambda row: "_".join([str(row[str(i)]) for i in range(1, 8)] + [str(row['category'])]), axis=1)
+            grouped_renovation_details = grouped_renovation_details.set_index('operation_details')
+            cols_to_keep = [col for col in grouped_renovation_details.columns if col not in ['1','2','3','4','5','6','7','category']]
+            grouped_renovation_details = grouped_renovation_details[cols_to_keep]
 
-            for i,val in enumerate(l8_bis.squeeze().index) :
+            for i,val in enumerate(grouped_renovation_details.squeeze().index) :
 
                 i_columns = val.split('_')
                 i_columns.append(self.year)
-                value = l8_bis.squeeze().loc[(val)]
+                value = grouped_renovation_details.squeeze().loc[(val)]
                 i_columns.append(value)
 
                 df_renovations_2 = pd.DataFrame([i_columns], columns=["Occupancy status","Housing type","Heater replacement","Category before heater","Category before insulation", "Category after insulation", "Income", "Operation type","Year","Value"])
@@ -6935,10 +7005,13 @@ class AgentBuildings(ThermalBuildings):
             df_renovations_obligation["steps_insulation_with_heater"] = - (df_renovations_obligation["epc after insulation"] - df_renovations_obligation["epc before heater"])
             df_renovations_obligation.drop(['epc before heater', 'epc before insulation', 'epc after insulation'], axis=1, inplace=True)
             df_renovations_obligation["Obligation"] = "Yes"
+            df_renovations_obligation['Operation type'] = df_renovations_obligation['Operation type'].apply(lambda x: mapping_final.get(x, 'Unknown'))
 
         df_renovations_total = pd.concat([df_renovations, df_renovations_obligation], ignore_index=True)  
 
-
+        ###############################################################################################################
+        ####################### End adding_df_renovations #################################################################
+        ###############################################################################################################
 
         output = Series(output).rename(self.year)
         stock = stock.rename(self.year)
