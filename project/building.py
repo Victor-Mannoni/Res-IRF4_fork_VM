@@ -1157,6 +1157,11 @@ class AgentBuildings(ThermalBuildings):
             method_health_cost = 'epc'
         self.method_health_cost = method_health_cost
 
+        self.sum_performance_insulation = None
+        self.sum_performance_insulation_obligation = None
+        self.flow_by_certificate_couples = None
+        self.flow_by_certificate_couples_obligation = None
+
     @property
     def year(self):
         return self._year
@@ -4408,12 +4413,97 @@ class AgentBuildings(ThermalBuildings):
         health_cost_saved = (health_cost_before - health_cost_after.T).T
         return health_cost_saved
 
+    def certificate_flow(self, stock, renovation_rate, market_share, certificate_before_heater, certificate_after, call_from_obligation=False):
+        """ Calculates the renovation flow for each possible pair of certificates, and the sum of high-performance renovations.
+            Take certificates into account before changing heating systems, but the flows are those of insulation.
+
+            Parameters
+            ----------
+            stock: Series
+            renovation_rate: Series
+            market_share: DataFrame
+            certificate_before_heater: Series
+            certificate_after: DataFrame
+            call_from_obligation : Boolean (Optional)
+
+            Returns
+            -------
+            None
+        """
+
+        # In obligation_flow everyone in the replaced_by df renovates
+        if call_from_obligation:
+            renovation_rate.values.fill(1)
+
+        # Calculate the flows for each possible renovation choice
+        renovation_flow = stock * renovation_rate
+
+        market_flow = market_share.copy()
+        for choice in market_share.columns:
+            market_flow[choice] = renovation_flow.values * market_share[choice].values
+        market_flow = market_flow.fillna(0)
+
+        # Replace columns names with four rows by columns names Choices_0, Choices_1 etc.
+        market_flow_tmp = pd.DataFrame()
+        certificate_after_tmp = pd.DataFrame()
+        i = 0
+        for col in market_flow.columns:
+            market_flow_tmp["Flow_Choice_{f}".format(f=i)] = market_flow[col]
+            certificate_after_tmp["Certif_after_Choice_{f}".format(f=i)] = certificate_after[col]
+            i += 1
+
+        # Merge in a df : the flows for each possible renovation choice, the certificates after for each possible renovation choice, and certificate_before
+        merged_df = market_flow_tmp.merge(certificate_after_tmp, left_index=True, right_index=True, how='inner')
+        certificate_before_heater = certificate_before_heater.rename('Certificate_before_heater')
+        merged_df = merged_df.merge(certificate_before_heater, left_index=True, right_index=True, how='inner')
+
+        # Calculate the renovation flow for each possible couple of certificates
+        flow_by_certificate_couples = {}
+
+        for i in range(len(market_flow.columns)):
+            category_after_col = f'Certif_after_Choice_{i}'
+            flow_choice_col = f'Flow_Choice_{i}'
+
+            for category_before, category_after, flow_choice in zip(merged_df['Certificate_before_heater'], merged_df[category_after_col], merged_df[flow_choice_col]):
+                category_change = (category_before, category_after)
+                flow_by_certificate_couples[category_change] = flow_by_certificate_couples.get(category_change, 0) + flow_choice
+
+        # Check that the sum of the flows for each possible pair of certificates equals the sum of renovation_flow.
+        sum_check = 0
+        for key in flow_by_certificate_couples:
+            sum_check += flow_by_certificate_couples[key]
+        assert round(sum_check, 0) == round(sum(renovation_flow), 0), 'Flow between certificate pairs problem'
+
+        # Calculate the number of high-performance renovations
+        condition_reno_performante = "(category_before in ['C', 'D', 'E', 'F', 'G'] and category_after in ['A', 'B']) or (category_before in ['F', 'G'] and category_after=='C' )"
+        sum_performance_insulation = 0
+
+        for category_change, sum_value in flow_by_certificate_couples.items():
+            category_before, category_after = category_change            
+            if eval(condition_reno_performante):
+                sum_performance_insulation += sum_value
+
+        # Put results in a Series instead of a Dict
+        flow_by_certificate_couples = pd.Series(flow_by_certificate_couples)
+        flow_by_certificate_couples = flow_by_certificate_couples.sort_index(level=[0, 1])
+
+        # Put the results in the buildings object's attributes.
+        if not call_from_obligation:
+            self.flow_by_certificate_couples = flow_by_certificate_couples
+            self.sum_performance_insulation = sum_performance_insulation
+
+        else:
+            self.flow_by_certificate_couples_obligation = flow_by_certificate_couples
+            self.sum_performance_insulation_obligation = sum_performance_insulation
+
+        return None
+
     def insulation_replacement(self, stock_ini, prices, cost_insulation_raw, frequency_insulation,
                                policies_insulation=None, financing_cost=None,
                                calib_renovation=None, min_performance=None,
                                exogenous_social=None, prices_before=None, supply=None, carbon_value=None,
                                carbon_content=None, calculate_condition=True, bill_rebate=0,
-                               credit_constraint=True, health_cost=None, default_quality=None):
+                               credit_constraint=True, call_from_obligation=False, health_cost=None, default_quality=None):
         """Calculate insulation retrofit in the dwelling stock.
 
         1. Intensive margin
@@ -4676,6 +4766,8 @@ class AgentBuildings(ThermalBuildings):
                                                   vat_insulation, subsidies_details, subsidies_total, _consumption_std_saved,
                                                   consumption_saved_actual, consumption_saved_no_rebound,
                                                   amount_debt, amount_saving, discount, subsidies_loan, eligible)
+                
+            self.certificate_flow(stock, renovation_rate, market_share, certificate_before_heater, certificate_after, call_from_obligation)
 
             return renovation_rate, market_share
         else:
@@ -5008,7 +5100,8 @@ class AgentBuildings(ThermalBuildings):
                                                           policies_insulation=policies_insulation,
                                                           financing_cost=financing_cost,
                                                           min_performance=obligation.min_performance,
-                                                          credit_constraint=False,
+                                                          credit_constraint=False, 
+                                                          call_from_obligation=True,
                                                           health_cost=health_cost)
 
             if obligation.intensive == 'market_share':
@@ -5298,6 +5391,9 @@ class AgentBuildings(ThermalBuildings):
             output['Stock {} (Million)'.format(key)] = temp[[i for i in item if i in temp.index]].sum() / 10 ** 6
 
         temp.index = temp.index.map(lambda x: 'Stock {} (Million)'.format(x))
+        output.update(temp.T / 10 ** 6)
+        temp = self.stock.groupby(['Heating system', 'Housing type']).sum()
+        temp.index = ['Stock {} '.format(y) + '{} (Million)'.format(x) for (x,y) in temp.index]
         output.update(temp.T / 10 ** 6)
 
         # energy expenditures considering back-up cost
@@ -6268,6 +6364,13 @@ class AgentBuildings(ThermalBuildings):
             temp.index = temp.index.map(lambda x: 'Subsidies total {} - {} (Million euro)'.format(x[0], x[1]))
             output.update(temp.T / 10 ** 6 / step)
 
+            temp = subsidies_total.groupby(['Income owner']).sum()
+            temp.index = temp.index.map(lambda x: 'Subsidies total {} (Million euro)'.format(x))
+            output.update(temp.T / 10 ** 6 / step)
+
+            temp = subsidies_total[subsidies_total.index.get_level_values('Occupancy status') == 'Social-housing'].sum() / subsidies_total.sum()
+            output['Share of subsidies going to Social-housing (Million euro)'] = temp.sum()
+
             """
             self.store_over_years[self.year].update(
                 {'Annuities heater (Billion euro/year)': output['Annuities heater (Billion euro/year)'],
@@ -6347,6 +6450,16 @@ class AgentBuildings(ThermalBuildings):
                                                 output['CBA Thermal loss prices (Billion euro)'] + output['CBA COFP (Billion euro)']
 
             output['Cost-benefits analysis (Billion euro)'] = output['CBA benefits (Billion euro)'] + output['CBA cost (Billion euro)']
+
+            if self.flow_by_certificate_couples is not None:
+                output['High-performance renovation (Thousand households)'] = self.sum_performance_insulation / 10 ** 3
+                flow_by_certificate_couples = self.flow_by_certificate_couples / 10 ** 3
+                output.update({'Renovation from {} to '.format(i) + '{} (Thousand households)'.format(j): flow_by_certificate_couples.loc[(i,j)] for (i,j) in flow_by_certificate_couples.index})
+
+            if self.flow_by_certificate_couples_obligation is not None:
+                output['Obligatory High-performance renovation (Thousand households)'] = self.sum_performance_insulation_obligation / 10 ** 3
+                flow_by_certificate_couples_obligation = self.flow_by_certificate_couples_obligation / 10 ** 3
+                output.update({'Obligatory renovation from {} to '.format(i) + '{} (Thousand households)'.format(j): flow_by_certificate_couples_obligation.loc[(i,j)] for (i,j) in flow_by_certificate_couples_obligation.index})
 
         output = Series(output).rename(self.year)
         stock = stock.rename(self.year)
