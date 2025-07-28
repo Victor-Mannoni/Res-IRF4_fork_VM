@@ -1161,6 +1161,12 @@ class AgentBuildings(ThermalBuildings):
         self.sum_performance_insulation_obligation = None
         self.flow_by_certificate_couples_insulation = None
         self.flow_by_certificate_couples_obligation = None
+        self.flow_by_certificate_couples_ampleur_insulation = None
+        self.flow_by_certificate_couples_ampleur_obligation = None
+        self.flow_by_operation_insulation = None
+        self.l5 = None
+        self.l5_obligation = None
+        self.merged_df_heater = None
         self.flow_by_certificate_couples_heater = None
         self.sum_performance_changes_heater = None
 
@@ -4419,7 +4425,7 @@ class AgentBuildings(ThermalBuildings):
         health_cost_saved = (health_cost_before - health_cost_after.T).T
         return health_cost_saved
 
-    def certificate_flow_insulation(self, stock, renovation_rate, market_share, certificate_before_heater, certificate_after, call_from_obligation=False):
+    def certificate_flow_insulation(self, stock, renovation_rate, market_share, certificate_before_heater, certificate_before, certificate_after, call_from_obligation=False):
         """ Calculates the renovation flow for each possible pair of certificates, and the sum of high-performance renovations.
             Take certificates into account before changing heating systems, but the flows are those of insulation.
 
@@ -4437,6 +4443,38 @@ class AgentBuildings(ThermalBuildings):
             None
         """
 
+        mapping_operations = {"False False False True" : "Wi",
+            "False False True False" : "R",
+            "False False True True": "RWi",
+            "False True False False": "F",
+            "False True False True": "FWi",
+            "False True True False": "FR",
+            "False True True True": "FRWi",
+            "True False False False": "Wa",
+            "True False False True": "WaWi",
+            "True False True False": "WR",
+            "True False True True": "WaRWi",
+            "True True False False": "WaF",
+            "True True False True": "WaFWi",
+            "True True True False": "WaFR",
+            "True True True True": "WaFRWi"}
+
+        mapping_operations_2 = {0 : "Wi",
+            1 : "R",
+            2 : "RWi",
+            3 : "F",
+            4 : "FWi",
+            5 : "FR",
+            6 : "FRWi",
+            7 : "Wa",
+            8 : "WaWi",
+            9 : "WR",
+            10 : "WaRWi",
+            11: "WaF",
+            12: "WaFWi",
+            13: "WaFR",
+            14: "WaFRWi"}
+
         # In obligation_flow everyone in the replaced_by df renovates
         if call_from_obligation:
             renovation_rate.values.fill(1)
@@ -4451,9 +4489,13 @@ class AgentBuildings(ThermalBuildings):
 
         # Replace columns names with four rows by columns names Choices_0, Choices_1 etc.
         market_flow_tmp = pd.DataFrame()
+        flow_by_operation = pd.Series()
         certificate_after_tmp = pd.DataFrame()
         i = 0
         for col in market_flow.columns:
+            res = ' '.join(str(val) for val in col)
+            flow_by_operation[res] = market_flow[col].sum()
+            flow_by_operation.rename(mapping_operations, inplace=True)
             market_flow_tmp["Flow_Choice_{f}".format(f=i)] = market_flow[col]
             certificate_after_tmp["Certif_after_Choice_{f}".format(f=i)] = certificate_after[col]
             i += 1
@@ -4461,18 +4503,46 @@ class AgentBuildings(ThermalBuildings):
         # Merge in a df : the flows for each possible renovation choice, the certificates after for each possible renovation choice, and certificate_before
         merged_df = market_flow_tmp.merge(certificate_after_tmp, left_index=True, right_index=True, how='inner')
         certificate_before_heater = certificate_before_heater.rename('Certificate_before_heater')
+        certificate_before = certificate_before.rename('Certificate_before')
         merged_df = merged_df.merge(certificate_before_heater, left_index=True, right_index=True, how='inner')
+        merged_df = merged_df.merge(certificate_before, left_index=True, right_index=True, how='inner')
 
         # Calculate the renovation flow for each possible couple of certificates
         flow_by_certificate_couples = {}
+        flow_by_certificate_couples_ampleur = {}
+        certificate_diffs=[]
+        certificate_diffs_results = pd.DataFrame()
 
         for i in range(len(market_flow.columns)):
             category_after_col = f'Certif_after_Choice_{i}'
             flow_choice_col = f'Flow_Choice_{i}'
+            flow_choice_diff = f'Flow_Choice_diff{i}'
+
+            merged_df_2 = merged_df.reset_index(level=['Heater replacement'])
+            merged_df_3 = merged_df_2.reset_index(level=['Housing type'])
+            merged_df_4 = merged_df_3.reset_index(level=['Occupancy status'])
+            # merged_df_4 = merged_df_3.reset_index(level=['Heating system'])
+            # merged_df_5 = merged_df_4.reset_index(level=['Heating system final'])
+            # merged_df_6 = merged_df_5.reset_index(level=['Occupancy status'])
+            # merged_df_7 = merged_df_6.reset_index(level=['Income owner'])
+
+            merged_df_4[flow_choice_diff] = merged_df_4['Occupancy status'] + "_" + merged_df_4['Housing type'] + "_" + merged_df_4['Heater replacement'].astype(str) + "_" + merged_df_4['Certificate_before_heater'] + "_" + merged_df_4['Certificate_before'] + "_" + merged_df_4[category_after_col]
+            certificate_diffs.append(merged_df_4.groupby(flow_choice_diff)[flow_choice_col].sum())
 
             for category_before, category_after, flow_choice in zip(merged_df['Certificate_before_heater'], merged_df[category_after_col], merged_df[flow_choice_col]):
                 category_change = (category_before, category_after)
                 flow_by_certificate_couples[category_change] = flow_by_certificate_couples.get(category_change, 0) + flow_choice
+
+            certificate_diffs_results = pd.concat(certificate_diffs, axis=1)
+
+        certificate_diffs_results = certificate_diffs_results.reset_index()
+        l = pd.wide_to_long(certificate_diffs_results, stubnames='Flow_Choice_', i= 'index', j='operation')
+        l2 = l.reset_index(level=['operation'])
+        l2['operation_map'] = l2['operation'].map(mapping_operations_2)
+        l3 = l2.reset_index()
+        l3['operation_details'] = l3['index'] + "_" + l3['operation_map']
+        l4 = l3.drop(['operation', 'index','operation_map'], axis=1)
+        l5 = l4.set_index(['operation_details'])
 
         # Check that the sum of the flows for each possible pair of certificates equals the sum of renovation_flow.
         sum_check = 0
@@ -4485,7 +4555,7 @@ class AgentBuildings(ThermalBuildings):
         sum_performance_insulation = 0
 
         for category_change, sum_value in flow_by_certificate_couples.items():
-            category_before, category_after = category_change            
+            category_before, category_after = category_change 
             if eval(condition_reno_performante):
                 sum_performance_insulation += sum_value
 
@@ -4501,6 +4571,50 @@ class AgentBuildings(ThermalBuildings):
         else:
             self.flow_by_certificate_couples_obligation = flow_by_certificate_couples
             self.sum_performance_insulation_obligation = sum_performance_insulation
+
+        for i in [2,4,5,6,8,9,10,11,12,13,14]:
+            category_after_col = f'Certif_after_Choice_{i}'
+            flow_choice_col = f'Flow_Choice_{i}'
+
+            for category_before, category_after, flow_choice in zip(merged_df['Certificate_before_heater'], merged_df[category_after_col], merged_df[flow_choice_col]):
+                category_change = (category_before, category_after)
+                flow_by_certificate_couples_ampleur[category_change] = flow_by_certificate_couples_ampleur.get(category_change, 0) + flow_choice
+
+        # Check that the sum of the flows for each possible pair of certificates equals the sum of renovation_flow.
+        sum_check = 0
+        for key in flow_by_certificate_couples_ampleur:
+            sum_check += flow_by_certificate_couples_ampleur[key]
+
+        # assert round(sum_check, 0) == round(sum(renovation_flow), 0), 'Flow between certificate pairs problem'
+
+        # Calculate the number of high-performance renovations
+        condition_reno_ampleur = "(category_diff >= 2)"
+        sum_performance_insulation_ampleur = 0
+
+        category_mapping= {"A" : 7, "B" : 6, "C" : 5, "D" : 4, "E" : 3, "F" : 2, "G" : 1}
+
+        for category_change, sum_value in flow_by_certificate_couples_ampleur.items():
+            category_before, category_after = category_change
+            category_before_number = category_mapping[category_before]
+            category_after_number = category_mapping[category_after]       
+            category_diff = category_after_number - category_before_number
+            if eval(condition_reno_ampleur):
+                sum_performance_insulation_ampleur += sum_value
+
+        # Put results in a Series instead of a Dict
+        flow_by_certificate_couples_ampleur = pd.Series(flow_by_certificate_couples_ampleur)
+        flow_by_certificate_couples_ampleur = flow_by_certificate_couples_ampleur.sort_index(level=[0, 1])
+
+        # Put the results in the buildings object's attributes.
+        if not call_from_obligation:
+            self.flow_by_certificate_couples_ampleur_insulation = flow_by_certificate_couples_ampleur
+            self.sum_performance_insulation_ampleur = sum_performance_insulation_ampleur
+            self.flow_by_operation_insulation = flow_by_operation
+            self.l5 = l5 
+        else:
+            self.flow_by_certificate_couples_ampleur_obligation = flow_by_certificate_couples_ampleur
+            self.sum_performance_insulation_ampleur_obligation = sum_performance_insulation_ampleur
+            self.l5_obligation = l5 
 
         return None
 
@@ -4773,7 +4887,7 @@ class AgentBuildings(ThermalBuildings):
                                                   consumption_saved_actual, consumption_saved_no_rebound,
                                                   amount_debt, amount_saving, discount, subsidies_loan, eligible)
                 
-            self.certificate_flow_insulation(stock, renovation_rate, market_share, certificate_before_heater, certificate_after, call_from_obligation)
+            self.certificate_flow_insulation(stock, renovation_rate, market_share, certificate_before_heater, certificate_before, certificate_after, call_from_obligation)
 
             return renovation_rate, market_share
         else:
@@ -4806,6 +4920,7 @@ class AgentBuildings(ThermalBuildings):
 
         merged_df = pd.DataFrame(flow).merge(certificate_before_heater, left_index=True, right_index=True, how='inner')
         merged_df = merged_df.merge(certificate_after_heater, left_index=True, right_index=True, how='inner')
+        merged_df_heater = merged_df
 
         # Flow grouped by certificates couples
         flow_by_certificate_couples = merged_df.set_index(['certificate_before_heater', 'certificate_after_heater'])
@@ -4824,6 +4939,7 @@ class AgentBuildings(ThermalBuildings):
 
         self.flow_by_certificate_couples_heater = flow_by_certificate_couples
         self.sum_performance_changes_heater = sum_performance_changes
+        self.merged_df_heater = merged_df_heater
 
         return None
 
@@ -5231,6 +5347,11 @@ class AgentBuildings(ThermalBuildings):
         stock = self.simplified_stock()
 
         output = dict()
+
+        df_renovations = pd.DataFrame(columns=["Occupancy status", "Housing type","Heater replacement","Category before heater","Category before insulation", "Category after insulation","steps_heater","steps_insulation","steps_insulation_with_heater", "Operation type","Year","Value"])
+        df_renovations_obligation = pd.DataFrame(columns=["Occupancy status", "Housing type","Heater replacement","Category before heater","Category before insulation", "Category after insulation","steps_heater","steps_insulation","steps_insulation_with_heater", "Operation type","Year","Value"])
+        merged_df_heater = pd.DataFrame(columns=["Occupancy status","Housing type","Heating system final","Heating system","Flow","certificate_before_heater","certificate_after_heater","steps_heater","Year"])
+
         output['Stock (Million)'] = stock.sum() / 10 ** 6
         output['Stock existing (Million)'] = self.stock.xs(True, level='Existing').sum() / 10 ** 6
         stock_new = 0
@@ -6337,6 +6458,7 @@ class AgentBuildings(ThermalBuildings):
 
                  # subsidies - details: policies amount and number of beneficiaries, by decile
                 if key in ['mpr_performance', 'mpr_multifamily', 'mpr_multifamily_updated', 'mpr_multifamily_deep']:
+                  if key in ['mpr_performance']:
                     amount_tmp = subsidies_details_renovation[key]
                     subsidies_details_by_decile = amount_tmp.groupby(['Income owner']).sum()
                     amount_by_decile = subsidies_details_by_decile.T.sum()
@@ -6552,12 +6674,105 @@ class AgentBuildings(ThermalBuildings):
                 output.update({'Heater replacement only - {} to '.format(i) + '{} (Thousand households)'.format(j): flow_by_certificate_couples.loc[(i,j)] for (i,j) in flow_by_certificate_couples.index})
 
             temp = tmp1 + tmp2 + tmp3
+
             if temp > 0:
-                output['Total High-performance renovation (Thousand households)'] = temp             
+                output['Total High-performance renovation (Thousand households)'] = temp    
+
+            tmp1, tmp2= 0, 0
+
+            if self.flow_by_certificate_couples_ampleur_insulation is not None:
+                tmp1 = self.sum_performance_insulation_ampleur / 10 ** 3
+                output['Renovation ampleur (Thousand households)'] = tmp1
+                flow_by_certificate_couples_ampleur = self.flow_by_certificate_couples_ampleur_insulation / 10 ** 3
+                output.update({'Renovation >= 2 operations from {} to '.format(i) + '{} (Thousand households)'.format(j): flow_by_certificate_couples_ampleur.loc[(i,j)] for (i,j) in flow_by_certificate_couples_ampleur.index})
+
+            if self.flow_by_certificate_couples_ampleur_obligation is not None:
+                tmp2 = self.sum_performance_insulation_ampleur_obligation / 10 ** 3
+                output['Obligatory Renovation ampleur (Thousand households)'] = tmp2
+                flow_by_certificate_couples_ampleur_obligation = self.flow_by_certificate_couples_ampleur_obligation / 10 ** 3
+                output.update({'Obligatory renovation ampleur from {} to '.format(i) + '{} (Thousand households)'.format(j): flow_by_certificate_couples_ampleur_obligation.loc[(i,j)] for (i,j) in flow_by_certificate_couples_ampleur_obligation.index})
+
+            temp = tmp1 + tmp2
+
+            if temp > 0:
+                output['Total Renovation ampleur (Thousand households)'] = temp
+
+            flow_by_operation = self.flow_by_operation_insulation / 10**3
+            l5 = self.l5.fillna(0)
+            if self.flow_by_certificate_couples_obligation is not None:
+                l5_obligation = self.l5_obligation.fillna(0)
+                df_renovations_obligation_3 = pd.DataFrame(columns=["Occupancy status","Housing type","Heater replacement","Category before heater","Category before insulation", "Category after insulation", "Operation type","Year","Value"])
+                for i in l5_obligation.squeeze().index :
+
+                    i_columns = i.split('_')
+                    i_columns.append(self.year)
+                    value = l5_obligation.squeeze().loc[(i)]
+                    i_columns.append(value)
+
+                    df_renovations_obligation_2 = pd.DataFrame([i_columns], columns=["Occupancy status","Housing type","Heater replacement","Category before heater","Category before insulation", "Category after insulation", "Operation type","Year","Value"])
+
+                    df_renovations_obligation_3 = pd.concat([df_renovations_obligation_3, df_renovations_obligation_2], ignore_index=True)
+
+                df_renovations_obligation = pd.concat([df_renovations_obligation, df_renovations_obligation_3], ignore_index=True)
+
+#            output.update({'Renovation {} (Thousand households)'.format(i): flow_by_operation.loc[(i)] for (i) in flow_by_operation.index})
+
+#            output.update({'Renovation {} (Thousand households)'.format(i): l5.squeeze().loc[(i)] for (i) in l5.squeeze().index})
+
+            if self.merged_df_heater is not None:
+                merged_df_heater = self.merged_df_heater
+                merged_df_heater = merged_df_heater.reset_index()
+                merged_df_heater.drop(['Wall', 'Floor', 'Roof','Windows','Existing','Income owner'], axis=1, inplace=True)
+                merged_df_heater = merged_df_heater.groupby(['Occupancy status','Housing type',"Heating system final","Heating system","certificate_before_heater","certificate_after_heater"]).sum()
+                merged_df_heater.reset_index(inplace=True)
+                merged_df_heater["epc before heater"] = merged_df_heater["certificate_before_heater"].replace(EPC2INT)
+                merged_df_heater["epc after heater"] = merged_df_heater["certificate_after_heater"].replace(EPC2INT)
+                merged_df_heater["steps_heater"] = - (merged_df_heater["epc after heater"] - merged_df_heater["epc before heater"])
+                merged_df_heater["Year"] = self.year
+                merged_df_heater.drop(["epc before heater", "epc after heater"], axis=1, inplace=True)
+
+
+            else :
+                merged_df_heater = pd.DataFrame(columns=["Occupancy status","Housing type","Heating system final","Heating system","Flow","certificate_before_heater","certificate_after_heater","steps_heater","Year"])
+
+            df_renovations_3 = pd.DataFrame(columns=["Occupancy status","Housing type","Heater replacement","Category before heater","Category before insulation", "Category after insulation", "Operation type","Year","Value"])
+            for i in l5.squeeze().index :
+
+                i_columns = i.split('_')
+                i_columns.append(self.year)
+                value = l5.squeeze().loc[(i)]
+                i_columns.append(value)
+
+                df_renovations_2 = pd.DataFrame([i_columns], columns=["Occupancy status","Housing type","Heater replacement","Category before heater","Category before insulation", "Category after insulation", "Operation type","Year","Value"])
+
+                df_renovations_3 = pd.concat([df_renovations_3, df_renovations_2], ignore_index=True)
+
+            df_renovations = pd.concat([df_renovations, df_renovations_3], ignore_index=True)
+
+        df_renovations["epc before heater"] = df_renovations["Category before heater"].replace(EPC2INT)
+        df_renovations["epc before insulation"] = df_renovations["Category before insulation"].replace(EPC2INT)
+        df_renovations["epc after insulation"] = df_renovations["Category after insulation"].replace(EPC2INT)
+        df_renovations["steps_heater"] = - (df_renovations["epc before insulation"] - df_renovations["epc before heater"])
+        df_renovations["steps_insulation"] = - (df_renovations["epc after insulation"] - df_renovations["epc before insulation"])
+        df_renovations["steps_insulation_with_heater"] = - (df_renovations["epc after insulation"] - df_renovations["epc before heater"])
+        df_renovations.drop(['epc before heater', 'epc before insulation', 'epc after insulation'], axis=1, inplace=True)
+        df_renovations["Obligation"] = "No"
+
+        if self.flow_by_certificate_couples_obligation is not None:
+            df_renovations_obligation["epc before heater"] = df_renovations_obligation["Category before heater"].replace(EPC2INT)
+            df_renovations_obligation["epc before insulation"] = df_renovations_obligation["Category before insulation"].replace(EPC2INT)
+            df_renovations_obligation["epc after insulation"] = df_renovations_obligation["Category after insulation"].replace(EPC2INT)
+            df_renovations_obligation["steps_heater"] = - (df_renovations_obligation["epc before insulation"] - df_renovations_obligation["epc before heater"])
+            df_renovations_obligation["steps_insulation"] = - (df_renovations_obligation["epc after insulation"] - df_renovations_obligation["epc before insulation"])
+            df_renovations_obligation["steps_insulation_with_heater"] = - (df_renovations_obligation["epc after insulation"] - df_renovations_obligation["epc before heater"])
+            df_renovations_obligation.drop(['epc before heater', 'epc before insulation', 'epc after insulation'], axis=1, inplace=True)
+            df_renovations_obligation["Obligation"] = "Yes"
+
+        df_renovations_total = pd.concat([df_renovations, df_renovations_obligation], ignore_index=True)         
 
         output = Series(output).rename(self.year)
         stock = stock.rename(self.year)
-        return stock, output
+        return stock, output, df_renovations_total, merged_df_heater
 
     def parse_output_run_cba(self, prices, inputs, step=1, taxes=None, bill_rebate=0):
         output = dict()
