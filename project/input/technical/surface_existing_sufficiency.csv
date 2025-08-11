@@ -1,10 +1,10 @@
 ﻿Year,Existing,Occupancy status,Housing type,Surface
-2017,TRUE,Owner-occupied,Single-family,110.0
-2017,TRUE,Owner-occupied,Multi-family,74
-2017,TRUE,Privately rented,Single-family,87
-2017,TRUE,Privately rented,Multi-family,54
-2017,TRUE,Social-housing,Single-family,78
-2017,TRUE,Social-housing,Multi-family,63
+2017,TRUE,Owner-occupied,Single-family,109.5
+2017,TRUE,Owner-occupied,Multi-family,74.3
+2017,TRUE,Privately rented,Single-family,87.1
+2017,TRUE,Privately rented,Multi-family,53.5
+2017,TRUE,Social-housing,Single-family,77.8
+2017,TRUE,Social-housing,Multi-family,63.3
 2017,FALSE,Owner-occupied,Single-family,132
 2017,FALSE,Owner-occupied,Multi-family,81
 2017,FALSE,Privately rented,Single-family,90

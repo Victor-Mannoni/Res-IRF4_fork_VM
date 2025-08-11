@@ -37,7 +37,7 @@
     "file": "project/config/reference_sufficiency_multifamily.json",
     "end": 2051,
     "policies": {
-      "file": "project/input/policies/policies_sufficiency_calibration.json"
+      "file": "project/input/policies/policies_2024.json"
     }
   } 
 }
