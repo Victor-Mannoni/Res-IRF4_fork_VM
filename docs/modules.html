@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>API reference &mdash; Res-IRF4 0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -29,11 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Res-IRF4
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Res-IRF4
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -43,14 +47,63 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="readme.html">Res-IRF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="technical_documentation.html">Technical documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_used.html">Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies_assessment.html">Policies assessment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies_parameters.html">Setting up public policies</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-project.building">buildings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-project.building">buildings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#project.building.AgentBuildings"><code class="docutils literal notranslate"><span class="pre">AgentBuildings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.add_flows"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.add_flows()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.add_level"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.add_level()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.apply_subsidies_heater"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.apply_subsidies_heater()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.apply_subsidies_insulation"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.apply_subsidies_insulation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.calculate_distortion_insulation"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.calculate_distortion_insulation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.calculate_financing"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.calculate_financing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.calculate_renovation"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.calculate_renovation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.calibration_exogenous"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.calibration_exogenous()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.certificate_flow_heater"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.certificate_flow_heater()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.certificate_flow_insulation"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.certificate_flow_insulation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.endogenous_renovation"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.endogenous_renovation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.exogenous_market_share_heater"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.exogenous_market_share_heater()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.exogenous_renovation"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.exogenous_renovation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.find_best_option"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.find_best_option()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.flow_demolition"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.flow_demolition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.flow_obligation"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.flow_obligation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.flow_retrofit"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.flow_retrofit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.frame_to_flow"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.frame_to_flow()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.heater_replacement"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.heater_replacement()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.insulation_replacement"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.insulation_replacement()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.parse_output_run"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.parse_output_run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.prepare_consumption"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.prepare_consumption()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.prepare_cost_insulation"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.prepare_cost_insulation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.prepare_subsidy_insulation"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.prepare_subsidy_insulation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.select_deep_renovation"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.select_deep_renovation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.select_renovation_option"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.select_renovation_option()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.store_information_heater"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.store_information_heater()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.AgentBuildings.store_information_insulation"><code class="docutils literal notranslate"><span class="pre">AgentBuildings.store_information_insulation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#project.building.ThermalBuildings"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.ThermalBuildings.add_certificate"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings.add_certificate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.ThermalBuildings.calibration_consumption"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings.calibration_consumption()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.ThermalBuildings.consumption_actual"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings.consumption_actual()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.ThermalBuildings.consumption_agg"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings.consumption_agg()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.ThermalBuildings.consumption_heating"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings.consumption_heating()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.ThermalBuildings.consumption_heating_store"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings.consumption_heating_store()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.ThermalBuildings.energy_bill"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings.energy_bill()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.ThermalBuildings.need_heating"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings.need_heating()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.ThermalBuildings.optimal_temperature"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings.optimal_temperature()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.ThermalBuildings.simplified_stock"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings.simplified_stock()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.ThermalBuildings.store_consumption"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings.store_consumption()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project.building.ThermalBuildings.to_heating_intensity"><code class="docutils literal notranslate"><span class="pre">ThermalBuildings.to_heating_intensity()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="help_installation.html">Installation help</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Policies evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 </ul>
 
         </div>
@@ -66,7 +119,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">API reference</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
@@ -77,31 +130,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="api-reference">
+  <section id="api-reference">
 <h1>API reference</h1>
 <p>The API reference gives an overview of Res-IRF implementation.</p>
 <ul class="simple">
@@ -111,80 +140,87 @@
 <span id="buildings"></span><h2>buildings</h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="project.building.AgentBuildings">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">project.building.</span></span><span class="sig-name descname"><span class="pre">AgentBuildings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio_surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">efficiency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">income</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preferences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">performance_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">demolition_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2018</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endogenous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_exogenous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">utility_extensive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'market_share'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preferences_zeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detailed_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quintiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">financing_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">project.building.</span></span><span class="sig-name descname"><span class="pre">AgentBuildings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio_surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">efficiency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">income</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preferences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">performance_insulation_renovation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifetime_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2018</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endogenous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exogenous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_utility</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quintiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rational_behavior_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rational_behavior_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resources_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detailed_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_health_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">residual_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint_heat_pumps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_size_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_sink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">social_discount_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.032</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifetime_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vat_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_friction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">belief_engineering_calculation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Class AgentBuildings represents thermal dynamic building stock.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="project.building.AgentBuildings.pref_inertia">
-<span class="sig-name descname"><span class="pre">pref_inertia</span></span></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>float or Series</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="project.building.AgentBuildings.pref_investment_insulation">
-<span class="sig-name descname"><span class="pre">pref_investment_insulation</span></span></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>float or Series</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="project.building.AgentBuildings.pref_bill_insulation">
-<span class="sig-name descname"><span class="pre">pref_bill_insulation</span></span></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>float or Series</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="project.building.AgentBuildings.pref_subsidy_insulation">
-<span class="sig-name descname"><span class="pre">pref_subsidy_insulation</span></span></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>float or Series</p>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="parameters">
+<h3>Parameters:</h3>
 <dl class="simple">
-<dt>cost_insulation: DataFrame</dt><dd><p>Cost by segment and by insulation choice (€).</p>
+<dt>stock: Series</dt><dd><p>Building stock.</p>
 </dd>
-<dt>investment_insulation: DataFrame</dt><dd><p>Investment realized by segment and by insulation choice (€).</p>
+<dt>surface: Series</dt><dd><p>Surface by dwelling type.</p>
 </dd>
-<dt>tax_insulation: DataFrame</dt><dd><p>Tax by segment and by insulation choice (€).</p>
+<dt>ratio_surface: dict</dt><dd><p>Losses area of each envelop component</p>
 </dd>
-<dt>certificate_jump: DataFrame</dt><dd><p>Number of jump of energy performance certificate.</p>
+<dt>efficiency: Series</dt><dd><p>Heating system efficiency.</p>
+</dd>
+<dt>income: Series</dt><dd><p>Average income value by income class.</p>
+</dd>
+<dt>consumption_ini: Series</dt><dd><p>Initial energy consumption by dwelling type.</p>
+</dd>
+<dt>preferences: dict</dt><dd><p>Preferences parameters.</p>
+</dd>
+<dt>performance_insulation: dict</dt><dd><p>Performance insulation parameters.</p>
+</dd>
+<dt>path: str, optional</dt><dd><p>Path to save results.</p>
+</dd>
+<dt>year: int, default: 2018</dt><dd><p>Year of the stock.</p>
+</dd>
+<dt>demolition_rate: float, default 0.0</dt><dd><p>Demolition rate.</p>
+</dd>
+<dt>endogenous: bool, default True</dt><dd><p>Enable to calculate endogenous renovation.</p>
+</dd>
+<dt>number_exogenous: float or int, default 300000</dt><dd><p>Number of exogenous renovation.</p>
 </dd>
 </dl>
-<p>retrofit_rate: dict</p>
+<p>expected_utility: {‘market_share’, ‘max}
+logger: default
+calib_scale: bool, default True
+full_output: None
+quintiles: bool or None, default None
+financing_cost: bool, default True
+rational_behavior_insulation: bool, default None
+rational_behavior_heater: bool, default None
+resources_data: dict, default None
+detailed_output: bool, default True
+figures: dict, default None</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.add_flows">
 <span class="sig-name descname"><span class="pre">add_flows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flows</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Update stock attribute by adding flow series.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>flows</strong> (<em>Series</em><em>, </em><em>list</em>) – </p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>flows</strong> (<em>Series</em><em>, </em><em>list</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project.building.AgentBuildings.add_level">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">add_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Add level to df respecting ref distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong></p></li>
+<li><p><strong>ref</strong></p></li>
+<li><p><strong>level</strong></p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.apply_subsidies_heater">
-<span class="sig-name descname"><span class="pre">apply_subsidies_heater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policies_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-name descname"><span class="pre">apply_subsidies_heater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emission_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_saved</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Calculate subsidies for each dwelling and each heating system.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>policies_heater</strong> (<em>list</em>) – </p></li>
-<li><p><strong>cost_heater</strong> (<em>Series</em>) – </p></li>
-<li><p><strong>frame</strong> (<em>DataFrame</em>) – Index matches segments and columns heating system.</p></li>
+<li><p><strong>index</strong> (<em>Index</em><em> or </em><em>MultiIndex</em>)</p></li>
+<li><p><strong>policies_heater</strong> (<em>list</em>)</p></li>
+<li><p><strong>cost_heater</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>consumption_saved</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>emission_saved</strong> (<em>DataFrame</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -192,13 +228,13 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.apply_subsidies_insulation">
-<span class="sig-name descname"><span class="pre">apply_subsidies_insulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_before</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_before_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_saved_3uses</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-name descname"><span class="pre">apply_subsidies_insulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_before</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_before_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_saved_3uses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculate_condition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">health_cost_saved</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_saved</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Calculate subsidies amount for each possible insulation choice.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> – </p></li>
-<li><p><strong>policies_insulation</strong> (<em>list</em>) – </p></li>
+<li><p><strong>index</strong></p></li>
+<li><p><strong>policies_insulation</strong> (<em>list</em>)</p></li>
 <li><p><strong>cost_insulation</strong> (<em>DataFrame</em>) – Cost for each segment and each possible insulation choice (€).</p></li>
 <li><p><strong>surface</strong> (<em>Series</em>) – Surface / dwelling for each segment (m2/dwelling).</p></li>
 <li><p><strong>certificate</strong> (<em>DataFrame</em>) – Certificate by segment after insulation replacement for each possible insulation choice.</p></li>
@@ -206,17 +242,18 @@
 <li><p><strong>certificate_before_heater</strong> (<em>Series</em>) – Certificate by segment before insulation, and before heater replacement. Useful to calculate the total
 number of upgrade this year.</p></li>
 <li><p><strong>energy_saved_3uses</strong> (<em>DataFrame</em>) – Primary conventional energy consumption saved by the insulation work (% - kWh PE/m2).</p></li>
+<li><p><strong>consumption_saved</strong> (<em>kWh</em>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>cost_insulation</strong> (<em>DataFrame</em>)</p></li>
-<li><p><strong>tax_insulation</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>vat_insulation</strong> (<em>DataFrame</em>)</p></li>
 <li><p><strong>tax</strong> (<em>float</em>)</p></li>
 <li><p><strong>subsidies_details</strong> (<em>dict</em>)</p></li>
 <li><p><strong>subsidies_total</strong> (<em>DataFrame</em>)</p></li>
 <li><p><strong>condition</strong> (<em>dict</em>)</p></li>
-<li><p><strong>certificate_jump_all</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>eligible</strong> (<em>dict</em>)</p></li>
 </ul>
 </p>
 </dd>
@@ -224,65 +261,141 @@ number of upgrade this year.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="project.building.AgentBuildings.calibration_constant_heater">
-<span class="sig-name descname"><span class="pre">calibration_constant_heater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">utility</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_heater</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Constant to match the observed market-share.</p>
-<p>Market-share is defined by initial and final heating system.</p>
+<dt class="sig sig-object py" id="project.building.AgentBuildings.calculate_distortion_insulation">
+<span class="sig-name descname"><span class="pre">calculate_distortion_insulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">health_cost_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Calculate distortion amount for each possible insulation choice.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project.building.AgentBuildings.calculate_financing">
+<span class="sig-name descname"><span class="pre">calculate_financing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">financing_cost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Apply financing cost.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>utility</strong> (<em>DataFrame</em>) – </p></li>
-<li><p><strong>ms_heater</strong> (<em>DataFrame</em>) – </p></li>
+<li><p><strong>cost</strong></p></li>
+<li><p><strong>subsidies</strong></p></li>
+<li><p><strong>financing_cost</strong></p></li>
+<li><p><strong>policies</strong> (<em>list</em>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>DataFrame</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>cost_total</em></p></li>
+<li><p><em>cost_financing</em></p></li>
+<li><p><em>amount_debt</em></p></li>
+<li><p><em>amount_saving</em></p></li>
+<li><p><em>discount</em></p></li>
+<li><p><em>subsidies</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project.building.AgentBuildings.calculate_renovation">
+<span class="sig-name descname"><span class="pre">calculate_renovation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">health_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Calculate the economics renovation of the building stock.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prices</strong> (<em>Series</em>) – Energy prices.</p></li>
+<li><p><strong>cost_insulation</strong> (<em>Series</em>) – Cost of insulation measures.</p></li>
+<li><p><strong>cost_heater</strong> (<em>Series</em>) – Cost of heater measures.</p></li>
+<li><p><strong>carbon_content</strong> (<em>Series</em>) – Carbon content of energy carriers.</p></li>
+<li><p><strong>health_cost</strong> (<em>Series</em>) – Health cost of energy carriers.</p></li>
+<li><p><strong>carbon_value</strong> (<em>float</em>) – Carbon value.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.calibration_exogenous">
-<span class="sig-name descname"><span class="pre">calibration_exogenous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taxes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_insulation_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_insulation_ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.19651508552344</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-name descname"><span class="pre">calibration_exogenous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coefficient_global</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coefficient_backup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constant_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constant_insulation_intensive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constant_insulation_extensive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_prices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rational_hidden_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_firms_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_firms_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hi_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Function calibrating buildings object with exogenous data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>coefficient_global</strong> (<em>float</em>)</p></li>
+<li><p><strong>coefficient_backup</strong> (<em>Series</em>)</p></li>
+<li><p><strong>constant_heater</strong> (<em>Series</em>)</p></li>
+<li><p><strong>scale_heater</strong> (<em>float</em>)</p></li>
+<li><p><strong>constant_insulation_intensive</strong> (<em>Series</em>)</p></li>
+<li><p><strong>constant_insulation_extensive</strong> (<em>Series</em>)</p></li>
+<li><p><strong>scale_insulation</strong> (<em>float</em>)</p></li>
 <li><p><strong>energy_prices</strong> (<em>Series</em>) – Energy prices for year y. Index are energy carriers {‘Electricity’, ‘Natural gas’, ‘Oil fuel’, ‘Wood fuel’}.</p></li>
-<li><p><strong>taxes</strong> (<em>Series</em>) – Energy taxes for year y.</p></li>
+<li><p><strong>rational_hidden_cost</strong></p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="project.building.AgentBuildings.endogenous_retrofit">
-<span class="sig-name descname"><span class="pre">endogenous_retrofit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renovation_rate_ini</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">utility_zil</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_subsidies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_freeriders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.85</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">financing_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py" id="project.building.AgentBuildings.certificate_flow_heater">
+<span class="sig-name descname"><span class="pre">certificate_flow_heater</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Calculates the flow for each possible pair of certificates for those who change their heater but do not renovate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project.building.AgentBuildings.certificate_flow_insulation">
+<span class="sig-name descname"><span class="pre">certificate_flow_insulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renovation_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">market_share</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_before_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_before</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_after</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_from_obligation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Calculates the renovation flow for each possible pair of certificates, and the sum of high-performance renovations.
+Take certificates into account before changing heating systems, but the flows are those of insulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stock</strong> (<em>Series</em>)</p></li>
+<li><p><strong>renovation_rate</strong> (<em>Series</em>)</p></li>
+<li><p><strong>market_share</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>certificate_before_heater</strong> (<em>Series</em>)</p></li>
+<li><p><strong>certificate_after</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>call_from_obligation</strong> (<em>Boolean</em><em> (</em><em>Optional</em><em>)</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project.building.AgentBuildings.endogenous_renovation">
+<span class="sig-name descname"><span class="pre">endogenous_renovation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_renovation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_performance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_details</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_financing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credit_constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">health_cost_saved</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Calculate endogenous retrofit based on discrete choice model.</p>
 <p>Utility variables are investment cost, energy bill saving, and subsidies.
 Preferences are object attributes defined initially.</p>
 <p># bill saved calculated based on the new heating system
 # certificate before work and so subsidies before the new heating system</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>financing_cost</strong> – </p></li>
-<li><p><strong>index</strong> (<em>MultiIndex</em>) – </p></li>
-<li><p><strong>prices</strong> (<em>Series</em>) – </p></li>
-<li><p><strong>subsidies_total</strong> (<em>DataFrame</em>) – </p></li>
-<li><p><strong>cost_insulation</strong> (<em>DataFrame</em>) – </p></li>
-<li><p><strong>ms_insulation</strong> (<em>Series</em><em>, </em><em>default None</em>) – </p></li>
-<li><p><strong>renovation_rate_ini</strong> (<em>Series</em><em>, </em><em>default None</em>) – </p></li>
-<li><p><strong>utility_zil</strong> (<em>DataFrame</em><em>, </em><em>default None</em>) – </p></li>
-<li><p><strong>stock</strong> (<em>Series</em><em>, </em><em>default None</em>) – </p></li>
-<li><p><strong>delta_subsidies</strong> (<em>DataFrame</em><em>, </em><em>default None</em>) – </p></li>
-<li><p><strong>target_freeriders</strong> (<em>float</em><em>, </em><em>default 0.85</em>) – </p></li>
+<li><p><strong>stock</strong> (<em>Series</em><em>, </em><em>default None</em>)</p></li>
+<li><p><strong>bill_saved</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>subsidies_total</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>cost_insulation</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>frequency_insulation</strong> (<em>float</em><em> or </em><em>int</em>)</p></li>
+<li><p><strong>stock</strong></p></li>
+<li><p><strong>calib_renovation</strong> (<em>dict</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>min_performance</strong> (<em>str</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>subsidies_details</strong> (<em>dict</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>cost_financing</strong> (<em>DataFrame</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>supply</strong> (<em>DataFrame</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>credit_constraint</strong> (<em>float</em><em>, </em><em>optional</em>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>Series</em> – Retrofit rate</p></li>
 <li><p><em>DataFrame</em> – Market-share insulation</p></li>
+<li><p><em>DataFrame</em> – Utility insulation</p></li>
+<li><p><em>Series</em> – Consumer surplus</p></li>
 </ul>
 </p>
 </dd>
@@ -293,16 +406,15 @@ Preferences are object attributes defined initially.</p>
 <dt class="sig sig-object py" id="project.building.AgentBuildings.exogenous_market_share_heater">
 <span class="sig-name descname"><span class="pre">exogenous_market_share_heater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choice_heater_idx</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Define exogenous market-share.</p>
-<p>Market-share is defined by _market_share_exogenous attribute.
-Replacement</p>
+<p>Market-share is defined by _market_share_exogenous attribute.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> (<em>MultiIndex</em>) – </p></li>
-<li><p><strong>choice_heater_idx</strong> (<em>Index</em>) – </p></li>
+<li><p><strong>index</strong> (<em>MultiIndex</em><em> or </em><em>Index</em>)</p></li>
+<li><p><strong>choice_heater_idx</strong> (<em>Index</em>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>DataFrame</em> – Market-share by segment and possible heater choice.</p></li>
 <li><p><em>Series</em> – Probability replacement.</p></li>
@@ -313,19 +425,19 @@ Replacement</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="project.building.AgentBuildings.exogenous_retrofit">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exogenous_retrofit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choice_insulation</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py" id="project.building.AgentBuildings.exogenous_renovation">
+<span class="sig-name descname"><span class="pre">exogenous_renovation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Format retrofit rate and market share for each segment.</p>
 <p>Global retrofit and retrofit rate to match exogenous numbers.
 Retrofit all heating system replacement dwelling.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> (<em>MultiIndex</em>) – </p></li>
-<li><p><strong>choice_insulation</strong> (<em>MultiIndex</em>) – </p></li>
+<li><p><strong>stock</strong> (<em>Series</em>)</p></li>
+<li><p><strong>condition</strong> (<em>dict</em>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>Series</em> – Retrofit rate by segment.</p></li>
 <li><p><em>DataFrame</em> – Market-share by segment and insulation choice.</p></li>
@@ -337,17 +449,17 @@ Retrofit all heating system replacement dwelling.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.find_best_option">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_best_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criteria</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'max'</span></span></em><span class="sig-paren">)</span></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_best_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criteria</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'max'</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Find best option (columns), and returns</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>criteria</strong> (<em>DataFrame</em>) – Find for each index the column based on criteria values.</p></li>
 <li><p><strong>dict_df</strong> (<em>dict</em>) – Dataframe to return.</p></li>
-<li><p><strong>func</strong> – </p></li>
+<li><p><strong>func</strong></p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>DataFrame</p>
 </dd>
 </dl>
@@ -355,10 +467,34 @@ Retrofit all heating system replacement dwelling.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.flow_demolition">
-<span class="sig-name descname"><span class="pre">flow_demolition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<span class="sig-name descname"><span class="pre">flow_demolition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">demolition_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Demolition of E, F and G buildings based on their share in the mobile stock.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project.building.AgentBuildings.flow_obligation">
+<span class="sig-name descname"><span class="pre">flow_obligation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policies_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">financing_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">health_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Account for flow obligation if defined in policies_insulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>policies_insulation</strong> (<em>list</em>) – Check if obligation.</p></li>
+<li><p><strong>prices</strong> (<em>Series</em>)</p></li>
+<li><p><strong>cost_insulation</strong> (<em>Series</em>)</p></li>
+<li><p><strong>financing_cost</strong> (<em>dict</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>frequency_insulation</strong> (<em>float</em><em> or </em><em>int</em><em>, </em><em>default 1</em>)</p></li>
+<li><p><strong>health_cost</strong> (<em>Series</em><em>, </em><em>optional</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>flow_obligation</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Series</p>
 </dd>
 </dl>
@@ -366,7 +502,7 @@ Retrofit all heating system replacement dwelling.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.flow_retrofit">
-<span class="sig-name descname"><span class="pre">flow_retrofit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renovation_rate_ini</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_freeriders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">financing_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-name descname"><span class="pre">flow_retrofit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">district_heating</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">financing_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_renovation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exogenous_social</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">premature_replacement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices_before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_value_kwh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_rebate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_content</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">health_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credit_constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Compute heater replacement and insulation retrofit.</p>
 <ol class="arabic simple">
 <li><p>Heater replacement based on current stock segment.</p></li>
@@ -375,21 +511,19 @@ Retrofit all heating system replacement dwelling.</p>
 share by segment.
 3. Then, managing inflow and outflow.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prices</strong> (<em>Series</em>) – </p></li>
-<li><p><strong>cost_heater</strong> (<em>Series</em>) – </p></li>
-<li><p><strong>ms_heater</strong> (<em>DataFrame</em>) – </p></li>
-<li><p><strong>cost_insulation</strong> – </p></li>
-<li><p><strong>ms_insulation</strong> (<em>Series</em>) – </p></li>
-<li><p><strong>renovation_rate_ini</strong> (<em>Series</em>) – </p></li>
-<li><p><strong>policies_heater</strong> (<em>list</em>) – List of policies for heating system.</p></li>
-<li><p><strong>policies_insulation</strong> (<em>list</em>) – List of policies for insulation.</p></li>
-<li><p><strong>target_freeriders</strong> (<em>float</em><em>, </em><em>default None</em>) – Number of freeriders in calibration year for the income tax credit.</p></li>
-<li><p><strong>financing_cost</strong> (<em>optional</em><em>, </em><em>dict</em>) – </p></li>
+<li><p><strong>prices</strong> (<em>Series</em>)</p></li>
+<li><p><strong>cost_heater</strong> (<em>Series</em>)</p></li>
+<li><p><strong>calib_heater</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>cost_insulation</strong></p></li>
+<li><p><strong>policies_heater</strong> (<em>list</em>) – Policies for heating system.</p></li>
+<li><p><strong>policies_insulation</strong> (<em>list</em>) – Policies for insulation.</p></li>
+<li><p><strong>financing_cost</strong> (<em>optional</em><em>, </em><em>dict</em>)</p></li>
+<li><p><strong>calib_renovation</strong> (<em>dict</em><em>, </em><em>optional</em>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>Series</p>
 </dd>
 </dl>
@@ -397,16 +531,16 @@ share by segment.
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.frame_to_flow">
-<span class="sig-name descname"><span class="pre">frame_to_flow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">replaced_by</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-name descname"><span class="pre">frame_to_flow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">replaced_by</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Transform insulation transition Dataframe to flow.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>replaced_by</strong> (<em>DataFrame</em>) – </p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>replaced_by</strong> (<em>DataFrame</em>)</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>replaced_by</strong> – Flow Series.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Series</p>
 </dd>
 </dl>
@@ -414,20 +548,30 @@ share by segment.
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.heater_replacement">
-<span class="sig-name descname"><span class="pre">heater_replacement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">probability_replacement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Function returns new building stock after heater replacement.</p>
+<span class="sig-name descname"><span class="pre">heater_replacement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">financing_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">district_heating</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">premature_replacement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices_before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">store_information</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_rebate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_content</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credit_constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Function returns building stock updated after switching heating system.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prices</strong> (<em>Series</em>) – </p></li>
-<li><p><strong>cost_heater</strong> (<em>Series</em>) – </p></li>
-<li><p><strong>ms_heater</strong> (<em>DataFrame</em><em>, </em><em>optional</em>) – </p></li>
-<li><p><strong>policies_heater</strong> (<em>list</em>) – </p></li>
-<li><p><strong>probability_replacement</strong> (<em>float</em><em> or </em><em>Series</em><em>, </em><em>default 1/17</em>) – </p></li>
-<li><p><strong>index</strong> (<em>MultiIndex optional</em><em>, </em><em>default None</em>) – </p></li>
+<li><p><strong>stock</strong> (<em>Series</em>)</p></li>
+<li><p><strong>prices</strong> (<em>Series</em>)</p></li>
+<li><p><strong>cost_heater</strong> (<em>Series</em>)</p></li>
+<li><p><strong>calib_heater</strong> (<em>DataFrame</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>policies_heater</strong> (<em>list</em>)</p></li>
+<li><p><strong>calib_heater</strong></p></li>
+<li><p><strong>step</strong> (<em>int</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>financing_cost</strong> (<em>dict</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>district_heating</strong> (<em>Series</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>premature_replacement</strong> (<em>Series</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>prices_before</strong> (<em>Series</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>supply</strong> (<em>Series</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>store_information</strong> (<em>bool</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>carbon_content</strong> (<em>Series</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>carbon_value</strong> (<em>float</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>bill_rebate</strong> (<em>float</em><em>, </em><em>optional</em>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>Series</p>
 </dd>
 </dl>
@@ -435,7 +579,7 @@ share by segment.
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.insulation_replacement">
-<span class="sig-name descname"><span class="pre">insulation_replacement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation_raw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renovation_rate_ini</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_freeriders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">financing_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-name descname"><span class="pre">insulation_replacement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation_raw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">financing_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_renovation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_performance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exogenous_social</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices_before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_content</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculate_condition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_rebate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credit_constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_from_obligation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">health_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Calculate insulation retrofit in the dwelling stock.</p>
 <ol class="arabic simple">
 <li><p>Intensive margin</p></li>
@@ -443,23 +587,31 @@ share by segment.
 <p>2. Extensive margin
 Calibrate function first year.</p>
 <p>Consumption saving only depends on insulation work.
-However, certificate upgrade also consider the heat</p>
-<p>To reduce calculation time attributes are grouped.
+However, certificate upgrade also consider if heating system have switched.</p>
+<p>To reduce calculation time, we reduce the number of combination by grouping.
 Cost, subsidies and constant depends on Housing type, Occupancy status, Housing type and Insulation performance.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>financing_cost</strong> – </p></li>
-<li><p><strong>stock</strong> (<em>Series</em>) – </p></li>
-<li><p><strong>prices</strong> (<em>Series</em>) – </p></li>
+<li><p><strong>stock_ini</strong> (<em>Series</em>)</p></li>
+<li><p><strong>prices</strong> (<em>Series</em>)</p></li>
 <li><p><strong>cost_insulation_raw</strong> (<em>Series</em>) – €/m2 of losses area by component.</p></li>
-<li><p><strong>ms_insulation</strong> (<em>Series</em>) – </p></li>
-<li><p><strong>renovation_rate_ini</strong> (<em>Series</em>) – </p></li>
-<li><p><strong>policies_insulation</strong> (<em>list</em>) – </p></li>
-<li><p><strong>target_freeriders</strong> (<em>float</em>) – </p></li>
+<li><p><strong>policies_insulation</strong> (<em>list</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>frequency_insulation</strong> (<em>float</em><em> or </em><em>int</em>)</p></li>
+<li><p><strong>financing_cost</strong> (<em>dict</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>calib_renovation</strong> (<em>dict</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>min_performance</strong> (<em>str</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>exogenous_social</strong> (<em>DataFrame</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>prices_before</strong> (<em>Series; optional</em>)</p></li>
+<li><p><strong>supply</strong> (<em>dict</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>carbon_value</strong> (<em>float</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>carbon_content</strong> (<em>float</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>calculate_condition</strong> (<em>bool</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>bill_rebate</strong> (<em>float</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>credit_constraint</strong> (<em>bool</em><em>, </em><em>optional</em>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>Series</em> – Retrofit rate</p></li>
 <li><p><em>DataFrame</em> – Market-share insulation</p></li>
@@ -470,58 +622,56 @@ Cost, subsidies and constant depends on Housing type, Occupancy status, Housing 
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="project.building.AgentBuildings.mitigation_potential">
-<span class="sig-name descname"><span class="pre">mitigation_potential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation_raw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_emission</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">health_cost</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Function returns bill saved and cost for buildings stock retrofit.</p>
-<p>Not implemented yet but should be able to calculate private and social indicator.
-Make cost abatement cost graphs, payback period graphs.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> – </p></li>
-<li><p><strong>prices</strong> – </p></li>
-<li><p><strong>cost_insulation_raw</strong> – </p></li>
-<li><p><strong>carbon_emission</strong> – </p></li>
-<li><p><strong>carbon_value</strong> – </p></li>
-<li><p><strong>health_cost</strong> – </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.parse_output_run">
-<span class="sig-name descname"><span class="pre">parse_output_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-name descname"><span class="pre">parse_output_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">climate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taxes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifetime_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">social_discount_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.032</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_rebate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coefficient_public_funding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_financing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discount_financing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Parse output.</p>
 <p>Renovation : envelope
 Retrofit : envelope and/or heating system</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>inputs</strong> (<em>dict</em>) – Exogenous data for post-treatment.
-‘carbon_emission’
-‘population’
-‘surface’
-‘embodied_energy_renovation’
-‘carbon_footprint_renovation’
-‘Carbon footprint construction (MtCO2)’
-‘health_expenditure’, ‘mortality_cost’, ‘loss_well_being’
-‘Embodied energy construction (TWh PE)’</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prices</strong> (<em>Series</em>) – Energy prices</p></li>
+<li><p><strong>inputs</strong> (<em>dict</em>) – Exogenous data for post-treatment.</p></li>
+<li><p><strong>climate</strong> (<em>int</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>step</strong> (<em>int</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>taxes</strong> (<em>list</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>lifetime_insulation</strong> (<em>int</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>social_discount_rate</strong> (<em>float</em><em>, </em><em>default 0.032</em>)</p></li>
+<li><p><strong>bill_rebate</strong> (<em>float</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>coefficient_public_funding</strong> (<em>float</em><em>, </em><em>default 0.2</em>)</p></li>
+<li><p><strong>duration_financing</strong> (<em>int</em><em>, </em><em>default 10</em>)</p></li>
+<li><p><strong>discount_financing</strong> (<em>float</em><em>, </em><em>default 0.05</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.prepare_consumption">
-<span class="sig-name descname"><span class="pre">prepare_consumption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">choice_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">performance_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Heating</span> <span class="pre">system'</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Calculate standard energy consumption and energy performance certificate for each choice insulation for all
-households.</p>
+<span class="sig-name descname"><span class="pre">prepare_consumption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">choice_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">performance_insulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_epc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'5uses'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Heating</span> <span class="pre">system'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">store</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">climate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Standard energy consumption and energy performance certificate for each renovation works option.</p>
 <p>Standard energy consumption only depends on building characteristics.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><ul class="simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>choice_insulation</strong> (<em>MultiIndex</em>) – Insulation choice.</p></li>
+<li><p><strong>performance_insulation</strong> (<em>MultiIndex</em>) – Insulation performance.</p></li>
+<li><p><strong>index</strong> (<em>MultiIndex</em>) – Index to calculate consumption.</p></li>
+<li><p><strong>method_epc</strong> (<em>{'3uses'</em><em>, </em><em>'5uses'}</em>) – Method to calculate energy performance certificate.</p></li>
+<li><p><strong>level_heater</strong> (<em>str</em>) – Heating system level to calculate the consumption.</p></li>
+<li><p><strong>full_output</strong> (<em>bool</em><em>, </em><em>default True</em>) – Enable to return full output.</p></li>
+<li><p><strong>store</strong> (<em>bool</em><em>, </em><em>default True</em>) – Enable to store results.</p></li>
+<li><p><strong>climate</strong> (<em>int</em>) – Climate year.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
 <li><p><em>DataFrame</em> – Final consumption standard.</p></li>
 <li><p><em>DataFrame</em> – Primary consumption standard 3 uses.</p></li>
-<li><p><em>DataFrame</em> – Cerfificate.</p></li>
+<li><p><em>DataFrame</em> – Energy performance certificate.</p></li>
 </ul>
 </p>
 </dd>
@@ -533,13 +683,13 @@ households.</p>
 <span class="sig-name descname"><span class="pre">prepare_cost_insulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cost_insulation</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Constitute insulation choice set cost. Cost is equal to the sum of each individual cost component.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cost_insulation</strong> (<em>Series</em>) – </p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cost_insulation</strong> (<em>Series</em>)</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Multiindex series. Levels are Wall, Floor, Roof and Windows and values are boolean.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Series</p>
 </dd>
 </dl>
@@ -550,134 +700,168 @@ households.</p>
 <span class="sig-name descname"><span class="pre">prepare_subsidy_insulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subsidies_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Constitute insulation choice set subsidies. Subsidies are equal to the sum of each individual subsidy.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>policy</strong> – </p></li>
-<li><p><strong>subsidies_insulation</strong> (<em>DataFrame</em>) – </p></li>
+<li><p><strong>policy</strong></p></li>
+<li><p><strong>subsidies_insulation</strong> (<em>DataFrame</em>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Multiindex columns. Levels are Wall, Floor, Roof and Windows and values are boolean.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="project.building.AgentBuildings.select_deep_renovation">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">select_deep_renovation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">certificate_after</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Select deep renovation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>certificate_after</strong> (<em>DataFrame</em>) – Certificate after renovation.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project.building.AgentBuildings.select_renovation_option">
+<span class="sig-name descname"><span class="pre">select_renovation_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">consumption_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emission_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_investment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_after</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_saved</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">health_cost_saved</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifetime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discount_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'deep_renovation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_carbon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_health</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_failures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_failures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_failures_landlords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_failures_landlords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_failures_multi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_failures_multi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_credit_constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">income</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_loan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Select renovation option based on measures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>consumption_saved</strong> (<em>Series</em>) – Energy consumption saved by renovation measures.</p></li>
+<li><p><strong>emission_saved</strong> (<em>Series</em>) – Emission saved by renovation measures.</p></li>
+<li><p><strong>cost_investment</strong> (<em>Series</em>) – Cost of insulation measures.</p></li>
+<li><p><strong>stock</strong> (<em>Series</em>) – Stock of buildings.</p></li>
+<li><p><strong>certificate_after</strong> (<em>Series</em>) – Energy performance certificate after renovation measures.</p></li>
+<li><p><strong>lifetime</strong> (<em>int</em><em>, </em><em>default 30</em>) – Lifetime of insulation measures.</p></li>
+<li><p><strong>discount_rate</strong> (<em>float</em><em>, </em><em>default 0.05</em>) – Discount rate.</p></li>
+<li><p><strong>measures</strong> (<em>str</em><em>, </em><em>default 'deep_renovation'</em>) – Type of insulation measures.</p></li>
+<li><p><strong>carbon_saved</strong> (<em>Series</em><em>, </em><em>default None</em>) – Carbon saved by renovation measures.</p></li>
+<li><p><strong>bill_saved</strong> (<em>Series</em><em>, </em><em>default None</em>) – Bill saved by renovation measures.</p></li>
+<li><p><strong>health_cost_saved</strong> (<em>Series</em><em>, </em><em>default None</em>) – Health cost saved by renovation measures.</p></li>
+<li><p><strong>include_energy</strong> (<em>bool</em><em>, </em><em>default True</em>) – Include energy in the calculation of indicators.</p></li>
+<li><p><strong>include_carbon</strong> (<em>bool</em><em>, </em><em>default False</em>) – Include carbon in the calculation of indicators.</p></li>
+<li><p><strong>include_health</strong> (<em>bool</em><em>, </em><em>default False</em>) – Include health in the calculation of indicators.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.store_information_heater">
-<span class="sig-name descname"><span class="pre">store_information_heater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cost_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_details</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replacement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tax_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replaced_by</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-name descname"><span class="pre">store_information_heater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cost_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_details</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replacement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vat_heater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_financing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_debt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_saving</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_before</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_no_rebound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_actual</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_upgrade</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_premature_replacement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_loan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eligible</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_benefits_heater</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Store information yearly heater replacement.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cost_heater</strong> (<em>Series</em>) – Cost of each heating system (€).</p></li>
-<li><p><strong>subsidies_total</strong> (<em>DataFrame</em>) – Total amount of eligible subsidies by dwelling and heating system (€).</p></li>
-<li><p><strong>subsidies_details</strong> (<em>dict</em>) – Amount of eligible subsidies by dwelling and heating system (€).</p></li>
-<li><p><strong>replacement</strong> (<em>DataFrame</em>) – Number of heating system replacement by dwelling and heating system chosen.</p></li>
-<li><p><strong>tax_heater</strong> (<em>Series</em>) – VTA tax of each heating system (€).</p></li>
-<li><p><strong>replaced_by</strong> (<em>Series</em>) – Dwelling updated with a new heating system.</p></li>
+<li><p><strong>cost_heater</strong> (<em>DataFrame</em>) – Cost of each heating system (EUR).</p></li>
+<li><p><strong>subsidies_total</strong> (<em>DataFrame</em>) – Total amount of eligible subsidies by dwelling and heating system (EUR).</p></li>
+<li><p><strong>subsidies_details</strong> (<em>dict</em>) – Amount of eligible subsidies by dwelling and heating system (EUR).</p></li>
+<li><p><strong>replacement</strong> (<em>Series</em>) – Dwelling updated with a new heating system.</p></li>
+<li><p><strong>vat_heater</strong> (<em>Series</em>) – vat tax of each heating system (EUR).</p></li>
+<li><p><strong>flow_premature_replacement</strong> (<em>int</em>) – Number of dwelling that replace their heating system before the end of its lifetime.</p></li>
+<li><p><strong>cost_financing</strong> (<em>DataFrame</em>) – Cost of financing by dwelling (EUR).</p></li>
+<li><p><strong>amount_debt</strong> (<em>DataFrame</em>) – Amount of debt by dwelling and income owner (EUR).</p></li>
+<li><p><strong>amount_saving</strong> (<em>DataFrame</em>) – Amount of saving by dwelling and income owner (EUR).</p></li>
+<li><p><strong>discount</strong> (<em>float</em>) – Discount rate.</p></li>
+<li><p><strong>consumption_saved</strong> (<em>DataFrame</em>) – Consumption saved by dwelling and heating system (kWh).</p></li>
+<li><p><strong>consumption_before</strong> (<em>DataFrame</em>) – Consumption before replacement by dwelling and heating system (kWh).</p></li>
+<li><p><strong>consumption_no_rebound</strong> (<em>DataFrame</em>) – Consumption after replacement without rebound effect by dwelling and heating system (kWh).</p></li>
+<li><p><strong>consumption_actual</strong> (<em>DataFrame</em>) – Consumption after replacement with rebound effect by dwelling and heating system (kWh).</p></li>
+<li><p><strong>epc_upgrade</strong> (<em>DataFrame</em>) – Jump in EPC by dwelling and heating system (EPC).</p></li>
+<li><p><strong>subsidies_loan</strong> (<em>DataFrame</em>) – Amount of eligible subsidies by dwelling and heating system (EUR).</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.AgentBuildings.store_information_insulation">
-<span class="sig-name descname"><span class="pre">store_information_insulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">certificate_jump_all</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation_raw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tax_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_details</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retrofit_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-name descname"><span class="pre">store_information_insulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation_raw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_financing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vat_insulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_details</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_saved_actual</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_saved_no_rebound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_debt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_saving</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsidies_loan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eligible</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Store insulation information.</p>
+<p>Information are post-treated to weight by the number of replacement.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>certificate_jump_all</strong> – </p></li>
-<li><p><strong>condition</strong> (<em>dict</em>) – </p></li>
+<li><p><strong>condition</strong> (<em>dict</em>)</p></li>
 <li><p><strong>cost_insulation_raw</strong> (<em>Series</em>) – Cost of insulation for each envelope component of losses surface (€/m2).</p></li>
-<li><p><strong>tax</strong> (<em>float</em>) – VTA to apply (%).</p></li>
-<li><p><strong>cost_insulation</strong> (<em>DataFrame</em>) – Cost insulation for each dwelling and each insulation gesture (€).</p></li>
-<li><p><strong>tax_insulation</strong> (<em>DataFrame</em>) – VTA applied to each insulation gesture cost (€).</p></li>
+<li><p><strong>tax</strong> (<em>float</em>) – vat to apply (%).</p></li>
+<li><p><strong>cost_insulation</strong> (<em>DataFrame</em>) – Cost total for each dwelling and each insulation gesture (€). Financing cost included.</p></li>
+<li><p><strong>cost_financing</strong> (<em>DataFrame</em>) – Financing cost  for each dwelling and each insulation gesture (€).</p></li>
+<li><p><strong>vat_insulation</strong> (<em>DataFrame</em>) – vat applied to each insulation gesture cost (€).</p></li>
 <li><p><strong>subsidies_details</strong> (<em>dict</em>) – Amount of subsidies for each dwelling and each insulation gesture (€).</p></li>
 <li><p><strong>subsidies_total</strong> (<em>DataFrame</em>) – Total mount of subsidies for each dwelling and each insulation gesture (€).</p></li>
-<li><p><strong>retrofit_rate</strong> (<em>Series</em>) – </p></li>
+<li><p><strong>consumption_saved</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>consumption_saved_actual</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>consumption_saved_no_rebound</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>amount_debt</strong> (<em>Series</em>)</p></li>
+<li><p><strong>amount_saving</strong> (<em>Series</em>)</p></li>
+<li><p><strong>discount</strong> (<em>Series</em>)</p></li>
+<li><p><strong>subsidies_loan</strong></p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="project.building.AgentBuildings.store_information_retrofit">
-<span class="sig-name descname"><span class="pre">store_information_retrofit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">replaced_by</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Calculate and store main statistics based on yearly retrofit.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>replaced_by</strong> (<em>DataFrame</em>) – Retrofit flow for each dwelling (index) and each insulation gesture (columns).
-Dwelling must be defined with ‘Heating system final’ and ‘Heater replacement’.</p>
-</dd>
-</dl>
-</dd></dl>
-
+</section>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="project.building.ThermalBuildings">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">project.building.</span></span><span class="sig-name descname"><span class="pre">ThermalBuildings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio_surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">efficiency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">income</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2018</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">project.building.</span></span><span class="sig-name descname"><span class="pre">ThermalBuildings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio_surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">efficiency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">income</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2018</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resources_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detailed_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">residual_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_sink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>ThermalBuildings classes.</p>
+<section id="id1">
+<h3>Parameters:</h3>
 <dl class="simple">
 <dt>stock: Series</dt><dd><p>Building stock.</p>
 </dd>
 <dt>surface: Series</dt><dd><p>Surface by dwelling type.</p>
 </dd>
-<dt>param: dict</dt><dd><p>Generic input.</p>
+<dt>ratio_surface: dict</dt><dd><p>Losses area of each envelop component</p>
 </dd>
 <dt>efficiency: Series</dt><dd><p>Heating system efficiency.</p>
 </dd>
-</dl>
-<p>income: Series
-consumption_ini: Series
-path: str
-year: int, default 2018</p>
-<dl class="simple">
-<dt>heat_consumption_sd<span class="classifier">Series</span></dt><dd><p>kWh by segement</p>
-</dd>
-<dt>heat_consumption<span class="classifier">Series</span></dt><dd><p>kWh by segement</p>
+<dt>income: Series</dt><dd><p>Average income value by income class.</p>
 </dd>
 </dl>
-<p>heat_consumption_calib : Series
-heat_consumption_energy : Series</p>
-<dl class="simple">
-<dt>heating_intensity_tenant: dict</dt><dd><p>Weighted average heating intensity (%) by decile.</p>
-</dd>
-<dt>heating_intensity_avg: dict</dt><dd><p>Weighted average heating intensity (%).</p>
-</dd>
-<dt>energy_poverty: dict</dt><dd><p>Number of energy poverty dwelling.</p>
-</dd>
-</dl>
-<p>taxes_expenditure: dict
-energy_expenditure: dict
-taxes_expenditure_details: dict</p>
+<p>consumption_ini: Series
+path: str, optional
+year: int, default: 2018</p>
+</section>
+<section id="attributes">
+<h3>Attributes:</h3>
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.ThermalBuildings.add_certificate">
 <span class="sig-name descname"><span class="pre">add_certificate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Add energy performance certificate to df index.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> – </p></li>
-<li><p><strong>heating_system</strong> – </p></li>
-</ul>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="project.building.ThermalBuildings.calculate_consumption">
-<span class="sig-name descname"><span class="pre">calculate_consumption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taxes</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py" id="project.building.ThermalBuildings.calibration_consumption">
+<span class="sig-name descname"><span class="pre">calibration_consumption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption_ini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">health_cost_income</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">health_cost_dpe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">climate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Calculate energy indicators.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prices</strong> (<em>Series</em>) – </p></li>
-<li><p><strong>taxes</strong> (<em>Series</em>) – </p></li>
+<li><p><strong>prices</strong> (<em>Series</em>)</p></li>
+<li><p><strong>consumption_ini</strong> (<em>Series</em>)</p></li>
+<li><p><strong>climate</strong></p></li>
 </ul>
 </dd>
 </dl>
@@ -685,29 +869,81 @@ taxes_expenditure_details: dict</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.ThermalBuildings.consumption_actual">
-<span class="sig-name descname"><span class="pre">consumption_actual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Space heating consumption based on standard space heating consumption and heating intensity (kWh/a).</p>
-<p>Space heating consumption is in kWh/building.a
+<span class="sig-name descname"><span class="pre">consumption_actual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_rebate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Space heating consumption based on standard space heating consumption and heating intensity (kWh/building.a).</p>
+<p>Space heating consumption is in kWh/building.y
 Equation is based on Allibe (2012).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>prices</strong> (<em>Series</em>) – </p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prices</strong> (<em>Series</em>)</p></li>
+<li><p><strong>consumption</strong> (<em>Series</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – kWh/building.a</p></li>
+<li><p><strong>full_output</strong> (<em>bool</em><em>, </em><em>default False</em>)</p></li>
+<li><p><strong>bill_rebate</strong> (<em>float</em><em>, </em><em>default 0</em>)</p></li>
+</ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>Series</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="project.building.ThermalBuildings.consumption_standard">
-<span class="sig-name descname"><span class="pre">consumption_standard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Heating</span> <span class="pre">system'</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Pre-calculate space energy consumption based only on relevant levels.</p>
+<dt class="sig sig-object py" id="project.building.ThermalBuildings.consumption_agg">
+<span class="sig-name descname"><span class="pre">consumption_agg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'year'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">climate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standard</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">efficiency_hour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">existing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_rebate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hourly_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Aggregated final energy consumption (TWh final energy).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>indexes</strong> (<em>MultiIndex</em><em>, </em><em>Index</em>) – Index used to estimate consumption standard.</p></li>
-<li><p><strong>level_heater</strong> (<em>{'Heating system'</em><em>, </em><em>'Heating system final'}</em><em>, </em><em>default 'Heating system'</em>) – </p></li>
+<li><p><strong>prices</strong> (<em>Series</em>) – Energy prices.</p></li>
+<li><p><strong>freq</strong></p></li>
+<li><p><strong>climate</strong></p></li>
+<li><p><strong>smooth</strong></p></li>
+<li><p><strong>standard</strong> (<em>bool</em><em>, </em><em>default False</em>) – If yes, consumption standard (conventional). Otherwise, consumption actual.</p></li>
+<li><p><strong>efficiency_hour</strong> (<em>bool</em><em>, </em><em>default False</em>)</p></li>
+<li><p><strong>existing</strong> (<em>bool</em><em>, </em><em>default False</em>) – If yes, calculate consumption only for existing buildings.</p></li>
+<li><p><strong>agg</strong> (<em>{'all'</em><em>, </em><em>'energy'</em><em>, </em><em>'heater'}</em><em>, </em><em>default 'all'</em>) – Aggregation level.</p></li>
+<li><p><strong>bill_rebate</strong> (<em>float</em><em>, </em><em>default 0</em>)</p></li>
+<li><p><strong>hourly_profile</strong> (<em>DataFrame</em><em>, </em><em>optional</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float or Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project.building.ThermalBuildings.consumption_heating">
+<span class="sig-name descname"><span class="pre">consumption_heating</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'year'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">climate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">efficiency_hour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Heating</span> <span class="pre">system'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'5uses'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hourly_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_sink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Calculation consumption standard of the current building stock [kWh/m2.a].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong></p></li>
+<li><p><strong>freq</strong></p></li>
+<li><p><strong>climate</strong></p></li>
+<li><p><strong>smooth</strong></p></li>
+<li><p><strong>full_output</strong> (<em>bool</em><em>, </em><em>default False</em>)</p></li>
+<li><p><strong>efficiency_hour</strong></p></li>
+<li><p><strong>level_heater</strong> (<em>{'Heating system'</em><em>, </em><em>'Heating system final'}</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project.building.ThermalBuildings.consumption_heating_store">
+<span class="sig-name descname"><span class="pre">consumption_heating_store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Heating</span> <span class="pre">system'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Pre-calculate space energy consumption based only on relevant levels.</p>
+<p>Climate should be None. Consumption is stored for later use, so climate cannot change calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<em>MultiIndex</em><em>, </em><em>Index</em>) – Used to estimate consumption standard.</p></li>
+<li><p><strong>level_heater</strong> (<em>{'Heating system'</em><em>, </em><em>'Heating system final'}</em><em>, </em><em>default 'Heating system'</em>)</p></li>
+<li><p><strong>unit</strong></p></li>
+<li><p><strong>full_output</strong> (<em>bool</em><em>, </em><em>default True</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -715,52 +951,106 @@ Equation is based on Allibe (2012).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="project.building.ThermalBuildings.energy_bill">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">energy_bill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Heating</span> <span class="pre">system'</span></span></em><span class="sig-paren">)</span></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">energy_bill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Heating</span> <span class="pre">system'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_rebate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Calculate energy bill by dwelling for each stock segment (€/dwelling.a).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prices</strong> (<em>Series</em>) – Energy prices for year (€/kWh)</p></li>
+<li><p><strong>prices</strong> (<em>Series</em><em> or </em><em>DataFrame</em><em> or </em><em>float</em>) – Energy prices for year (€/kWh)</p></li>
 <li><p><strong>consumption</strong> (<em>Series</em>) – Energy consumption by dwelling (kWh/dwelling.a)</p></li>
 <li><p><strong>level_heater</strong> – Heating system level to calculate the bill. Enable to calculate energy bill before or after change of
 heating system.</p></li>
+<li><p><strong>bill_rebate</strong> (<em>float</em><em> or </em><em>Series</em><em>, </em><em>default 0</em>) – Bill rebate (€/dwelling.a)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Energy bill by dwelling for each stock segment (€/dwelling)</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>pd.Series</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Series</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="project.building.ThermalBuildings.heating_consumption">
-<span class="sig-name descname"><span class="pre">heating_consumption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'year'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">climate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marginal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Calculation consumption standard of the current building stock.</p>
+<dt class="sig sig-object py" id="project.building.ThermalBuildings.need_heating">
+<span class="sig-name descname"><span class="pre">need_heating</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">climate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2006</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'year'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hourly_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kWh/y'</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Calculate heating need of the current building stock.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project.building.ThermalBuildings.optimal_temperature">
+<span class="sig-name descname"><span class="pre">optimal_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Find indoor temperature based on energy prices, housing performance and income level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>prices</strong> (<em>Series</em>) – Energy prices.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project.building.ThermalBuildings.simplified_stock">
+<span class="sig-name descname"><span class="pre">simplified_stock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Return simplified stock.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>energy_level</strong></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Simplified stock.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project.building.ThermalBuildings.store_consumption">
+<span class="sig-name descname"><span class="pre">store_consumption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbon_content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_rebate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Store energy consumption.</p>
+<p>Useful to calculate energy saving and rebound effect.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>freq</strong> – </p></li>
-<li><p><strong>climate</strong> – </p></li>
-<li><p><strong>smooth</strong> – </p></li>
+<li><p><strong>prices</strong></p></li>
+<li><p><strong>carbon_content</strong></p></li>
+<li><p><strong>bill_rebate</strong></p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="project.building.ThermalBuildings.heating_need">
-<span class="sig-name descname"><span class="pre">heating_need</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">climate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2006</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'year'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hourly_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marginal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Calculate heating need of the current building stock.</p>
+<dt class="sig sig-object py" id="project.building.ThermalBuildings.to_heating_intensity">
+<span class="sig-name descname"><span class="pre">to_heating_intensity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consumption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_heater</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Heating</span> <span class="pre">system'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bill_rebate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Calculate heating intensity of index based on energy prices.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>pd.DataFrame</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<em>MultiIndex</em><em> or </em><em>Index</em>)</p></li>
+<li><p><strong>prices</strong> (<em>Series</em>)</p></li>
+<li><p><strong>consumption</strong> (<em>Series</em><em>, </em><em>default None</em>)</p></li>
+<li><p><strong>level_heater</strong> (<em>{'Heating system'</em><em>, </em><em>'Heating system final'}</em>)</p></li>
+<li><p><strong>bill_rebate</strong> (<em>float</em><em> or </em><em>Series</em><em>, </em><em>default 0</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Heating intensity</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Series</p>
 </dd>
 </dl>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 </section>

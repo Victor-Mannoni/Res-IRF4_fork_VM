@@ -12,7 +12,9 @@ Welcome to Res-IRF4's documentation!
 
    readme
    technical_documentation
+   data_used
    policies_assessment
+   consumption
    policies_parameters
    modules
    help_installation

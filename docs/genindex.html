@@ -1,21 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Index &mdash; Res-IRF4 0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -26,11 +26,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Res-IRF4
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Res-IRF4
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -40,11 +44,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="readme.html">Res-IRF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="technical_documentation.html">Technical documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_used.html">Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies_assessment.html">Policies assessment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies_parameters.html">Setting up public policies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">API reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="help_installation.html">Installation help</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Policies evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 </ul>
 
         </div>
@@ -60,7 +65,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Index</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -81,6 +86,8 @@
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
@@ -92,6 +99,8 @@
       <li><a href="modules.html#project.building.ThermalBuildings.add_certificate">add_certificate() (project.building.ThermalBuildings method)</a>
 </li>
       <li><a href="modules.html#project.building.AgentBuildings.add_flows">add_flows() (project.building.AgentBuildings method)</a>
+</li>
+      <li><a href="modules.html#project.building.AgentBuildings.add_level">add_level() (project.building.AgentBuildings static method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -107,17 +116,29 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules.html#project.building.ThermalBuildings.calculate_consumption">calculate_consumption() (project.building.ThermalBuildings method)</a>
+      <li><a href="modules.html#project.building.AgentBuildings.calculate_distortion_insulation">calculate_distortion_insulation() (project.building.AgentBuildings method)</a>
 </li>
-      <li><a href="modules.html#project.building.AgentBuildings.calibration_constant_heater">calibration_constant_heater() (project.building.AgentBuildings method)</a>
+      <li><a href="modules.html#project.building.AgentBuildings.calculate_financing">calculate_financing() (project.building.AgentBuildings method)</a>
+</li>
+      <li><a href="modules.html#project.building.AgentBuildings.calculate_renovation">calculate_renovation() (project.building.AgentBuildings method)</a>
+</li>
+      <li><a href="modules.html#project.building.ThermalBuildings.calibration_consumption">calibration_consumption() (project.building.ThermalBuildings method)</a>
+</li>
+      <li><a href="modules.html#project.building.AgentBuildings.calibration_exogenous">calibration_exogenous() (project.building.AgentBuildings method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules.html#project.building.AgentBuildings.calibration_exogenous">calibration_exogenous() (project.building.AgentBuildings method)</a>
+      <li><a href="modules.html#project.building.AgentBuildings.certificate_flow_heater">certificate_flow_heater() (project.building.AgentBuildings method)</a>
+</li>
+      <li><a href="modules.html#project.building.AgentBuildings.certificate_flow_insulation">certificate_flow_insulation() (project.building.AgentBuildings method)</a>
 </li>
       <li><a href="modules.html#project.building.ThermalBuildings.consumption_actual">consumption_actual() (project.building.ThermalBuildings method)</a>
 </li>
-      <li><a href="modules.html#project.building.ThermalBuildings.consumption_standard">consumption_standard() (project.building.ThermalBuildings method)</a>
+      <li><a href="modules.html#project.building.ThermalBuildings.consumption_agg">consumption_agg() (project.building.ThermalBuildings method)</a>
+</li>
+      <li><a href="modules.html#project.building.ThermalBuildings.consumption_heating">consumption_heating() (project.building.ThermalBuildings method)</a>
+</li>
+      <li><a href="modules.html#project.building.ThermalBuildings.consumption_heating_store">consumption_heating_store() (project.building.ThermalBuildings method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -125,7 +146,7 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules.html#project.building.AgentBuildings.endogenous_retrofit">endogenous_retrofit() (project.building.AgentBuildings method)</a>
+      <li><a href="modules.html#project.building.AgentBuildings.endogenous_renovation">endogenous_renovation() (project.building.AgentBuildings method)</a>
 </li>
       <li><a href="modules.html#project.building.ThermalBuildings.energy_bill">energy_bill() (project.building.ThermalBuildings static method)</a>
 </li>
@@ -133,7 +154,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules.html#project.building.AgentBuildings.exogenous_market_share_heater">exogenous_market_share_heater() (project.building.AgentBuildings method)</a>
 </li>
-      <li><a href="modules.html#project.building.AgentBuildings.exogenous_retrofit">exogenous_retrofit() (project.building.AgentBuildings static method)</a>
+      <li><a href="modules.html#project.building.AgentBuildings.exogenous_renovation">exogenous_renovation() (project.building.AgentBuildings method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -147,6 +168,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules.html#project.building.AgentBuildings.flow_obligation">flow_obligation() (project.building.AgentBuildings method)</a>
+</li>
       <li><a href="modules.html#project.building.AgentBuildings.flow_retrofit">flow_retrofit() (project.building.AgentBuildings method)</a>
 </li>
       <li><a href="modules.html#project.building.AgentBuildings.frame_to_flow">frame_to_flow() (project.building.AgentBuildings method)</a>
@@ -158,12 +181,6 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules.html#project.building.AgentBuildings.heater_replacement">heater_replacement() (project.building.AgentBuildings method)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules.html#project.building.ThermalBuildings.heating_consumption">heating_consumption() (project.building.ThermalBuildings method)</a>
-</li>
-      <li><a href="modules.html#project.building.ThermalBuildings.heating_need">heating_need() (project.building.ThermalBuildings method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -179,10 +196,6 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules.html#project.building.AgentBuildings.mitigation_potential">mitigation_potential() (project.building.AgentBuildings method)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     module
 
@@ -193,25 +206,33 @@
   </ul></td>
 </tr></table>
 
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules.html#project.building.ThermalBuildings.need_heating">need_heating() (project.building.ThermalBuildings method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules.html#project.building.ThermalBuildings.optimal_temperature">optimal_temperature() (project.building.ThermalBuildings method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules.html#project.building.AgentBuildings.parse_output_run">parse_output_run() (project.building.AgentBuildings method)</a>
 </li>
-      <li><a href="modules.html#project.building.AgentBuildings.pref_bill_insulation">pref_bill_insulation (project.building.AgentBuildings attribute)</a>
-</li>
-      <li><a href="modules.html#project.building.AgentBuildings.pref_inertia">pref_inertia (project.building.AgentBuildings attribute)</a>
-</li>
-      <li><a href="modules.html#project.building.AgentBuildings.pref_investment_insulation">pref_investment_insulation (project.building.AgentBuildings attribute)</a>
-</li>
-      <li><a href="modules.html#project.building.AgentBuildings.pref_subsidy_insulation">pref_subsidy_insulation (project.building.AgentBuildings attribute)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules.html#project.building.AgentBuildings.prepare_consumption">prepare_consumption() (project.building.AgentBuildings method)</a>
 </li>
       <li><a href="modules.html#project.building.AgentBuildings.prepare_cost_insulation">prepare_cost_insulation() (project.building.AgentBuildings method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules.html#project.building.AgentBuildings.prepare_subsidy_insulation">prepare_subsidy_insulation() (project.building.AgentBuildings method)</a>
 </li>
       <li>
@@ -227,13 +248,19 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules.html#project.building.AgentBuildings.store_information_heater">store_information_heater() (project.building.AgentBuildings method)</a>
+      <li><a href="modules.html#project.building.AgentBuildings.select_deep_renovation">select_deep_renovation() (project.building.AgentBuildings static method)</a>
+</li>
+      <li><a href="modules.html#project.building.AgentBuildings.select_renovation_option">select_renovation_option() (project.building.AgentBuildings method)</a>
+</li>
+      <li><a href="modules.html#project.building.ThermalBuildings.simplified_stock">simplified_stock() (project.building.ThermalBuildings method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules.html#project.building.AgentBuildings.store_information_insulation">store_information_insulation() (project.building.AgentBuildings method)</a>
+      <li><a href="modules.html#project.building.ThermalBuildings.store_consumption">store_consumption() (project.building.ThermalBuildings method)</a>
 </li>
-      <li><a href="modules.html#project.building.AgentBuildings.store_information_retrofit">store_information_retrofit() (project.building.AgentBuildings method)</a>
+      <li><a href="modules.html#project.building.AgentBuildings.store_information_heater">store_information_heater() (project.building.AgentBuildings method)</a>
+</li>
+      <li><a href="modules.html#project.building.AgentBuildings.store_information_insulation">store_information_insulation() (project.building.AgentBuildings method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -242,6 +269,10 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules.html#project.building.ThermalBuildings">ThermalBuildings (class in project.building)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules.html#project.building.ThermalBuildings.to_heating_intensity">to_heating_intensity() (project.building.ThermalBuildings method)</a>
 </li>
   </ul></td>
 </tr></table>

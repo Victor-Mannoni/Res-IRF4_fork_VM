@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Policies evaluation &mdash; Res-IRF4 0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Contributing &mdash; Res-IRF4 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -28,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Res-IRF4
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Res-IRF4
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -42,16 +46,22 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="readme.html">Res-IRF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="technical_documentation.html">Technical documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_used.html">Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies_assessment.html">Policies assessment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies_parameters.html">Setting up public policies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">API reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="help_installation.html">Installation help</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Policies evaluation</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#updating-documentation">Updating Documentation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#quickstart">Quickstart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#update-content-modification-of-md-file-or-docstring-in-py-file">Update content (modification of .md file or docstring in .py file)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#add-content-adding-md-file">Add content (adding .md file)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-and-manage-git-branches">Create and manage git branches</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-branch">Creating a branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-the-branch">Updating the branch</a></li>
 </ul>
 </li>
 </ul>
@@ -71,8 +81,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">Policies evaluation</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Contributing</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/contributing.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -82,37 +92,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section class="tex2jax_ignore mathjax_ignore" id="policies-evaluation">
-<h1>Policies evaluation</h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="contributing">
+<h1>Contributing</h1>
 <section id="updating-documentation">
 <h2>Updating Documentation</h2>
 <section id="overview">
 <h3>Overview</h3>
-<p>Documentation is available: https://lucas-vivier.github.io/Res-IRF/</p>
+<p>Documentation is available: https://lucas-vivier.github.io/Res-IRF4-mirror/index.html</p>
 <ol class="arabic simple">
 <li><p>Documentation is run with Sphinx.<br />
 Sphinx concatenate Markdown (.md) files and pick up docstring information (modules and functions information) in .py files and returns .html files.</p></li>
@@ -145,6 +131,48 @@ GitHub pages recognize .html files and create a static website.</p></li>
 <ul class="simple">
 <li><p>Need to add file name in <em>sphinx_source/source/index.rst</em> file</p></li>
 </ul>
+</section>
+</section>
+<section id="create-and-manage-git-branches">
+<h2>Create and manage git branches</h2>
+<section id="creating-a-branch">
+<h3>Creating a branch</h3>
+<p>Tutorial comes from <a class="reference external" href="https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches">this website</a></p>
+<p><strong>step 1</strong>: update your local copy of the master branch:
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code></p>
+<p><strong>step 2</strong>: Create the branch on your local machine and switch in this branch:</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">name_of_new_branch</span></code>
+(checkout into a branch means you load the version of this branch and will modify it)</p>
+<p><strong>step 3</strong>: Push the branch on github:
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">name_of_new_branch</span></code></p>
+</section>
+<section id="updating-the-branch">
+<h3>Updating the branch</h3>
+<p><strong>Pushing your local commits to remote</strong>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p>
+<p><strong>Updating your branch from changes on master</strong>
+(from <a class="reference external" href="https://kalkus.dev/2020/05/07/how-to-update-feature-branch-from-master-in-git/">this tutorial</a>)</p>
+<p>There are two methods, <em>merge</em> the master into your branch which will create a merge commit or <em>rebase</em>:</p>
+<ul class="simple">
+<li><p>merge</p></li>
+</ul>
+<div class="highlight-angular2html notranslate"><div class="highlight"><pre><span></span>git checkout master
+git pull
+git checkout name_of_the_branch
+git merge master
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>rebase</p></li>
+</ul>
+<div class="highlight-angular2html notranslate"><div class="highlight"><pre><span></span>git pull --rebase origin name_of_the_branch 
+fix conflict and then → git add . 
+git rebase --continue 
+git push -f
+</pre></div>
+</div>
+<p>As it is easier and few people work on Res-IRF, the first method is used for now.</p>
+<p>(In PyCharm these commands can be done by right-clicking on branches in the git tool window)</p>
 </section>
 </section>
 </section>
