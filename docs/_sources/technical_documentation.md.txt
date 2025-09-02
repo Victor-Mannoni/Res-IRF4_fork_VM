@@ -110,22 +110,31 @@ effect.” [^rebound_effect]
 according to which consumption before renovation, from which energy savings are predicted, is overestimated (
 Sunikka-Blank et al., 2012).
 
-In version 3.0, we included a third variable: household income. This
-development was made possible by several improvements in the data available, including the Phébus database and
-additional work by EDF R&D {cite:ps}`caylaDoesEnergyEfficiency2013`, which now connects heating intensity to the
-income share devoted to heating, i.e. conventional expenditure as a percentage of income.
+In version 4.0, we add a new functional form to calculate the heating intensity. It is an isoelastic function that links the heating intensity to the energy bill of the household. 
+Heating intensity in Res-IRF follows the equation: 
 
-Heating intensity in Res-IRF follows the equation:
 
-$$\text{Heating Intensity} =-0,191*log(\text{Income share})+0,1105$$
 
-with:
+
+
+$$
+\text{Heating Intensity} = (C_{\text{conventional}} \cdot p)^{-1/\rho}
+$$
+
+où :  
+
+- $C_{\text{conventionnal}}$ = Conventionel energy consumption for space heating  
+- $p$ = Energy price 
+- $\rho$ = 5  
+
+
+$\rho$ has been fix to 5 afin de retomber so as to generate a short-term price elasticity of -0.2 as estimated in France by `Douenne_Fabre_2022`.
+
+Heating intensity is also defined as:
 
 $$\text{Heating Intensity} = \frac{\text{Actual energy use}}{\text{Conventional energy use}}$$
 
-and:
 
-$$\text{Income share} =\frac{\text{Energy price} * \text{Surface}* \text{Conventional energy use}}{\text{Income}}$$
 
 #### Total energy use
 

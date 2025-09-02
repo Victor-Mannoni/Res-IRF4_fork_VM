@@ -110,22 +110,25 @@ effect.” [^rebound_effect]
 according to which consumption before renovation, from which energy savings are predicted, is overestimated (
 Sunikka-Blank et al., 2012).
 
-In version 3.0, we included a third variable: household income. This
-development was made possible by several improvements in the data available, including the Phébus database and
-additional work by EDF R&D {cite:ps}`caylaDoesEnergyEfficiency2013`, which now connects heating intensity to the
-income share devoted to heating, i.e. conventional expenditure as a percentage of income.
+In version 4.0, we add a new functional form to calculate the heating intensity. It is an isoelastic function that links the heating intensity to the energy bill of the household. 
+Heating intensity in Res-IRF follows the equation: 
 
-Heating intensity in Res-IRF follows the equation:
+$$
+\text{Heating Intensity} = (C_{\text{conventional}} \cdot p)^{-1/\rho}
+$$
 
-$$\text{Heating Intensity} =-0,191*log(\text{Income share})+0,1105$$
+where:  
 
-with:
+- $C_{\text{conventionnal}}$ = Conventionel energy consumption for space heating  
+- $p$ = Energy price 
+- $\rho$ = 5  
+
+$\rho$ has been fix to 5 so as to generate a short-term price elasticity of -0.2 as estimated in France by `Douenne_Fabre_2022`.
+
+Heating intensity is also defined as:
 
 $$\text{Heating Intensity} = \frac{\text{Actual energy use}}{\text{Conventional energy use}}$$
 
-and:
-
-$$\text{Income share} =\frac{\text{Energy price} * \text{Surface}* \text{Conventional energy use}}{\text{Income}}$$
 
 #### Total energy use
 
@@ -156,30 +159,61 @@ into TWh can also explain the differences observed in wood consumption.
 
 ### Stock dynamics
 
-The number of dwellings and their surface area are determined each year in Res-IRF by exogenous projections of
-population and aggregate household income projection. The former is based on {cite:ps}`inseeProjectionsPopulationPour2006`;
-in the absence of an authoritative scenario, the latter is based on a growth assumption of 1.2%/year, which extrapolates
-the trend given by INSEE for the period 2009-2013[^insee]. Based on the annual needs thus determined, the total housing
+#### Initial stock 
+The initial stock is used to calibrate the model and is a base for the simulation period. So it is an important input 
+
+- **Number of dwellings in the initial stock for 2023**: This initial stock amounts to 30,225,456, which is the sum of the number of dwellings across the segments of the `buildingstock_sdes2023` file, adjusted. 
+
+#### Evolution of the Number of Dwellings
+The trajectory of the number of primary residences is provided exogenously in Res-IRF through several parameters:
+The evolution of the housign stock is driven by 2 main inputs that determine the number of new construction and the demolition rate of the existing stock. 
+the existing stock is the iniital stock all the new dwellings constructed throughout the simulation are considering as new stock. 
+ 
+- **Number of annual constructions**: The reference input file is `flow_construction_sdes_central.csv`. These figures are based on SDES projections and have been adjusted.  
+- **Building demolition rate**: The reference input file is `demolition_rate_sdes_central.csv`, also derived from SDES projections. Demolitions are assumed to primarily affect buildings with the lowest energy performance ratings.
+
+#### Evolution of the housing stock composition 
+##### Characteristics of new constructions 
+
+- Surface of new dwellings: determined by Fidéli 2018 
+- Insulation performance, no sources find for this input
+- Market share for heater for new construction to determine the heating system of new constructions
+- Share of single family dwellings in new constructions 
+
+All these inouts combined give us the characteristics of new dwellings that are supposed to be well performed
+
+##### Characteristics of demolished buildings 
+
+##### Building renovations 
+
+The big part and endogenous one of the energy efficiency improvement 
+Include investments barriers 
+
+ 
+
+
+
+
+
+
+The number of dwellings is determined each year by exogenous projections of
+new constructions and demolition from the SDES **ajouter source**. The total housing
 stock is divided into two components:
 
 - The stock of “existing dwellings” corresponds to the total stock of the initial year. It is eroded at a rate of
-  0.35%/year due to destruction, based on {cite:ps}`allaireProblematiqueQualitativeQuantitative2008`. Destructions are
-  assumed to affect in priority the lowest energy performance labels, based on based on {cite:ps}`traisnelHabitatDeveloppementDurable2001`.
-- New constructions are calculated to match housing needs, determined by total projected housing needs net of the
-  existing stock. The cumulative sum of new constructions since the initial year constitutes the stock of “new
-  dwellings.”
+  0.1%/year due to destruction, based on `SDES central scenario projection`. Destructions are
+  assumed to affect in priority the lowest energy performance labels, based on based on {cite:ps}`traisnelHabitatDeveloppementDurable2001`. The surface of existing dwellings is dtermined according to INSEE data **trouver la source exacte** 
+- New constructions are determined by SDES projections, it is an exogenous data. The cumulative sum of new constructions since the initial year constitutes the stock of “new
+  dwellings.” Their surface are set according to Fidéli 2018. + the part of multi family building in building stock is set according to s2 scenarios 
 
-[^insee]: Based on a gross disposable household income of €1,318.3 billion in
-2012 (https://www.insee.fr/fr/statistiques/2569356?sommaire=2587886).
 
-This specification produces a flow of new constructions of 365,000 in 2013, 357,000 in 2014 and 348,000 in 2015, similar
-to the average of 374,000 given by {cite:ps}`insee374000Logements2018` over a slightly wider area including the French
-overseas departments and territories, except Mayotte.
 
-Res-IRF reflects thanks to recent empirical work linking the increase in the share of multi-family housing in the total
-stock to the rate of growth of the total stock housing growth {cite:ps}`fischDynamiqueEfficaciteEnergetique2015`. 
-This relationship in particular reflects urbanization effects. The share of owner-occupied and rented
-dwellings is held constant.
+The share of owner-occupied and rented dwellings is held constant.
+
+### Renovation dynamics 
+
+Renovation and investment decisions are deetermined by Res-IRF. The model gives a detailed description of behaviour and 
+modelizes barriers to investment 
 
 ### Investment decisions – general case
 

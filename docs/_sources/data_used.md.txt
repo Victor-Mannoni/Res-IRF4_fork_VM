@@ -4,24 +4,28 @@ This section aims to specify the data used in Res-IRF, their sources and the dat
 
 ## Energy systems
 
-| Inputs                                   | Source                  | Year  |
-|------------------------------------------|-------------------------|--------|
-| Energy prices projection                 | AME, DGEC               | 2021   |
-| Energy taxes projection                  | AME, DGEC               | 2021   |
-| Emission content 2020                    | Arrêté RE-2020, Art. 10 | 2020   |
-| Emission content projection              | ADEME TEND scenario     | 2021   |
-| Amount of renewable gas for space heating| ADEME TEND scenario     | 2021   |
+| Inputs                                         | Source                  | Year  |
+|------------------------------------------------|-------------------------|--------|
+| Energy prices projection                       | AME, DGEC               | 2021   |
+| Energy taxes projection                        | AME, DGEC               | 2021   |
+| Energy vat                                     |                         |        |
+| Emission content 2020                          | Arrêté RE-2020, Art. 10 | 2020   |
+| Emission content projection (Carbon emission)  | ADEME TEND scenario     | 2021   |
+| Amount of renewable gas for space heating      | ADEME TEND scenario     | 2021   |
+| VAT heating systems                            |                         |        |
 
 ## Housing stock
 
-| Inputs                                   | Source                | Year  |
-|------------------------------------------|-----------------------|-------|
-| Housing stock in 2023                    | SDES                  | 2023  |
-| Demolition rate                          | SDES central scenario | 2023  |
-| Number of new buildings                  | SDES central scenario | 2023  |
-| Share of multi-family in new buildings   | ADEME TEND scenario   | 2021  |
-| Surface of new housing (built after 2018)| Fidéli                | 2018  |
-| Size of existing dwellings               | INSEE                 | 2013  |
+| Inputs                                                           | Source                | Year  |
+|------------------------------------------------------------------|-----------------------|-------|
+| Housing stock in 2023                                            | SDES                  | 2023  |
+| Demolition rate                                                  | SDES central scenario | 2023  |
+| Number of new buildings                                          | SDES central scenario | 2023  |
+| Share of multi-family in new buildings                           | ADEME TEND scenario   | 2021  |
+| Surface of new housing (built after 2018)                        | Fidéli                | 2018  |
+| Size of existing dwellings                                       | INSEE                 | 2013  |
+| Ratio surface (ratio surface dépertitive sur surface habitable)  | TABULA                |       |
+| Rotation rate                                                    | INSEE, SDES?          |       |
 
 
 ## Macro
@@ -34,15 +38,16 @@ This section aims to specify the data used in Res-IRF, their sources and the dat
 
 ## Behavioral data
 
-| Inputs                                               | Source               | Year  |
-|------------------------------------------------------|----------------------|-------|
-| Present discount rate                                | Stolyarova           | 2016  |
-| Investment preferences                               | Stolyarova           | 2016  |
-| Saving rate                                          | I4CE                 | 2022  |
-| Interest rate                                        | I4CE                 | 2022  |
-| Inertia preference (to keep the same heating system) | Stolyarova           | 2016  |
-| Investment preferences                               | Stolyarova           | 2016  |
-| Subsidies preferences                                | Stolyarova           | 2016  |
+| Inputs                                               | Source                  | Year  |
+|------------------------------------------------------|-------------------------|-------|
+| Present discount rate                                | Stolyarova, à vérifier  | 2016  |
+| Investment preferences                               | Stolyarova              | 2016  |
+| Saving rate                                          | I4CE                    | 2022  |
+| Interest rate                                        | I4CE                    | 2022  |
+| Inertia preference (to keep the same heating system) | Stolyarova              | 2016  |
+| Investment preferences                               | Stolyarova              | 2016  |
+| Subsidies preferences                                | Stolyarova              | 2016  |
+| Hourly profile                                       | RTE                     |       |
 
 ## Heating systems
 
@@ -54,6 +59,9 @@ This section aims to specify the data used in Res-IRF, their sources and the dat
 | Heating systems costs                                | RTE/ADEME            | 2020  |
 | Heating systems lifetime                             | RTE/ADEME            | 2020  |
 | Efficiency                                           | EPISCOPE             | 2015  |
+| Cost heater                                          |                      |       |
+| Temp sink                                            |                      |       |
+| Lifetime heater                                      |                      |       |
 
 ## Insulation works 
 
@@ -64,6 +72,9 @@ This section aims to specify the data used in Res-IRF, their sources and the dat
 | Market share insulation initial                      | TREMI                       | 2020      |
 | Performance insulation construction                  |                             |           |
 | Performance insulation renovation                    |                             |           |
+| Frequency insulation                                 |                             |           |
+| Footprint construction                               |                             |           |
+| Footprint renovation                                 |                             |           |
 
 ## Thermal module data
 
@@ -96,6 +107,21 @@ This section aims to specify the data used in Res-IRF, their sources and the dat
 | DHW efficiency                           | EPISCOPE                | 2015  |
 | Average surface of opaque walls/windows  | EPISCOPE                | 2015  |
 
-Vous pouvez télécharger vos notes précédemment produites :  
+## Consumption
+| Parameter                                | Source                  | Year  |
+|------------------------------------------|-------------------------|-------|
+| Consumption ini agg                      | CEREN + Calculations    | 2017  |
 
-<a href="{{ pathto('_static/market_share_heater_10.pdf', 1) }}" download>Télécharger la note exemple</a>
+## Financing data
+
+| Parameter                                | Source                  | Year  |
+|------------------------------------------|-------------------------|-------|
+| Debt income ratio                        |                         |       |
+| Upfront max                              |                         |       |
+
+## Health cost 
+
+| Parameter                                | Source                  | Year  |
+|------------------------------------------|-------------------------|-------|
+| Health cost DPE                          | France stratégie        | 2021  |
+| Health cost income                             |                         |       |

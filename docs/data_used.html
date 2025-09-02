@@ -55,6 +55,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#heating-systems">Heating systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#insulation-works">Insulation works</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#thermal-module-data">Thermal module data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#consumption">Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#financing-data">Financing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#health-cost">Health cost</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="policies_assessment.html">Policies assessment</a></li>
@@ -109,17 +112,25 @@
 <td><p>AME, DGEC</p></td>
 <td><p>2021</p></td>
 </tr>
-<tr class="row-even"><td><p>Emission content 2020</p></td>
+<tr class="row-even"><td><p>Energy vat</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Emission content 2020</p></td>
 <td><p>Arrêté RE-2020, Art. 10</p></td>
 <td><p>2020</p></td>
 </tr>
-<tr class="row-odd"><td><p>Emission content projection</p></td>
+<tr class="row-even"><td><p>Emission content projection (Carbon emission)</p></td>
 <td><p>ADEME TEND scenario</p></td>
 <td><p>2021</p></td>
 </tr>
-<tr class="row-even"><td><p>Amount of renewable gas for space heating</p></td>
+<tr class="row-odd"><td><p>Amount of renewable gas for space heating</p></td>
 <td><p>ADEME TEND scenario</p></td>
 <td><p>2021</p></td>
+</tr>
+<tr class="row-even"><td><p>VAT heating systems</p></td>
+<td><p></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -158,6 +169,14 @@
 <td><p>INSEE</p></td>
 <td><p>2013</p></td>
 </tr>
+<tr class="row-even"><td><p>Ratio surface (ratio surface dépertitive sur surface habitable)</p></td>
+<td><p>TABULA</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Rotation rate</p></td>
+<td><p>INSEE, SDES?</p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -193,7 +212,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Present discount rate</p></td>
-<td><p>Stolyarova</p></td>
+<td><p>Stolyarova, à vérifier</p></td>
 <td><p>2016</p></td>
 </tr>
 <tr class="row-odd"><td><p>Investment preferences</p></td>
@@ -219,6 +238,10 @@
 <tr class="row-even"><td><p>Subsidies preferences</p></td>
 <td><p>Stolyarova</p></td>
 <td><p>2016</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hourly profile</p></td>
+<td><p>RTE</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -257,6 +280,18 @@
 <td><p>EPISCOPE</p></td>
 <td><p>2015</p></td>
 </tr>
+<tr class="row-even"><td><p>Cost heater</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Temp sink</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Lifetime heater</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -287,6 +322,18 @@
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>Performance insulation renovation</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Frequency insulation</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Footprint construction</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Footprint renovation</p></td>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
@@ -405,8 +452,65 @@
 </tr>
 </tbody>
 </table>
-<p>Vous pouvez télécharger vos notes précédemment produites :</p>
-<p><a href="{{ pathto('_static/market_share_heater_10.pdf', 1) }}" download>Télécharger la note exemple</a></p>
+</section>
+<section id="consumption">
+<h2>Consumption</h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Source</p></th>
+<th class="head"><p>Year</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Consumption ini agg</p></td>
+<td><p>CEREN + Calculations</p></td>
+<td><p>2017</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="financing-data">
+<h2>Financing data</h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Source</p></th>
+<th class="head"><p>Year</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Debt income ratio</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Upfront max</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="health-cost">
+<h2>Health cost</h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Source</p></th>
+<th class="head"><p>Year</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Health cost DPE</p></td>
+<td><p>France stratégie</p></td>
+<td><p>2021</p></td>
+</tr>
+<tr class="row-odd"><td><p>Health cost income</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 
