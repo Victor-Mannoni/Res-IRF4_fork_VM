@@ -173,12 +173,23 @@ the existing stock is the iniital stock all the new dwellings constructed throug
 - **Building demolition rate**: The reference input file is `demolition_rate_sdes_central.csv`, also derived from SDES projections. Demolitions are assumed to primarily affect buildings with the lowest energy performance ratings.
 
 #### Evolution of the housing stock composition 
+
+The housign stock composition is driven by 3 mechanisms: 
+- the new constructions that have specific characteristics
+- the demolition that affect in priority least efficient buildings
+- the renovation of existing buildings
+
 ##### Characteristics of new constructions 
 
+The new constructions have specific characteristics that come from exogenous data listed there: 
+
 - Surface of new dwellings: determined by Fidéli 2018 
-- Insulation performance, no sources find for this input
-- Market share for heater for new construction to determine the heating system of new constructions
-- Share of single family dwellings in new constructions 
+The surface of new dwellings is lower that the one of existing dwellings, this represent the densification of the housing stock, and also maybe some sufficiency 
+Fidéli c'est une enquête de l'INSEE**aller voir article de fidéli**
+
+- Insulation performance, no sources find for this input: trouver d'où viennent ces valeurs, en tout cas elles traduisent une bonne isolation **peut etre rajouter un tableau avec les valeurs** 
+- Market share for heater for new construction to determine the heating system of new constructions **trouevr la source, un ms qui favorise les PAC**
+- Share of single family dwellings in new constructions from S2 ADEME scenario, 
 
 All these inouts combined give us the characteristics of new dwellings that are supposed to be well performed
 
