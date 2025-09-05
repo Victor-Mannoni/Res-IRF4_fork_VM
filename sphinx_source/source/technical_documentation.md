@@ -160,9 +160,15 @@ into TWh can also explain the differences observed in wood consumption.
 ### Stock dynamics
 
 #### Initial stock 
-The initial stock is used to calibrate the model and is a base for the simulation period. So it is an important input 
+The initial stock is used to calibrate the model and is a base for the simulation period. It is therefore an important input of the model. The data for the initial stock of 2023 comes from the SDES (Service de la Donnée et des Études Statistiques) database, more precisely the file `20241205_buildingstock_sdes2023_medium_3.csv` that gives a detailed description of the French housing stock in 2023. The SDES data have been recalibrated, to match the Res-IRF terminologie and to correct some inconsistencies.
 
-- **Number of dwellings in the initial stock for 2023**: This initial stock amounts to 30,225,456, which is the sum of the number of dwellings across the segments of the `buildingstock_sdes2023` file, adjusted. 
+statistiques descriptives du stock 2023
+
+- **Number of dwellings in the initial stock for 2023**: This initial stock amounts to 30,225,456, which is the sum of the number of dwellings across the segments of the `20241205_buildingstock_sdes2023_medium_3.csv` file. 
+
+- **DPE**
+
+
 
 #### Evolution of the Number of Dwellings
 The trajectory of the number of primary residences is provided exogenously in Res-IRF through several parameters:
@@ -185,10 +191,10 @@ The new constructions have specific characteristics that come from exogenous dat
 
 - Surface of new dwellings: determined by Fidéli 2018 
 The surface of new dwellings is lower that the one of existing dwellings, this represent the densification of the housing stock, and also maybe some sufficiency 
-Fidéli c'est une enquête de l'INSEE**aller voir article de fidéli**
+Fidéli c'est une enquête de l'INSEE
 
 - Insulation performance, no sources find for this input: trouver d'où viennent ces valeurs, en tout cas elles traduisent une bonne isolation **peut etre rajouter un tableau avec les valeurs** 
-- Market share for heater for new construction to determine the heating system of new constructions **trouevr la source, un ms qui favorise les PAC**
+- Market share for heater for new construction to determine the heating system of new constructions **trouver la source, un ms qui favorise les PAC**
 - Share of single family dwellings in new constructions from S2 ADEME scenario, 
 
 All these inouts combined give us the characteristics of new dwellings that are supposed to be well performed
