@@ -4529,7 +4529,8 @@ class AgentBuildings(ThermalBuildings):
             renovation_rate.values.fill(1)
 
         # Calculate the flows for each possible renovation choice
-        renovation_flow = stock * renovation_rate
+        stock_1 = stock[stock > 0]
+        renovation_flow = stock_1 * renovation_rate
 
         market_flow = market_share.copy()
         for choice in market_share.columns:
