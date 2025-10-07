@@ -34,6 +34,7 @@
 /project/config/config_ams_run3.json
 /project/config/reference_ams_run3.json
 /project/input/policies/policies_ams_run3.json
+/sphinx_source/source/explanatory_notes
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
