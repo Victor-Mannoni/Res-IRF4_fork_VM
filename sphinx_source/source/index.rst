@@ -64,6 +64,7 @@ See ``LICENSE`` for more information.
    modules
    help_installation
    contributing
+   additional_resources
 
 
 Indices and tables
