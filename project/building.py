@@ -531,14 +531,13 @@ class ThermalBuildings:
         heating_intensity = energy_bill ** (-1/rho)
         heating_intensity[heating_intensity > self.heating_intensity_max] = self.heating_intensity_max
 
+        if self.coefficient_global is not None:
+            heating_intensity *= self.coefficient_global
 
         # Implement sufficiency cap 
         if False: 
-            if self.year > 2020:
+            if self.year > 2025:
                 heating_intensity[heating_intensity > 1] = 1
-
-        if self.coefficient_global is not None:
-            heating_intensity *= self.coefficient_global
 
         if not full_output:
             return heating_intensity

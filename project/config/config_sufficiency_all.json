@@ -1,6 +1,6 @@
 {
   "scenarios": {
-    "activated": true,
+    "activated": false,
     "current_policies": null,
     "no_policy": true,
     "no_policy_insulation": null,
@@ -39,5 +39,31 @@
     "policies": {
       "file": "project/input/policies/policies_2024.json"
     }
-  } 
+  },
+  "All": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "file": "project/input/policies/policies_2024.json"
+    },
+    "macro":{
+      "flow_construction": "project/input/macro/flow_construction_tend_sufficiency_s1.csv"
+    },
+    "technical":{
+      "surface": "project/input/technical/surface_existing_sufficiency_10.csv"
+    }
+  },
+  "All_no_policies": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {
+      "file": "project/input/policies/policies_calibration.json"
+    },
+    "macro":{
+      "flow_construction": "project/input/macro/flow_construction_tend_sufficiency_s1.csv"
+    },
+    "technical":{
+      "surface": "project/input/technical/surface_existing_sufficiency_10.csv"
+    }
+  }  
 }
