@@ -80,6 +80,7 @@
       "variable_size_heater": false
     },
     "energy": {
+      "pef_elec": "project/input/energy/primary_energy_factor_electricity.csv",
       "energy_prices": {
         "ini": "project/input/energy/energy_prices_wt_ame2021.csv",
         "rate": {
