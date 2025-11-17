@@ -532,7 +532,7 @@ def conventional_energy_3uses(u_wall, u_floor, u_roof, u_windows, ratio_surface,
 
     """
 
-    if pef_elec is None:
+    if type(pef_elec) is not float and not np.float64 :
         raise ValueError("The pef_elec factor is required but has not been provided.")
 
     heating_final = conventional_heating_final(u_wall, u_floor, u_roof, u_windows, ratio_surface, efficiency,
@@ -622,7 +622,7 @@ def find_certificate(primary_consumption, other_consumptions=None, method='3uses
 
 def final2primary(heat_consumption, energy, pef_elec=None):
 
-    if pef_elec is None:
+    if type(pef_elec) is not float and not np.float64 :
         raise ValueError("The pef_elec factor is required but has not been provided.")
 
     if isinstance(heat_consumption, pd.Series):
@@ -673,7 +673,7 @@ def primary_heating_consumption(u_wall, u_floor, u_roof, u_windows, efficiency, 
     -------
     """
 
-    if pef_elec is None:
+    if type(pef_elec) is not float and not np.float64 :
         raise ValueError("The pef_elec factor is required but has not been provided.")
 
     # data = pd.concat([u_wall, u_floor, u_roof, u_windows], axis=1, keys=['Wall', 'Floor', 'Roof', 'Windows'])
@@ -802,7 +802,7 @@ def certificate_buildings(u_wall, u_floor, u_roof, u_windows, hdd, efficiency, e
 
     """
 
-    if pef_elec is None:
+    if type(pef_elec) is not float and not np.float64 :
         raise ValueError("The pef_elec factor is required but has not been provided.")
 
     primary_heat_consumption = primary_heating_consumption(u_wall, u_floor, u_roof, u_windows, hdd, efficiency,
