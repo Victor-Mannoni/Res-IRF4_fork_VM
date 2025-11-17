@@ -119,7 +119,7 @@
     "health_cost_income": "project/input/policies/health_cost_income.csv",
     "carbon_value": "project/input/policies/carbon_value.csv",
     "policies": {
-      "file": "project/policies/policies_2024.json"
+      "file": "project/input/policies/policies_2024.json"
     },
     "simple": {
       "figures": true,
