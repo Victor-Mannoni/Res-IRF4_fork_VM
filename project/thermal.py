@@ -72,7 +72,7 @@ HEAT_CAPACITY_AIR = 0.34 # Wh/m3.K
 AIR_TIGHTNESS_INFILTRATION = {'Minimal': 0.05,
                               'Low': 0.1,
                               'Medium': 0.2,
-                              'High': 0.5}
+                              'High': 0.4}  # 0.5 initial value but 0.4 in TABULA
 
 ROOM_HEIGHT = 2.5 # m
 VENTILATION_TYPES = {'Ventilation naturelle': 0.4,
