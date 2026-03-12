@@ -949,6 +949,16 @@ def read_inputs(config, other_inputs=generic_input):
     if config['energy'].get('energy_elasticity') is not None:
         energy_elasticity = get_pandas(config['energy']['energy_elasticity'], lambda x: pd.read_csv(x, index_col=[0, 1])).squeeze().rename(None)
         inputs.update({'energy_elasticity': energy_elasticity})
+    
+    # Sufficiency parameters
+    if config['sufficiency'].get('heating_intensity_cap') is not None:
+        inputs.update({'heating_intensity_cap': config['sufficiency']['heating_intensity_cap']})
+
+    if config['sufficiency'].get('heating_intensity_floor') is not None:
+        inputs.update({'heating_intensity_floor': config['sufficiency']['heating_intensity_floor']})
+
+    if config['sufficiency'].get('heating_sufficiency_rate') is not None:
+        inputs.update({'heating_sufficiency_rate': config['sufficiency']['heating_sufficiency_rate']})
 
     return inputs
 

@@ -365,6 +365,9 @@ def initialize(inputs, stock, year, taxes, path=None, config=None, logger=None, 
                                vat_heater=parsed_inputs['vat_heater'],
                                no_friction=config['simple'].get('no_friction'),
                                belief_engineering_calculation=config['renovation'].get('belief_engineering_calculation', False),
+                               heating_intensity_cap=parsed_inputs.get('heating_intensity_cap'),
+                               heating_intensity_floor=parsed_inputs.get('heating_intensity_floor'),
+                               heating_sufficiency_rate=parsed_inputs.get('heating_sufficiency_rate'),
                                energy_elasticity=parsed_inputs.get('energy_elasticity')
                                )
 

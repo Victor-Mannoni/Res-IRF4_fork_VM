@@ -150,5 +150,10 @@
       "no_heating_switch": false,
       "collective_boiler": false,
       "no_natural_replacement": false
+    },
+    "sufficiency": {
+      "heating_intensity_cap": null,
+      "heating_intensity_floor": null,
+      "heating_sufficiency_rate": null
     }
 }

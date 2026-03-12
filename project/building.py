@@ -77,7 +77,13 @@ class ThermalBuildings:
 
     def __init__(self, stock, surface, ratio_surface, efficiency, income, path=None, year=2018,
                  resources_data=None, detailed_output=None, figures=None, residual_rate=0, temp_sink=None,
+                 heating_intensity_cap=None, heating_intensity_floor=None, heating_sufficiency_rate=None,
                  energy_elasticity=None):
+
+        # parameters for sufficiency
+        self.heating_intensity_cap = heating_intensity_cap
+        self.heating_intensity_floor = heating_intensity_floor
+        self.heating_sufficiency_rate = heating_sufficiency_rate
 
         # energy elasticity
         self.energy_elasticity = energy_elasticity
@@ -553,13 +559,21 @@ class ThermalBuildings:
                     columns=energy_bill.columns
                 )
 
+        # Implement sufficiency rate
+        if self.heating_sufficiency_rate is not None:
+            if self.year >= self.heating_sufficiency_rate['start']:
+                heating_intensity *= (1 - self.heating_sufficiency_rate['value'])
+
         if self.coefficient_global is not None:
             heating_intensity *= self.coefficient_global
 
-        # Implement sufficiency cap 
-        if False: 
-            if self.year > 2025:
-                heating_intensity[heating_intensity > 1] = 1
+        # Apply max and min intensity
+        if self.heating_intensity_cap is not None:
+            if self.year >= self.heating_intensity_cap['start']:
+                heating_intensity[heating_intensity > self.heating_intensity_cap['value']] = self.heating_intensity_cap['value']
+        if self.heating_intensity_floor is not None:
+            if self.year >= self.heating_intensity_floor['start']:
+                heating_intensity[heating_intensity < self.heating_intensity_floor['value']] = self.heating_intensity_floor['value']
 
         if not full_output:
             return heating_intensity
@@ -1049,10 +1063,14 @@ class AgentBuildings(ThermalBuildings):
                  method_health_cost=None, residual_rate=0, constraint_heat_pumps=True,
                  variable_size_heater=True, temp_sink=None, social_discount_rate=0.032,
                  lifetime_insulation=30, vat_heater=VAT, no_friction=None, belief_engineering_calculation=None,
+                 heating_intensity_cap=None, heating_intensity_floor=None, heating_sufficiency_rate=None,
                  energy_elasticity=None):
         super().__init__(stock, surface, ratio_surface, efficiency, income, path=path, year=year,
                          resources_data=resources_data, detailed_output=detailed_output, figures=figures,
                          residual_rate=residual_rate, temp_sink=temp_sink,
+                         heating_intensity_cap=heating_intensity_cap,
+                         heating_intensity_floor=heating_intensity_floor,
+                         heating_sufficiency_rate=heating_sufficiency_rate,
                          energy_elasticity=energy_elasticity)
 
         self._distortion_store = {}
