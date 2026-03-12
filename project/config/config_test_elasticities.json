@@ -1,0 +1,36 @@
+{
+
+  "Elasticity rho5": {
+    "file": "project/config/reference.json",
+    "end": 2023,
+    "policies": {
+      "file": "project/input/policies/policies_2024.json"
+    },
+    "energy": {
+      "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+    }
+  },
+
+  "Elasticities x0.8": {
+    "file": "project/config/reference.json",
+    "end": 2023,
+    "policies": {
+      "file": "project/input/policies/policies_2024.json"
+    },
+    "energy": {
+      "energy_elasticity": "project/input/energy/energy_elasticities_08.csv"
+    }
+  },
+
+  "Elasticities x1.2": {
+    "file": "project/config/reference.json",
+    "end": 2023,
+    "policies": {
+      "file": "project/input/policies/policies_2024.json"
+    },
+    "energy": {
+      "energy_elasticity": "project/input/energy/energy_elasticities_12.csv"
+    }
+  }
+
+}
