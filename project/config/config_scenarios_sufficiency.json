@@ -1,0 +1,83 @@
+{
+  "Reference (no sufficiency)": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {"file": "project/input/policies/policies_2024.json"},
+    "energy": {"energy_elasticity": "project/input/energy/energy_elasticities.csv"}
+  },
+
+  "Cap only | max intensity 0.8": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {"file": "project/input/policies/policies_2024.json"},
+    "energy": {"energy_elasticity": "project/input/energy/energy_elasticities.csv"},
+    "sufficiency": {
+      "heating_intensity_cap": {"value": 0.8, "start": 2025}
+    }
+  },
+
+  "Floor only | min intensity 0.5": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {"file": "project/input/policies/policies_2024.json"},
+    "energy": {"energy_elasticity": "project/input/energy/energy_elasticities.csv"},
+    "sufficiency": {
+      "heating_intensity_floor": {"value": 0.5, "start": 2025}
+    }
+  },
+
+  "Rate only | 10% reduction": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {"file": "project/input/policies/policies_2024.json"},
+    "energy": {"energy_elasticity": "project/input/energy/energy_elasticities.csv"},
+    "sufficiency": {
+      "heating_sufficiency_rate": {"value": 0.10, "start": 2025}
+    }
+  },
+
+  "Cap + Floor | bounded intensity [0.5; 0.8]": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {"file": "project/input/policies/policies_2024.json"},
+    "energy": {"energy_elasticity": "project/input/energy/energy_elasticities.csv"},
+    "sufficiency": {
+      "heating_intensity_cap":   {"value": 0.8, "start": 2025},
+      "heating_intensity_floor": {"value": 0.5, "start": 2025}
+    }
+  },
+
+  "Rate + Floor | 10% reduction with 0.5 safety floor": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {"file": "project/input/policies/policies_2024.json"},
+    "energy": {"energy_elasticity": "project/input/energy/energy_elasticities.csv"},
+    "sufficiency": {
+      "heating_sufficiency_rate": {"value": 0.10, "start": 2025},
+      "heating_intensity_floor": {"value": 0.50, "start": 2025}
+    }
+  },
+
+  "Rate + Cap | 10% reduction with 0.8 max intensity": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {"file": "project/input/policies/policies_2024.json"},
+    "energy": {"energy_elasticity": "project/input/energy/energy_elasticities.csv"},
+    "sufficiency": {
+      "heating_sufficiency_rate": {"value": 0.10, "start": 2025},
+      "heating_intensity_cap":    {"value": 0.80, "start": 2025}
+    }
+  },
+
+  "Full sufficiency | rate + cap + floor": {
+    "file": "project/config/reference.json",
+    "end": 2051,
+    "policies": {"file": "project/input/policies/policies_2024.json"},
+    "energy": {"energy_elasticity": "project/input/energy/energy_elasticities.csv"},
+    "sufficiency": {
+      "heating_sufficiency_rate": {"value": 0.10, "start": 2025},
+      "heating_intensity_cap":    {"value": 0.80, "start": 2025},
+      "heating_intensity_floor":  {"value": 0.50, "start": 2025}
+    }
+  }
+}
