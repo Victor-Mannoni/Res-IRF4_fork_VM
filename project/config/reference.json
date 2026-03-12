@@ -97,7 +97,8 @@
       "energy_taxes": "project/input/energy/energy_taxes_ame2021.csv",
       "energy_vat": "project/input/energy/energy_vat.csv",
       "carbon_emission": "project/input/energy/carbon_emission_tend.csv",
-      "renewable_gas": "project/input/energy/renewable_gas_tend.csv"
+      "renewable_gas": "project/input/energy/renewable_gas_tend.csv",
+      "energy_elasticity": "project/input/energy/energy_elasticities.csv"
     },
     "macro": {
       "construction": true,

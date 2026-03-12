@@ -944,6 +944,11 @@ def read_inputs(config, other_inputs=generic_input):
         inputs['input_financing']['upfront_max'] = get_series(inputs['input_financing']['upfront_max'])
         inputs['input_financing']['saving_rate'] = get_series(inputs['input_financing']['saving_rate'], header=None)
         inputs['input_financing']['interest_rate'] = get_series(inputs['input_financing']['interest_rate'], header=None)
+    
+    # Energy Elasticity
+    if config['energy'].get('energy_elasticity') is not None:
+        energy_elasticity = get_pandas(config['energy']['energy_elasticity'], lambda x: pd.read_csv(x, index_col=[0, 1])).squeeze().rename(None)
+        inputs.update({'energy_elasticity': energy_elasticity})
 
     return inputs
 

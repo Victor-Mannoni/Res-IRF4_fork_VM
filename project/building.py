@@ -76,7 +76,11 @@ class ThermalBuildings:
     """
 
     def __init__(self, stock, surface, ratio_surface, efficiency, income, path=None, year=2018,
-                 resources_data=None, detailed_output=None, figures=None, residual_rate=0, temp_sink=None):
+                 resources_data=None, detailed_output=None, figures=None, residual_rate=0, temp_sink=None,
+                 energy_elasticity=None):
+
+        # energy elasticity
+        self.energy_elasticity = energy_elasticity
 
         # default values
         self.heating_intensity_max = None
@@ -528,8 +532,26 @@ class ThermalBuildings:
             budget_share = (energy_bill.T / reindex_mi(self._income_tenant, energy_bill.index)).T
 
         energy_bill[energy_bill < 0] = 0.1
-        heating_intensity = energy_bill ** (-1/rho)
-        heating_intensity[heating_intensity > self.heating_intensity_max] = self.heating_intensity_max
+
+        # If no elasticity, formula with rho = 5 for all households
+        if self.energy_elasticity is None:
+            rho = 5
+            heating_intensity = energy_bill ** (-1/rho)
+        
+        # If elasticity, apply formula with specific elasticity for each income and housing type
+        if self.energy_elasticity is not None:
+            elasticities = reindex_mi(self.energy_elasticity, index)
+            if isinstance(energy_bill, Series):
+                heating_intensity = Series(
+                    energy_bill.values ** elasticities.values,
+                    index=energy_bill.index
+                )
+            elif isinstance(energy_bill, DataFrame):
+                heating_intensity = DataFrame(
+                    energy_bill.values ** elasticities.values[:, None],
+                    index=energy_bill.index,
+                    columns=energy_bill.columns
+                )
 
         if self.coefficient_global is not None:
             heating_intensity *= self.coefficient_global
@@ -1026,11 +1048,12 @@ class AgentBuildings(ThermalBuildings):
                  resources_data=None, detailed_output=True, figures=None,
                  method_health_cost=None, residual_rate=0, constraint_heat_pumps=True,
                  variable_size_heater=True, temp_sink=None, social_discount_rate=0.032,
-                 lifetime_insulation=30, vat_heater=VAT, no_friction=None, belief_engineering_calculation=None
-                 ):
+                 lifetime_insulation=30, vat_heater=VAT, no_friction=None, belief_engineering_calculation=None,
+                 energy_elasticity=None):
         super().__init__(stock, surface, ratio_surface, efficiency, income, path=path, year=year,
                          resources_data=resources_data, detailed_output=detailed_output, figures=figures,
-                         residual_rate=residual_rate, temp_sink=temp_sink)
+                         residual_rate=residual_rate, temp_sink=temp_sink,
+                         energy_elasticity=energy_elasticity)
 
         self._distortion_store = {}
         if logger is None:
