@@ -765,6 +765,53 @@ def res_irf(config, path, level_logger='DEBUG'):
                                           title='Attributes to close subsidies gap', order='Total order',
                                           save_path=os.path.join(buildings.path_calibration, 'sobol_analysis.png'))"""
 
+            # Export stock and heating intensity
+            if True:
+                _stock = buildings.stock
+                _heating_intensity = buildings.to_heating_intensity(
+                    _stock.index,
+                    energy_prices.loc[year, :]
+                )
+                _heating_intensity_df = _heating_intensity.rename('Heating intensity').to_frame()
+                _stock_df = _stock.rename('Stock').to_frame()
+                _stock_hi = _stock_df.join(_heating_intensity_df)
+                _stock_hi['Year'] = year
+
+                if path is not None:
+                    # Export stock and heating intensity
+                    heating_intensity_path = os.path.join(path, 'heating_intensity')
+                    if not os.path.isdir(heating_intensity_path):
+                        os.mkdir(heating_intensity_path)
+                    _stock_hi.to_csv(os.path.join(heating_intensity_path, f'stock_heating_intensity_{year}.csv'))
+
+                    # Create heating intensity distribution
+                    import numpy as np
+                    import matplotlib.pyplot as plt
+                    bins = np.round(np.arange(0, 2.8, 0.1), 2)
+                    _hi_binned = pd.cut(_heating_intensity, bins=bins, include_lowest=True)
+                    _distribution = (
+                        pd.DataFrame({'Stock': _stock.values, 'HI_bin': _hi_binned.values})
+                        .groupby('HI_bin')['Stock']
+                        .sum()
+                        .rename('Stock')
+                    )
+                    _distribution.index = [round(i.left, 2) for i in _distribution.index]
+                    _distribution_normalized = _distribution / _distribution.sum()
+                    _distribution_normalized.to_csv(os.path.join(heating_intensity_path, f'heating_intensity_distribution_{year}.csv'))
+
+                    fig, ax = plt.subplots(figsize=(10, 6))
+                    ax.bar(_distribution_normalized.index, _distribution_normalized.values, width=0.09, align='edge', color='lightblue')
+                    ax.set_xlabel('Heating intensity')
+                    ax.set_ylabel('Share of dwellings')
+                    ax.set_xlim(0, 2.8)
+                    ax.set_ylim(0, 0.7)
+                    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: f'{y:.2f}'))
+                    ax.set_title(f'Heating intensity distribution {year}')
+                    plt.tight_layout()
+                    fig.savefig(os.path.join(heating_intensity_path, f'heating_intensity_distribution_{year}.png'), dpi=150)
+                    plt.close(fig)
+
+
         if path is not None:
             buildings.logger.info('Writing output in {}'.format(path))
 
