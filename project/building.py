@@ -569,8 +569,8 @@ class ThermalBuildings:
                 goal_year = self.heating_sufficiency_rate['goal']['year']
                 sufficiency_rate = start_value + (goal_value - start_value) / (goal_year - start_year) * (self.year - start_year)
                 heating_intensity *= (1 + sufficiency_rate)
-            if self.heating_sufficiency_rate["dynamic_floor"] is True:
-                heating_intensity[heating_intensity < dynamic_floor] = dynamic_floor
+                if self.heating_sufficiency_rate["dynamic_floor"] is True:
+                    heating_intensity[heating_intensity < dynamic_floor] = dynamic_floor
 
         if self.coefficient_global is not None:
             heating_intensity *= self.coefficient_global
