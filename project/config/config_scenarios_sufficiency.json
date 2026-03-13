@@ -50,7 +50,8 @@
       "goal": {
         "value": -0.06,
         "year": 2050
-      }
+      },
+      "dynamic_floor": true
     }
   }
 }
