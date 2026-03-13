@@ -561,19 +561,35 @@ class ThermalBuildings:
 
         # Implement sufficiency rate
         if self.heating_sufficiency_rate is not None:
-            if self.year >= self.heating_sufficiency_rate['start']:
-                heating_intensity *= (1 - self.heating_sufficiency_rate['value'])
+            if self.year >= self.heating_sufficiency_rate['start']['year']:
+                start_value = self.heating_sufficiency_rate['start']['value']
+                start_year = self.heating_sufficiency_rate['start']['year'] - 1
+                goal_value = self.heating_sufficiency_rate['goal']['value']
+                goal_year = self.heating_sufficiency_rate['goal']['year']
+                sufficiency_rate = start_value + (goal_value - start_value) / (goal_year - start_year) * (self.year - start_year)
+                heating_intensity *= (1 + sufficiency_rate)
 
         if self.coefficient_global is not None:
             heating_intensity *= self.coefficient_global
 
         # Apply max and min intensity
         if self.heating_intensity_cap is not None:
-            if self.year >= self.heating_intensity_cap['start']:
-                heating_intensity[heating_intensity > self.heating_intensity_cap['value']] = self.heating_intensity_cap['value']
+            if self.year >= self.heating_intensity_cap['start']['year']:
+                start_value = self.heating_intensity_cap['start']['value']
+                start_year = self.heating_intensity_cap['start']['year']
+                goal_value = self.heating_intensity_cap['goal']['value']
+                goal_year = self.heating_intensity_cap['goal']['year']
+                heating_intensity_cap = start_value + (goal_value - start_value) / (goal_year - start_year) * (self.year - start_year)
+                heating_intensity[heating_intensity > heating_intensity_cap] = heating_intensity_cap
+
         if self.heating_intensity_floor is not None:
-            if self.year >= self.heating_intensity_floor['start']:
-                heating_intensity[heating_intensity < self.heating_intensity_floor['value']] = self.heating_intensity_floor['value']
+            if self.year >= self.heating_intensity_floor['start']['year']:
+                start_value = self.heating_intensity_floor['start']['value']
+                start_year = self.heating_intensity_floor['start']['year']
+                goal_value = self.heating_intensity_floor['goal']['value']
+                goal_year = self.heating_intensity_floor['goal']['year']
+                heating_intensity_floor = start_value + (goal_value - start_value) / (goal_year - start_year) * (self.year - start_year)
+                heating_intensity[heating_intensity < heating_intensity_floor] = heating_intensity_floor
 
         if not full_output:
             return heating_intensity
