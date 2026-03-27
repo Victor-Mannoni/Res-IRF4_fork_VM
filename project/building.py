@@ -563,10 +563,12 @@ class ThermalBuildings:
         if self.heating_sufficiency_rate is not None:
             if self.year >= self.heating_sufficiency_rate['start']['year']:
 
+                # Calculate dynamic floor
                 dynamic_floor = heating_intensity.min()
                 if isinstance(dynamic_floor, Series):
                     dynamic_floor = dynamic_floor.min()
-                    
+                
+                # Calculate sufficiency rate
                 start_value = self.heating_sufficiency_rate['start']['value']
                 start_year = self.heating_sufficiency_rate['start']['year'] - 1
                 goal_value = self.heating_sufficiency_rate['goal']['value']
@@ -574,13 +576,14 @@ class ThermalBuildings:
                 sufficiency_rate = start_value + (goal_value - start_value) / (goal_year - start_year) * (self.year - start_year)
                 heating_intensity *= (1 + sufficiency_rate)
 
+                # Apply dynamic floor if enabled
                 if self.heating_sufficiency_rate["dynamic_floor"] is True:
                     heating_intensity[heating_intensity < dynamic_floor] = dynamic_floor
 
         if self.coefficient_global is not None:
             heating_intensity *= self.coefficient_global
 
-        # Apply max and min intensity
+        # Apply heating intensity cap
         if self.heating_intensity_cap is not None:
             if self.year >= self.heating_intensity_cap['start']['year']:
                 start_value = self.heating_intensity_cap['start']['value']
@@ -590,6 +593,7 @@ class ThermalBuildings:
                 heating_intensity_cap = start_value + (goal_value - start_value) / (goal_year - start_year) * (self.year - start_year)
                 heating_intensity[heating_intensity > heating_intensity_cap] = heating_intensity_cap
 
+        # Apply heating intensity floor
         if self.heating_intensity_floor is not None:
             if self.year >= self.heating_intensity_floor['start']['year']:
                 start_value = self.heating_intensity_floor['start']['value']
