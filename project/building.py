@@ -562,13 +562,18 @@ class ThermalBuildings:
         # Implement sufficiency rate
         if self.heating_sufficiency_rate is not None:
             if self.year >= self.heating_sufficiency_rate['start']['year']:
+
                 dynamic_floor = heating_intensity.min()
+                if isinstance(dynamic_floor, Series):
+                    dynamic_floor = dynamic_floor.min()
+                    
                 start_value = self.heating_sufficiency_rate['start']['value']
                 start_year = self.heating_sufficiency_rate['start']['year'] - 1
                 goal_value = self.heating_sufficiency_rate['goal']['value']
                 goal_year = self.heating_sufficiency_rate['goal']['year']
                 sufficiency_rate = start_value + (goal_value - start_value) / (goal_year - start_year) * (self.year - start_year)
                 heating_intensity *= (1 + sufficiency_rate)
+
                 if self.heating_sufficiency_rate["dynamic_floor"] is True:
                     heating_intensity[heating_intensity < dynamic_floor] = dynamic_floor
 
