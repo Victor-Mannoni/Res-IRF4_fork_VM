@@ -765,6 +765,32 @@ def res_irf(config, path, level_logger='DEBUG'):
                                           title='Attributes to close subsidies gap', order='Total order',
                                           save_path=os.path.join(buildings.path_calibration, 'sobol_analysis.png'))"""
 
+            # Export stock, heating intensity, consumptions and DPE
+            if False:
+                _stock = buildings.stock
+                _idx = _stock.index
+
+                _heating_intensity = buildings.to_heating_intensity(_idx, energy_prices.loc[year, :])
+
+                _cons_final, _dpe, _cons_primary, _dpe_energy, _dpe_emission = buildings.consumption_heating(
+                    index=_idx,
+                    climate=None,
+                    full_output=True,
+                    method='5uses',
+                    full_certificate=True
+                )
+
+                _stock_df = _stock.rename('Stock').to_frame()
+                _stock_extended = _stock_df.join(_heating_intensity.rename('Heating intensity').to_frame())
+                _stock_extended = _stock_extended.join(_cons_final.rename('Conventional heating consumption').to_frame())
+                _stock_extended = _stock_extended.join(_cons_primary.rename('Conventional primary consumption').to_frame())
+                _stock_extended = _stock_extended.join(_dpe.rename('DPE').to_frame())
+                _stock_extended = _stock_extended.join(_dpe_energy.rename('DPE energy').to_frame())
+                _stock_extended = _stock_extended.join(_dpe_emission.rename('DPE emission').to_frame())
+                _name = 'BAU_elasticities'
+                _stock_extended.to_csv('_stock_extended_' + _name + '_' + str(year) + '.csv')
+                breakpoint()
+
             # Export stock and heating intensity
             if True:
                 _stock = buildings.stock
