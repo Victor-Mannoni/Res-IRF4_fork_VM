@@ -355,7 +355,7 @@ class ThermalBuildings:
 
     def consumption_heating(self, index=None, freq='year', climate=None, smooth=False,
                             full_output=False, efficiency_hour=False, level_heater='Heating system',
-                            method='5uses', hourly_profile=None, temp_sink=None):
+                            method='5uses', hourly_profile=None, temp_sink=None, full_certificate=False):
         """Calculation consumption standard of the current building stock [kWh/m2.a].
 
         Parameters
@@ -397,14 +397,26 @@ class ThermalBuildings:
         consumption = reindex_mi(consumption, index)
 
         if full_output is True:
-            certificate, consumption_3uses = thermal.conventional_energy_3uses(wall, floor, roof, windows,
-                                                                               self._ratio_surface.copy(),
-                                                                               efficiency, _index,
-                                                                               method=method)
-            certificate = reindex_mi(certificate, index)
-            consumption_3uses = reindex_mi(consumption_3uses, index)
+            if full_certificate:
+                certificate, certificate_energy, certificate_emission, consumption_3uses = thermal.conventional_energy_3uses(wall, floor, roof, windows,
+                                                                                   self._ratio_surface.copy(),
+                                                                                   efficiency, _index,
+                                                                                   method=method, full_certificate=True)
+                certificate = reindex_mi(certificate, index)
+                certificate_energy = reindex_mi(certificate_energy, index)
+                certificate_emission = reindex_mi(certificate_emission, index)
+                consumption_3uses = reindex_mi(consumption_3uses, index)
+                return consumption, certificate, consumption_3uses, certificate_energy, certificate_emission
 
-            return consumption, certificate, consumption_3uses
+            else:
+                certificate, consumption_3uses = thermal.conventional_energy_3uses(wall, floor, roof, windows,
+                                                                                   self._ratio_surface.copy(),
+                                                                                   efficiency, _index,
+                                                                                   method=method, full_certificate=False)
+                certificate = reindex_mi(certificate, index)
+                consumption_3uses = reindex_mi(consumption_3uses, index)
+
+                return consumption, certificate, consumption_3uses
         else:
             return consumption
 
