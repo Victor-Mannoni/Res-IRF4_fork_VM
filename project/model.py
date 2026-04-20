@@ -768,10 +768,8 @@ def res_irf(config, path, level_logger='DEBUG'):
             # Export stock and heating intensity
             if True:
                 _stock = buildings.stock
-                _heating_intensity = buildings.to_heating_intensity(
-                    _stock.index,
-                    energy_prices.loc[year, :]
-                )
+                _heating_intensity = buildings.to_heating_intensity(_stock.index, energy_prices.loc[year, :])
+
                 _heating_intensity_df = _heating_intensity.rename('Heating intensity').to_frame()
                 _stock_df = _stock.rename('Stock').to_frame()
                 _stock_hi = _stock_df.join(_heating_intensity_df)
