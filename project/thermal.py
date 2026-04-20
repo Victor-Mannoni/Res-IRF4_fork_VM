@@ -506,7 +506,7 @@ def conventional_dhw_final(index):
 
 def conventional_energy_3uses(u_wall, u_floor, u_roof, u_windows, ratio_surface, efficiency, index,
                               th_bridging='Medium', vent_types='Ventilation naturelle', infiltration='Medium',
-                              air_rate=None, unobserved=None, method='3uses'
+                              air_rate=None, unobserved=None, method='3uses', full_certificate=False
                               ):
     """Space heating conventional, and energy performance certificate.
 
@@ -551,13 +551,16 @@ def conventional_energy_3uses(u_wall, u_floor, u_roof, u_windows, ratio_surface,
     if method == '5uses':
         other_consumptions = (CONSUMPTION_LIGHT + AUXILIARY_CONSUMPTION) * CONVERSION
 
-    performance = find_certificate(energy_primary, method=method, other_consumptions=other_consumptions)
+    if full_certificate:
+        certificate, certificate_energy, certificate_emission = find_certificate(energy_primary, method=method, other_consumptions=other_consumptions, full_certificate=True)
+        return certificate, certificate_energy, certificate_emission, energy_primary
+    else:
+        performance = find_certificate(energy_primary, method=method, other_consumptions=other_consumptions)
+        # performance = pd.concat((performance_3uses, performance_5uses), axis=1, keys=['3uses', '5uses'])
+        return performance, energy_primary
 
-    # performance = pd.concat((performance_3uses, performance_5uses), axis=1, keys=['3uses', '5uses'])
-    return performance, energy_primary
 
-
-def find_certificate(primary_consumption, other_consumptions=None, method='3uses'):
+def find_certificate(primary_consumption, other_consumptions=None, method='3uses', full_certificate=False):
     """Returns energy performance certificate from A to G.
 
     Parameters
@@ -609,8 +612,10 @@ def find_certificate(primary_consumption, other_consumptions=None, method='3uses
             # maximum between energy and emission
             temp = pd.concat([certificate_energy, certificate_emission], axis=1, keys=['Energy', 'Emission'])
             certificate = temp.max(axis=1)
-
-            return certificate
+            if full_certificate:
+                return certificate, certificate_energy, certificate_emission
+            else:
+                return certificate
 
         elif isinstance(primary_consumption, pd.DataFrame):
             raise NotImplementedError
