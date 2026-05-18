@@ -1,0 +1,25 @@
+Year,Existing,Occupancy status,Housing type,
+2017,True,Owner-occupied,Single-family,109.5
+2017,True,Owner-occupied,Multi-family,74.3
+2017,True,Privately rented,Single-family,87.1
+2017,True,Privately rented,Multi-family,53.5
+2017,True,Social-housing,Single-family,77.8
+2017,True,Social-housing,Multi-family,63.3
+2017,False,Owner-occupied,Single-family,132.0
+2017,False,Owner-occupied,Multi-family,81.0
+2017,False,Privately rented,Single-family,90.0
+2017,False,Privately rented,Multi-family,60.0
+2017,False,Social-housing,Single-family,84.0
+2017,False,Social-housing,Multi-family,71.0
+2030,True,Owner-occupied,Single-family,102.9
+2030,True,Owner-occupied,Multi-family,69.8
+2030,True,Privately rented,Single-family,81.9
+2030,True,Privately rented,Multi-family,50.3
+2030,True,Social-housing,Single-family,73.1
+2030,True,Social-housing,Multi-family,59.5
+2030,False,Owner-occupied,Single-family,124.1
+2030,False,Owner-occupied,Multi-family,76.1
+2030,False,Privately rented,Single-family,84.6
+2030,False,Privately rented,Multi-family,56.4
+2030,False,Social-housing,Single-family,79.0
+2030,False,Social-housing,Multi-family,66.7
