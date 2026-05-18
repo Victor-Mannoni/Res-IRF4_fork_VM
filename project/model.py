@@ -862,7 +862,7 @@ def res_irf(config, path, level_logger='DEBUG'):
         logger.exception(e)
         raise e
 
-
+# Old version of calibration function
 def calibration_res_irf(path, config=None, level_logger='DEBUG'):
     """Calibrate Res-IRF and returns calibrated parameters.
     Function is useful for running multiple scenarios with the same calibration.
