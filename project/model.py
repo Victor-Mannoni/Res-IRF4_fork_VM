@@ -792,7 +792,7 @@ def res_irf(config, path, level_logger='DEBUG'):
                 breakpoint()
 
             # Export stock and heating intensity
-            if True:
+            if False:
                 _stock = buildings.stock
                 _heating_intensity = buildings.to_heating_intensity(_stock.index, energy_prices.loc[year, :])
 
