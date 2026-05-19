@@ -195,11 +195,11 @@
   "sufficiency": {
     "heating_intensity_cap": {
       "start": {"value": 1.2, "year": 2050},
-      "goal":  {"value": 1.2, "year": 2050}
+      "goal":  {"value": 1.2, "year": 2051}
     },
     "heating_sufficiency_rate": {
       "start": {"value": -0.025, "year": 2050},
-      "goal":  {"value": -0.025, "year": 2050},
+      "goal":  {"value": -0.025, "year": 2051},
       "dynamic_floor": true
     }
   },
@@ -217,11 +217,11 @@
   "sufficiency": {
     "heating_intensity_cap": {
       "start": {"value": 1.1, "year": 2050},
-      "goal":  {"value": 1.1, "year": 2050}
+      "goal":  {"value": 1.1, "year": 2051}
     },
     "heating_sufficiency_rate": {
       "start": {"value": -0.05, "year": 2050},
-      "goal":  {"value": -0.05, "year": 2050},
+      "goal":  {"value": -0.05, "year": 2051},
       "dynamic_floor": true
     }
   },
@@ -239,11 +239,11 @@
   "sufficiency": {
     "heating_intensity_cap": {
       "start": {"value": 1, "year": 2050},
-      "goal":  {"value": 1, "year": 2050}
+      "goal":  {"value": 1, "year": 2051}
     },
     "heating_sufficiency_rate": {
       "start": {"value": -0.075, "year": 2050},
-      "goal":  {"value": -0.075, "year": 2050},
+      "goal":  {"value": -0.075, "year": 2051},
       "dynamic_floor": true
     }
   },
@@ -261,11 +261,11 @@
   "sufficiency": {
     "heating_intensity_cap": {
       "start": {"value": 0.9, "year": 2050},
-      "goal":  {"value": 0.9, "year": 2050}
+      "goal":  {"value": 0.9, "year": 2051}
     },
     "heating_sufficiency_rate": {
       "start": {"value": -0.1, "year": 2050},
-      "goal":  {"value": -0.1, "year": 2050},
+      "goal":  {"value": -0.1, "year": 2051},
       "dynamic_floor": true
     }
   },
