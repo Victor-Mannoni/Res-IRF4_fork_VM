@@ -1,0 +1,1564 @@
+{
+    "S1_shock_2030_combination_1": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_2": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_3": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_4": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_5": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_6": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_7": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_8": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_9": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_10": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_11": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_12": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_13": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_14": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_15": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_16": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_17": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_18": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_19": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_20": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_21": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_22": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_23": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_24": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_25": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_26": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_27": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_28": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2030_combination_29": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2030/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2030_combination_30": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2030/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2050
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2030
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2030/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_1": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_2": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_3": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_4": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_5": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_6": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_7": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_8": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_9": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_10": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_11": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_12": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_13": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_14": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_15": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_16": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_17": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_18": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_19": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_20": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_21": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_22": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_23": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_24": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_25": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_26": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_27": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/surface_bau.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_28": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    },
+    "S1_shock_2050_combination_29": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/shock_2050/share_singlefamily_construction_00.csv"
+        }
+    },
+    "S1_shock_2050_combination_30": {
+        "file": "project/config/reference.json",
+        "end": 2051,
+        "energy": {
+            "energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"
+        },
+        "technical": {
+            "surface": "project/input/sufficiency_V5/surface/shock_2050/surface_reduction_08.csv"
+        },
+        "sufficiency": {
+            "heating_intensity_cap": {
+                "start": {
+                    "value": 1.2,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": 1.2,
+                    "year": 2051
+                }
+            },
+            "heating_sufficiency_rate": {
+                "start": {
+                    "value": -0.025,
+                    "year": 2050
+                },
+                "goal": {
+                    "value": -0.025,
+                    "year": 2051
+                },
+                "dynamic_floor": true
+            }
+        },
+        "macro": {
+            "flow_construction": "project/input/sufficiency_V5/flow_construction/shock_2050/flow_construction_reduction_80.csv",
+            "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+        }
+    }
+}
