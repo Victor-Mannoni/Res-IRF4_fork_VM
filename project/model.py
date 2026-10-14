@@ -765,12 +765,12 @@ def res_irf(config, path, level_logger='DEBUG'):
                                           title='Attributes to close subsidies gap', order='Total order',
                                           save_path=os.path.join(buildings.path_calibration, 'sobol_analysis.png'))"""
 
-            # Export stock, heating intensity, consumptions and DPE
-            if False:
+            # Export an extended stock with column for heating intensity, consumptions, DPE and energy bills.
+            if True:
                 _stock = buildings.stock
                 _idx = _stock.index
 
-                _heating_intensity = buildings.to_heating_intensity(_idx, energy_prices.loc[year, :])
+                _heating_intensity, _budget_share, _energy_bill = buildings.to_heating_intensity(_idx, energy_prices.loc[year, :], full_output=True)
 
                 _cons_final, _dpe, _cons_primary, _dpe_energy, _dpe_emission = buildings.consumption_heating(
                     index=_idx,
@@ -782,14 +782,20 @@ def res_irf(config, path, level_logger='DEBUG'):
 
                 _stock_df = _stock.rename('Stock').to_frame()
                 _stock_extended = _stock_df.join(_heating_intensity.rename('Heating intensity').to_frame())
-                _stock_extended = _stock_extended.join(_cons_final.rename('Conventional heating consumption').to_frame())
-                _stock_extended = _stock_extended.join(_cons_primary.rename('Conventional primary consumption').to_frame())
+                _stock_extended = _stock_extended.join(_budget_share.rename('Budget share').to_frame())
+                _stock_extended = _stock_extended.join(_energy_bill.rename('Energy bill (€/dwelling.a)').to_frame())
+                _stock_extended = _stock_extended.join(_cons_final.rename('Conventional heating consumption (kWh/m2.a)').to_frame())
+                _stock_extended = _stock_extended.join(_cons_primary.rename('Conventional primary consumption (kWh/m2.a)').to_frame())
                 _stock_extended = _stock_extended.join(_dpe.rename('DPE').to_frame())
                 _stock_extended = _stock_extended.join(_dpe_energy.rename('DPE energy').to_frame())
                 _stock_extended = _stock_extended.join(_dpe_emission.rename('DPE emission').to_frame())
-                _name = 'BAU_elasticities'
-                _stock_extended.to_csv('_stock_extended_' + _name + '_' + str(year) + '.csv')
-                breakpoint()
+
+                _csv_path = os.path.join(path, 'stock_extended')
+                if not os.path.isdir(_csv_path):
+                    os.mkdir(_csv_path)
+                _stock_extended.to_csv(os.path.join(_csv_path, f'stock_extended_{year}.csv'))
+                
+                # breakpoint()
 
             # Export stock and heating intensity
             if False:

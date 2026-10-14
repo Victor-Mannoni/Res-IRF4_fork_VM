@@ -615,10 +615,10 @@ class ThermalBuildings:
                 heating_intensity_floor = start_value + (goal_value - start_value) / (goal_year - start_year) * (self.year - start_year)
                 heating_intensity[heating_intensity < heating_intensity_floor] = heating_intensity_floor
 
-        if not full_output:
-            return heating_intensity
+        if full_output:
+            return heating_intensity, budget_share, energy_bill
         else:
-            return heating_intensity, budget_share
+            return heating_intensity
 
     def to_thermal_comfort(self, heating_intensity, rho=5):
         A = self.coefficient_global**rho * abs(self.preferences_insulation['cost']) / 1e3
@@ -652,7 +652,7 @@ class ThermalBuildings:
             consumption = consumption.copy()
             index = consumption.index
 
-        heating_intensity, budget_share = self.to_heating_intensity(index, prices, consumption=consumption,
+        heating_intensity, budget_share, energy_bill = self.to_heating_intensity(index, prices, consumption=consumption,
                                                                     full_output=True, bill_rebate=bill_rebate)
         consumption = consumption * heating_intensity
 
@@ -5596,7 +5596,7 @@ class AgentBuildings(ThermalBuildings):
             output['Consumption new (kWh/m2)'] = (output['Consumption new (TWh)'] * 10 ** 9) / (
                     output['Surface new (Million m2)'] * 10 ** 6)
 
-        heating_intensity, budget_share = self.to_heating_intensity(self.stock.index, prices, bill_rebate=bill_rebate,
+        heating_intensity, budget_share, energy_bill = self.to_heating_intensity(self.stock.index, prices, bill_rebate=bill_rebate,
                                                                     full_output=True)
 
         condition_poverty = self.stock.index.get_level_values('Income tenant').isin(['D1', 'D2', 'D3', 'C1', 'C2']) & (
