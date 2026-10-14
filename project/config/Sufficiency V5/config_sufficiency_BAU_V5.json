@@ -1,0 +1,14 @@
+{
+
+"Reference": {
+  "file": "project/config/reference.json",
+  "end": 2051,
+  "energy": {"energy_elasticity": "project/input/energy/energy_elasticity_rho5.csv"},
+  "technical": {"surface": "project/input/sufficiency_V5/surface/surface_bau.csv"},
+  "macro": {
+    "flow_construction": "project/input/sufficiency_V5/flow_construction/flow_construction_bau.csv",
+    "share_single_family_construction": "project/input/sufficiency_V5/share_singlefamily_construction/share_singlefamily_construction_bau.csv"
+  }
+}
+
+}
